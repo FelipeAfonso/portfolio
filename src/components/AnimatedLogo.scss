@@ -1,0 +1,47 @@
+.animation-container {
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    width: 150px;
+    height: 150px;
+    .animated-logo {
+        animation: App-logo-rotate infinite 10s linear;
+        height: 200px;
+        width: 200px;
+        position:absolute;
+    }
+    
+    .animated-logo-back {
+        animation: App-logo-rotate-inverted infinite 10s linear;
+        height: 190px;
+        filter: blur(1px) opacity(70%);
+        width: 160px;
+        position:absolute;
+    }
+}
+
+@keyframes App-logo-rotate {
+    0% {
+        transform: translateX(-15%);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-15%);
+    }
+}
+@keyframes App-logo-rotate-inverted {
+    0% {
+        transform: translateX(0) scaleX(-1);
+    }
+
+    50% {
+        transform: translateX(-10%) scaleX(-1);
+    }
+
+    100% {
+        transform: translateX(0) scaleX(-1);
+    }
+}

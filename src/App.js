@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AnimatedLogo from './components/AnimatedLogo';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <AnimatedLogo/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
