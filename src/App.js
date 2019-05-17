@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import AnimatedLogo from './components/AnimatedLogo';
 
@@ -9,16 +8,8 @@ function App() {
       <header className="App-header">
         <AnimatedLogo/>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Work in Progress
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );

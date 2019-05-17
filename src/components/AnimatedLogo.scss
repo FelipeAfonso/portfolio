@@ -1,17 +1,17 @@
 .animation-container {
     display: flex;
     clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     .animated-logo {
-        animation: App-logo-rotate infinite 10s linear;
+        animation: App-logo-rotate infinite 10s ease-in-out;
         height: 200px;
         width: 200px;
         position:absolute;
     }
     
     .animated-logo-back {
-        animation: App-logo-rotate-inverted infinite 10s linear;
+        animation: App-logo-rotate-inverted infinite 10s ease-in-out;
         height: 190px;
         filter: blur(1px) opacity(70%);
         width: 160px;
