@@ -1,18 +1,13 @@
-const colors = require("tailwindcss/colors");
-
-module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-    colors: {
-      ...colors,
-      orange: {
-        400: "#F28705",
-      },
-    },
-  },
-  plugins: [],
+/** @type {import('tailwindcss').Config} */
+export default {
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		extend: {
+			fontFamily: {
+				sans: ['Nunito', 'sans-serif'],
+				serif: ['Roboto Slab', 'serif']
+			}
+		}
+	},
+	plugins: [require('@tailwindcss/typography')]
 };
