@@ -9,6 +9,8 @@ export type Tool = {
 
 export type Experience = {
 	description: string;
+	slug: string;
+	category: string;
 	endDate: string;
 	startDate: string;
 	title: string;
@@ -22,6 +24,8 @@ export const getAllExperiencesQuery = `
   query {
     experiences(orderBy: startDate_DESC) {
       description
+      category
+      slug
       endDate
       startDate
       title

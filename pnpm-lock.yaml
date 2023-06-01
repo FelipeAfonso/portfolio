@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   '@auth/core':
@@ -7,6 +11,9 @@ dependencies:
   '@auth/sveltekit':
     specifier: ^0.3.1
     version: 0.3.1(@sveltejs/kit@1.20.0)(svelte@3.59.1)
+  dayjs:
+    specifier: ^1.11.7
+    version: 1.11.7
   svelte-markdown:
     specifier: ^0.2.3
     version: 0.2.3(svelte@3.59.1)
@@ -842,6 +849,10 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
     dev: true
+
+  /dayjs@1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
+    dev: false
 
   /debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}

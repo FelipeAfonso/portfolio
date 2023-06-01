@@ -1,4 +1,4 @@
-import { getAllExperiencesQuery } from '$lib/cms/experience.types';
+import { getAllExperiencesQuery, type Experience } from '$lib/cms/experience.types';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ fetch, url }) => {
@@ -14,9 +14,8 @@ export const load: PageServerLoad = async ({ fetch, url }) => {
 	});
 
 	if (experiences_req.status === 200) {
-		const {
-			data: { experiences }
-		} = await experiences_req.json();
+		const { data } = await experiences_req.json();
+		const experiences = data.experiences as Experience[];
 		return { experiences };
 	}
 
