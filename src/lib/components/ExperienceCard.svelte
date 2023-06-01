@@ -13,9 +13,13 @@
 		class="flex gap-2 rounded-xl bg-gray-50 p-3 outline-dashed outline-2 -outline-offset-4 transition-colors duration-200 ease-in group-odd:bg-teal-100 group-odd:outline-teal-500 group-even:bg-indigo-200 group-even:outline-indigo-500 group-hover:outline-white group-odd:group-hover:bg-teal-500 group-even:group-hover:bg-indigo-600"
 	>
 		{#if experience.icon?.url}
-				<img src={experience.icon.url} class="h-auto w-10 group-hover:animate-cradle object-contain" alt="icon" />
+			<img
+				src={experience.icon.url}
+				class="h-auto w-10 object-contain group-hover:animate-cradle"
+				alt="icon"
+			/>
 		{/if}
-		<div>
+		<div class="w-full flex-1">
 			<p class="flex flex-wrap items-center justify-between gap-2">
 				<span
 					class="text-lg font-bold leading-none tracking-tight text-slate-900 group-hover:text-slate-50"
