@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import CradleAnimation from './CradleAnimation.svelte';
 
 	const navlinks = [
 		{ href: '/', label: 'Home' },
@@ -44,9 +43,7 @@
 		<div class="flex md:flex-1">
 			<a href="/">
 				<span class="sr-only">Felipe Afonso</span>
-				<CradleAnimation>
-					<img class="h-12 w-auto" src="/keyboard.svg" alt="" />
-				</CradleAnimation>
+				<img class="h-12 w-auto animate-cradle" src="/keyboard.svg" alt="" />
 			</a>
 		</div>
 		<div class="flex md:hidden">

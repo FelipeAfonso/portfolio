@@ -3,6 +3,7 @@
 	import ExperienceCard from '$lib/components/ExperienceCard.svelte';
 
 	export let data;
+  console.log(`🚀 ~ data:`, data)
 
 	const [academic, work] = data?.experiences?.reduce(
 		(a, c) => [

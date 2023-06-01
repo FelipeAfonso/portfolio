@@ -17,6 +17,9 @@ export type Experience = {
 	organization: string;
 	organizationLink: string;
 	location: string;
+	icon?: {
+		url: string;
+	};
 	tools: Tool[];
 };
 
@@ -32,18 +35,23 @@ export const getAllExperiencesQuery = `
       organization
       organizationLink
       location
+      icon {
+        url(
+          transformation: {
+            document: { output: { format: webp }}
+          }
+        )
+      }
       tools {
         name
         description
         logo {
           alt
           url(
-            transformation: {image: {resize: {height: 24, width: 24
-              }
-            }, document: {output: {format: webp
-              }
+            transformation: {
+              image: { resize: { height: 24, width: 24 }}, 
+              document: { output: { format: webp }}
             }
-          }
           )
         }
       }
