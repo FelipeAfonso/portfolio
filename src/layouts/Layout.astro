@@ -1,0 +1,78 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="bg-zinc-900">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="min-h-8 app-container py-2">
+			<span class="font-mono text-white text-lg font-bold">
+				&RightTriangle; Felipe Afonso
+			</span>
+		</header>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	@font-face {
+		font-family: "ProFont";
+		src: url("/fonts/profont.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+	}
+	.app-container {
+		width: 100%;
+		margin-inline: auto;
+		padding-inline: 8px;
+	}
+	@media (min-width: 640px) {
+		.app-container {
+			max-width: 640px;
+			margin-inline: auto;
+			padding-inline: 8px;
+		}
+	}
+	@media (min-width: 768px) {
+		.app-container {
+			max-width: 768px;
+			margin-inline: auto;
+			padding-inline: 8px;
+		}
+	}
+	@media (min-width: 1024px) {
+		.app-container {
+			max-width: 1024px;
+			margin-inline: auto;
+			padding-inline: 16px;
+		}
+	}
+	@media (min-width: 1280px) {
+		.app-container {
+			max-width: 1280px;
+			margin-inline: auto;
+			padding-inline: 16px;
+		}
+	}
+</style>

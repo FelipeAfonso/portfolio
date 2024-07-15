@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Felipe Afonso's Portfolio">
+    <div
+        x-data="{ open: false }"
+        class="text-white p-8 text-xl font-bold app-container"
+    >
+        <button @click="open = true">Expand</button>
+        <span x-show="open"> Content... </span>
+    </div>
+</Layout>
