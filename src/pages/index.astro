@@ -1,6 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import { professional } from "../../content/professional";
+import { academic } from "../../content/academic";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+dayjs.extend(advancedFormat);
 
+const experience = Object.values({ ...professional, ...academic }).sort(
+    (a, b) => {
+        // start date format is MMM YYYY
+        const [aMonth, aYear] = a.startDate.split(" ").map((s) => Number(s));
+        const [bMonth, bYear] = b.startDate.split(" ").map((s) => Number(s));
+        if (!aYear || !bYear) return 0;
+        if (aYear === bYear) {
+            dayjs(aMonth, "MMM").month() - dayjs(bMonth, "MMM").month();
+        }
+        return bYear - aYear;
+    },
+);
 const nav = [
     { label: "About me", href: "/#about" },
     { label: "Experience", href: "/#experience" },
@@ -82,5 +100,23 @@ const nav = [
                 skills like music and mathematics.
             </p>
         </content>
+    </section>
+    <hr class="app-container border-neutral-700" />
+    <section id="experience" class="app-container py-8 text-white">
+        <h2 class="text-lg font-bold lg:text-2xl">Experience</h2>
+        <div class="flex justify-center">
+            <div class="flow-root py-4">
+                <ul role="list" class="-mb-8">
+                    {
+                        experience.map((item, i) => (
+                            <ExperienceCard
+                                {...item}
+                                isLast={i === experience.length - 1}
+                            />
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
     </section>
 </Layout>

@@ -1,5 +1,6 @@
 export type Experience = {
   title: string;
+  logo: string;
   company?: string;
   location: string;
   startDate: string;
@@ -11,6 +12,7 @@ export type Experience = {
 export const academic: Record<string, Experience> = {
   master: {
     title: "Master's Degree in Computer Science",
+    logo: "/ufscar.jpg",
     company: "UFSCar (Federal University of São Carlos)",
     location: "São Carlos - São Paulo, Brazil",
     startDate: "March 2017",
@@ -34,6 +36,7 @@ export const academic: Record<string, Experience> = {
   },
   mentor1: {
     title: "Graduate Student Mentor",
+    logo: "/ifsp.jpg",
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
@@ -45,6 +48,7 @@ export const academic: Record<string, Experience> = {
   },
   mentor2: {
     title: "Graduate Student Mentor",
+    logo: "/ifsp.jpg",
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
@@ -55,6 +59,7 @@ export const academic: Record<string, Experience> = {
   },
   bach: {
     title: "Bachelor of Technology Degree in Systems Engineering",
+    logo: "/ifsp.jpg",
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
@@ -68,6 +73,7 @@ export const academic: Record<string, Experience> = {
   },
   monitor: {
     title: "Monitor of Web Development",
+    logo: "/ifsp.jpg",
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
