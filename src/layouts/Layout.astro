@@ -27,10 +27,14 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header class="min-h-8 app-container py-2">
-			<span class="font-mono text-white text-lg font-bold">
+		<header class="app-container min-h-8 py-2">
+			<a
+				href="/"
+				class="font-mono text-lg font-bold text-white"
+				style="font-smooth:never;"
+			>
 				&RightTriangle; Felipe Afonso
-			</span>
+			</a>
 		</header>
 		<slot />
 	</body>

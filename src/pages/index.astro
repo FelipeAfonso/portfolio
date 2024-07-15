@@ -1,13 +1,61 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const nav = [
+    { label: "About me", href: "/#about" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Contact", href: "/#contact" },
+];
 ---
 
 <Layout title="Felipe Afonso's Portfolio">
-    <div
-        x-data="{ open: false }"
-        class="text-white p-8 text-xl font-bold app-container"
-    >
-        <button @click="open = true">Expand</button>
-        <span x-show="open"> Content... </span>
-    </div>
+    <!-- <div -->
+    <!--     x-data="{ open: false }" -->
+    <!--     class="text-white p-8 text-xl font-bold app-container" -->
+    <!-- > -->
+    <!--     <button @click="open = true">Expand</button> -->
+    <!--     <span x-show="open"> Content... </span> -->
+    <!-- </div> -->
+    <main class="app-container py-8 text-white">
+        <div class="grid gap-4 sm:grid-cols-2">
+            <content class="flex flex-col justify-center">
+                <h1 class="text-xl font-bold lg:text-3xl">
+                    Hi! I'm Felipe Afonso
+                </h1>
+                <p class="max-w-sm text-lg font-medium">
+                    I'm a Software Engineer focused on Front End Applications.
+                </p>
+                <nav role="list" class="space-y-2 py-4 text-xl font-light">
+                    {
+                        nav.map(({ label, href }) => (
+                            <a
+                                class="block transition-all ease-in hover:font-normal hover:text-indigo-400"
+                                role="listitem"
+                                href={href}
+                            >
+                                &rightarrow; {label}
+                            </a>
+                        ))
+                    }
+                </nav>
+            </content>
+            <figure
+                class="group max-w-lg rounded-xl px-2 pt-2 transition-all ease-in hover:bg-zinc-800"
+            >
+                <img
+                    src="/me-min.jpg"
+                    class="aspect-square w-full rounded-lg object-cover"
+                    alt="My picture at my office's balcony"
+                />
+                <span
+                    class="block py-2 text-center text-transparent transition-all ease-in group-hover:text-neutral-100"
+                >
+                    Me at my office's balcony
+                </span>
+            </figure>
+        </div>
+    </main>
+    <hr class="app-container border-neutral-700" />
+    <section id="about" class="app-container py-8 text-white"></section>
 </Layout>
