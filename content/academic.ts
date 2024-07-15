@@ -1,4 +1,12 @@
-import { Experience } from "types";
+export type Experience = {
+  title: string;
+  company?: string;
+  location: string;
+  startDate: string;
+  endDate: string | "isCurrent";
+  description?: string;
+  workedWith?: string[];
+};
 
 export const academic: Record<string, Experience> = {
   master: {

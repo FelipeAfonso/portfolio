@@ -1,4 +1,3 @@
-import { Project } from "types";
 import Flora1 from "./images/Flora-Mapa.png";
 import Flora2 from "./images/Flora-Home.png";
 import Flora3 from "./images/Flora-MapaF.png";
@@ -13,6 +12,16 @@ import Alura1 from "./images/AluraC-Community.png";
 import Alura2 from "./images/AluraC-Editor.png";
 import Alura3 from "./images/AluraCMobile-Community.png";
 import Alura4 from "./images/AluraCMobile-Editor.png";
+
+import type { ImageMetadata } from "astro";
+
+export type Project = {
+  title: string;
+  description: string;
+  link?: string;
+  workedWith?: string[];
+  images?: ImageMetadata[];
+};
 
 export const projects: Record<string, Project> = {
   flora: {
