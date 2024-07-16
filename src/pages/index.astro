@@ -7,18 +7,19 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 dayjs.extend(advancedFormat);
 
-const experience = Object.values({ ...professional, ...academic }).sort(
-    (a, b) => {
-        // start date format is MMM YYYY
-        const [aMonth, aYear] = a.startDate.split(" ").map((s) => Number(s));
-        const [bMonth, bYear] = b.startDate.split(" ").map((s) => Number(s));
-        if (!aYear || !bYear) return 0;
-        if (aYear === bYear) {
-            dayjs(aMonth, "MMM").month() - dayjs(bMonth, "MMM").month();
-        }
-        return bYear - aYear;
-    },
-);
+const bad_date_sorter = (a: any, b: any) => {
+    // start date format is MMM YYYY
+    const [aMonth, aYear] = a.startDate.split(" ").map((s: any) => Number(s));
+    const [bMonth, bYear] = b.startDate.split(" ").map((s: any) => Number(s));
+    if (!aYear || !bYear) return 0;
+    if (aYear === bYear) {
+        dayjs(aMonth, "MMM").month() - dayjs(bMonth, "MMM").month();
+    }
+    return bYear - aYear;
+};
+
+const professional_parsed = Object.values(professional).sort(bad_date_sorter);
+const academic_parsed = Object.values(academic).sort(bad_date_sorter);
 const nav = [
     { label: "About me", href: "/#about" },
     { label: "Experience", href: "/#experience" },
@@ -104,14 +105,28 @@ const nav = [
     <hr class="app-container border-neutral-700" />
     <section id="experience" class="app-container py-8 text-white">
         <h2 class="text-lg font-bold lg:text-2xl">Experience</h2>
-        <div class="flex justify-center">
-            <div class="flow-root py-4">
+        <div class="grid gap-4 py-8 sm:grid-cols-2">
+            <div class="flow-root">
+                <p class="sm:text-lg font-medium pb-6">Professional</p>
                 <ul role="list" class="-mb-8">
                     {
-                        experience.map((item, i) => (
+                        professional_parsed.map((item, i) => (
                             <ExperienceCard
                                 {...item}
-                                isLast={i === experience.length - 1}
+                                isLast={i === professional_parsed.length - 1}
+                            />
+                        ))
+                    }
+                </ul>
+            </div>
+            <div class="flow-root">
+                <p class="sm:text-lg font-medium pb-6">Academic</p>
+                <ul role="list" class="-mb-8">
+                    {
+                        academic_parsed.map((item, i) => (
+                            <ExperienceCard
+                                {...item}
+                                isLast={i === academic_parsed.length - 1}
                             />
                         ))
                     }
