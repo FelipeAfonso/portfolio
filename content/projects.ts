@@ -78,18 +78,18 @@ export const projects: Record<string, Project> = {
       "Turf.js",
     ],
   },
-  internalSantosLabServiceOrders: {
-    title: "Internal Service Orders Platform",
-    description: `This project was meant to be Santos Lab internal system for managing client service orders. I was the sole developer for the front end. The platform was form-centric and needed to be built with urgency. It was used for at least one year before some changes in the company's strategy. No images for this platform as its back end was disabled.`,
-    workedWith: [
-      "React.js",
-      "REST APIs",
-      "materialUI",
-      "TypeScript",
-      "Redux Toolkit",
-      "JWT",
-    ],
-  },
+  // internalSantosLabServiceOrders: {
+  //   title: "Internal Service Orders Platform",
+  //   description: `This project was meant to be Santos Lab internal system for managing client service orders. I was the sole developer for the front end. The platform was form-centric and needed to be built with urgency. It was used for at least one year before some changes in the company's strategy. No images for this platform as its back end was disabled.`,
+  //   workedWith: [
+  //     "React.js",
+  //     "REST APIs",
+  //     "materialUI",
+  //     "TypeScript",
+  //     "Redux Toolkit",
+  //     "JWT",
+  //   ],
+  // },
   aluraChallenge: {
     title: "Code Editor and Community",
     description:

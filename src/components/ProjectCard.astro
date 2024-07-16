@@ -1,0 +1,24 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	link?: string;
+	workedWith?: string[];
+	images?: ImageMetadata[];
+	id: string;
+}
+
+const { title, description, images, link, workedWith, id } = Astro.props;
+---
+
+<a
+	href={`/project/${id}`}
+	class="rounded-lg bg-zinc-800 p-4 transition-transform ease-in hover:scale-105"
+>
+	<img
+		src={images?.[0]?.src}
+		class="aspect-video w-full object-cover"
+		alt={title}
+	/>
+	<p class="py-1 text-lg font-bold sm:text-xl">{title}</p>
+</a>

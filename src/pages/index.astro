@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ExperienceCard from "../components/ExperienceCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import { professional } from "../../content/professional";
 import { academic } from "../../content/academic";
+import { projects } from "../../content/projects";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 dayjs.extend(advancedFormat);
@@ -107,7 +109,7 @@ const nav = [
         <h2 class="text-lg font-bold lg:text-2xl">Experience</h2>
         <div class="grid gap-4 py-8 sm:grid-cols-2">
             <div class="flow-root">
-                <p class="sm:text-lg font-medium pb-6">Professional</p>
+                <p class="pb-6 font-medium sm:text-lg">Professional</p>
                 <ul role="list" class="-mb-8">
                     {
                         professional_parsed.map((item, i) => (
@@ -120,7 +122,7 @@ const nav = [
                 </ul>
             </div>
             <div class="flow-root">
-                <p class="sm:text-lg font-medium pb-6">Academic</p>
+                <p class="pb-6 font-medium sm:text-lg">Academic</p>
                 <ul role="list" class="-mb-8">
                     {
                         academic_parsed.map((item, i) => (
@@ -132,6 +134,17 @@ const nav = [
                     }
                 </ul>
             </div>
+        </div>
+    </section>
+    <hr class="app-container border-neutral-700" />
+    <section id="projects" class="app-container py-8 text-white">
+        <h2 class="text-lg font-bold lg:text-2xl">Projects</h2>
+        <div class="grid gap-4 py-8 sm:grid-cols-2 md:grid-cols-3">
+            {
+                Object.entries(projects).map(([id, prj]) => (
+                    <ProjectCard id={id} {...prj} />
+                ))
+            }
         </div>
     </section>
 </Layout>
