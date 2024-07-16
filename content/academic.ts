@@ -15,8 +15,8 @@ export const academic: Record<string, Experience> = {
     logo: "/ufscar.jpg",
     company: "UFSCar (Federal University of São Carlos)",
     location: "São Carlos - São Paulo, Brazil",
-    startDate: "March 2017",
-    endDate: "June 2020",
+    startDate: "03/2017",
+    endDate: "06/2020",
     description: [
       `Explored cross-platform web and mobile development through the creation of multiple proof-of-concept apps using various frameworks.`,
       `Conducted extensive interviews with software industry professionals to gather insights and inform research within the field.`,
@@ -42,8 +42,8 @@ export const academic: Record<string, Experience> = {
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
-    startDate: "May 2018",
-    endDate: "December 2018",
+    startDate: "05/2018",
+    endDate: "12/2018",
     description: [
       `Mentored a student in developing a Kotlin/Kotlin Native Android app for their final graduation project, providing guidance on language-specific concepts and best practices.`,
       `Volunteered time and expertise to support IFSP graduates through the mentorship program, contributing to their academic and professional development.`,
@@ -56,8 +56,8 @@ export const academic: Record<string, Experience> = {
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
-    startDate: "September 2017",
-    endDate: "October 2017",
+    startDate: "09/2017",
+    endDate: "08/2017",
     description: [
       `Designed and delivered a six-week virtual course on Agile methodologies for IFSP graduates, utilizing Google Classroom for content delivery and interaction.`,
       `Mentored and evaluated students throughout the course, providing personalized feedback and guidance to enhance their understanding of Agile principles and practices.`,
@@ -69,8 +69,8 @@ export const academic: Record<string, Experience> = {
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
-    startDate: "March 2014",
-    endDate: "December 2016",
+    startDate: "03/2014",
+    endDate: "12/2016",
     description: [
       `For my final project: Developed a full-stack e-commerce solution with a Windows PoS, using .NET, Entity Framework, Razor, and XAML, to address inventory management challenges with a shared database.`,
       `Scholarship Project: Developed a Windows XAML app and an Android app with websockets to control projected images for product highlighting in an Inverse Augmented Reality proof-of-concept.`,
@@ -83,8 +83,8 @@ export const academic: Record<string, Experience> = {
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
-    startDate: "August 2016",
-    endDate: "December 2016",
+    startDate: "08/2016",
+    endDate: "12/2016",
     description: [
       `Served as a Web Development class monitor, providing scholarship-funded support to fellow students on their .NET Razor, jQuery, and PHP projects.`,
     ],

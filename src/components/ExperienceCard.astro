@@ -1,4 +1,9 @@
 ---
+import dayjs from "dayjs";
+import locale from "dayjs/plugin/localizedFormat";
+import parse from "dayjs/plugin/customParseFormat";
+dayjs.extend(locale);
+dayjs.extend(parse);
 interface Props {
 	title: string;
 	company?: string;
@@ -38,20 +43,22 @@ const { title, logo, company, startDate, endDate, description, isLast } =
 			<div class="min-w-0 max-w-md flex-1">
 				<div>
 					<div class="text-lg tracking-tight max-sm:text-sm">
-						<a href="#" class="font-medium text-neutral-50">
+						<p class="font-medium text-neutral-50">
 							{title}
 							at <span class="font-bold">{company}</span>
-						</a>
+						</p>
 					</div>
 					<p class="mt-0.5 text-neutral-200 max-sm:text-sm">
-						{startDate} - {
-							endDate === "isCurrent" ? "Present" : endDate
+						{dayjs(startDate, "MM/YYYY").format("MMM YYYY")} - {
+							endDate === "isCurrent"
+								? "Present"
+								: dayjs(endDate, "MM/YYYY").format("MMM YYYY")
 						}
 					</p>
 				</div>
 				<div class="mt-2 font-serif text-sm text-neutral-300">
 					<ul class="list-inside list-disc">
-						{description.map(d => (<li>{d}</li>))}
+						{description?.map((d) => <li>{d}</li>)}
 					</ul>
 				</div>
 			</div>

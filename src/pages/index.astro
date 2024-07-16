@@ -7,21 +7,21 @@ import { academic } from "../../content/academic";
 import { projects } from "../../content/projects";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
+import parse from "dayjs/plugin/customParseFormat";
 dayjs.extend(advancedFormat);
+dayjs.extend(parse);
 
-const bad_date_sorter = (a: any, b: any) => {
-    // start date format is MMM YYYY
-    const [aMonth, aYear] = a.startDate.split(" ").map((s: any) => Number(s));
-    const [bMonth, bYear] = b.startDate.split(" ").map((s: any) => Number(s));
-    if (!aYear || !bYear) return 0;
-    if (aYear === bYear) {
-        dayjs(aMonth, "MMM").month() - dayjs(bMonth, "MMM").month();
-    }
-    return bYear - aYear;
+const date_sort = (a: any, b: any) => {
+    const is_current = (date: string) => date === "isCurrent";
+    if (is_current(a.endDate)) return -1;
+    if (is_current(b.endDate)) return 1;
+    const aend = dayjs(a.endDate, "MM/YYYY");
+    const bend = dayjs(b.endDate, "MM/YYYY");
+    return aend.isBefore(bend) ? 1 : -1;
 };
 
-const professional_parsed = Object.values(professional).sort(bad_date_sorter);
-const academic_parsed = Object.values(academic).sort(bad_date_sorter);
+const professional_parsed = Object.values(professional).sort(date_sort);
+const academic_parsed = Object.values(academic).sort(date_sort);
 const nav = [
     { label: "About me", href: "/#about" },
     { label: "Experience", href: "/#experience" },
