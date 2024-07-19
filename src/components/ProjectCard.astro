@@ -13,7 +13,7 @@ const { title, description, images, link, workedWith, id } = Astro.props;
 
 <a
 	href={`/project/${id}`}
-	class="rounded-lg bg-zinc-800 p-4 transition-transform ease-in hover:scale-105"
+	class="rounded-lg bg-zinc-800 p-4 transition-all ease-in hover:scale-105 hover:bg-zinc-700"
 >
 	<img
 		src={images?.[0]?.src}
