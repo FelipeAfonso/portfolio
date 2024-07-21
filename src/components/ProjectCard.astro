@@ -8,10 +8,11 @@ interface Props {
 	id: string;
 }
 
-const { title, description, images, link, workedWith, id } = Astro.props;
+const { title, description, images } = Astro.props;
+const processed_images = images?.map((i) => i.src) ?? [];
 ---
 
-<div x-data="{ open: false}">
+<div x-data="{ open: false, img_idx: 0 }">
 	<button
 		class="rounded-lg bg-zinc-800 p-4 transition-all ease-in hover:scale-105 hover:bg-zinc-700"
 		@click="$refs.dialog.showModal()"
@@ -29,11 +30,57 @@ const { title, description, images, link, workedWith, id } = Astro.props;
 		@click="!is_in_dialog($event, $el) && $refs.dialog.close()"
 	>
 		<div class="space-y-2">
-			<img
-				src={images?.[0]?.src}
-				class="max-h-96 w-full max-w-xl rounded object-contain"
-				alt={title}
-			/>
+			<div class="relative">
+				{
+					processed_images.map((img, i) => (
+						<img
+							src={img}
+							class="max-h-96 w-full max-w-xl rounded object-contain"
+							x-show={`img_idx === ${i}`}
+						/>
+					))
+				}
+				<button
+					class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
+					@click={`img_idx = (img_idx - 1 + ${processed_images.length}) % ${processed_images.length}`}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="size-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M15.75 19.5 8.25 12l7.5-7.5"
+						>
+						</path>
+					</svg>
+				</button>
+				<button
+					class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
+					@click={`img_idx = (img_idx + 1) % ${processed_images.length}`}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="size-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="m8.25 4.5 7.5 7.5-7.5 7.5"
+						>
+						</path>
+					</svg>
+				</button>
+			</div>
 			<p class="mx-auto max-w-md text-white">
 				{description}
 			</p>
