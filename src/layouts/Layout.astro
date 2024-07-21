@@ -37,6 +37,17 @@ const { title } = Astro.props;
 			</a>
 		</header>
 		<slot />
+		<script is:inline is:raw>
+			function is_in_dialog(t, i) {
+				i = i.getBoundingClientRect();
+				return (
+					i.top <= t.clientY &&
+					t.clientY <= i.top + i.height &&
+					i.left <= t.clientX &&
+					t.clientX <= i.left + i.width
+				);
+			}
+		</script>
 	</body>
 </html>
 <style is:global>

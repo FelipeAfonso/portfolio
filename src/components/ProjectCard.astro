@@ -11,14 +11,32 @@ interface Props {
 const { title, description, images, link, workedWith, id } = Astro.props;
 ---
 
-<a
-	href={`/project/${id}`}
-	class="rounded-lg bg-zinc-800 p-4 transition-all ease-in hover:scale-105 hover:bg-zinc-700"
->
-	<img
-		src={images?.[0]?.src}
-		class="aspect-video w-full object-cover"
-		alt={title}
-	/>
-	<p class="py-1 text-lg font-bold sm:text-xl">{title}</p>
-</a>
+<div x-data="{ open: false}">
+	<button
+		class="rounded-lg bg-zinc-800 p-4 transition-all ease-in hover:scale-105 hover:bg-zinc-700"
+		@click="$refs.dialog.showModal()"
+	>
+		<img
+			src={images?.[0]?.src}
+			class="aspect-video w-full rounded object-cover"
+			alt={title}
+		/>
+		<p class="pt-4 text-center text-lg font-bold sm:text-xl">{title}</p>
+	</button>
+	<dialog
+		class="rounded-xl bg-zinc-800 p-4 ring-2 ring-indigo-400 backdrop:bg-black backdrop:bg-opacity-10"
+		x-ref="dialog"
+		@click="!is_in_dialog($event, $el) && $refs.dialog.close()"
+	>
+		<div class="space-y-2">
+			<img
+				src={images?.[0]?.src}
+				class="max-h-96 w-full max-w-xl rounded object-contain"
+				alt={title}
+			/>
+			<p class="mx-auto max-w-md text-white">
+				{description}
+			</p>
+		</div>
+	</dialog>
+</div>
