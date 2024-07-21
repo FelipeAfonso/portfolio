@@ -68,7 +68,8 @@ const nav = [
             >
                 <Image
                     src={Me}
-                    densities={[0.25, 0.5, 0.75, 1]}
+                    widths={[300, 600, 900, 1200]}
+                    sizes="(max-width: 600px) 100vw, 50vw"
                     class="aspect-square w-full rounded-lg object-cover"
                     alt="My picture at my office's balcony"
                 />
@@ -112,7 +113,7 @@ const nav = [
         <div class="grid gap-4 py-8 sm:grid-cols-2">
             <div class="flow-root">
                 <p class="pb-6 font-medium sm:text-lg">Professional</p>
-                <ul role="list" class="-mb-8">
+                <ul role="list" class="-mb-8 px-2">
                     {
                         professional_parsed.map((item, i) => (
                             <ExperienceCard
@@ -125,7 +126,7 @@ const nav = [
             </div>
             <div class="flow-root">
                 <p class="pb-6 font-medium sm:text-lg">Academic</p>
-                <ul class="-mb-8">
+                <ul class="-mb-8 px-2">
                     {
                         academic_parsed.map((item, i) => (
                             <ExperienceCard

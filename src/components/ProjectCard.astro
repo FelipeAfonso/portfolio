@@ -31,6 +31,26 @@ const processed_images = images?.map((i) => i.src) ?? [];
 	>
 		<div class="space-y-2">
 			<div class="relative">
+				<button
+					class="mb-2 ml-auto block rounded-full bg-zinc-700 p-1 text-white"
+					@click="$refs.dialog.close()"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="size-5"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M6 18 18 6M6 6l12 12"
+						>
+						</path>
+					</svg>
+				</button>
 				{
 					processed_images.map((img, i) => (
 						<img
