@@ -8,7 +8,7 @@ interface Props {
 	id: string;
 }
 
-const { title, description, images } = Astro.props;
+const { title, description, images, link } = Astro.props;
 const processed_images = images?.map((i) => i.src) ?? [];
 ---
 
@@ -84,7 +84,17 @@ const processed_images = images?.map((i) => i.src) ?? [];
 			<p class="pt-4 text-center text-lg font-bold text-white sm:text-xl">
 				{title}
 			</p>
-			<p class="mx-auto max-w-md text-white">
+			<p class="mx-auto max-w-md font-serif text-white">
+				{
+					link && (
+						<a
+							href={link}
+							class="block pb-2 text-sm font-light text-zinc-200"
+						>
+							{link}
+						</a>
+					)
+				}
 				{description}
 			</p>
 		</div>
