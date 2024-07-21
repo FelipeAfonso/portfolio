@@ -5,9 +5,11 @@ import ProjectCard from "../components/ProjectCard.astro";
 import { professional } from "../../content/professional";
 import { academic } from "../../content/academic";
 import { projects } from "../../content/projects";
+import Me from "../images/me-min.webp";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import parse from "dayjs/plugin/customParseFormat";
+import { Image } from "astro:assets";
 dayjs.extend(advancedFormat);
 dayjs.extend(parse);
 
@@ -48,12 +50,11 @@ const nav = [
                     I'm a Software Engineer focused on Front End Applications.
                     Currently working at Liftup Capital.
                 </p>
-                <nav role="list" class="space-y-2 py-4 text-xl font-light">
+                <nav class="space-y-2 py-4 text-xl font-light">
                     {
                         nav.map(({ label, href }) => (
                             <a
                                 class="block transition-all ease-in hover:font-normal hover:text-indigo-400"
-                                role="listitem"
                                 href={href}
                             >
                                 &rightarrow; {label}
@@ -65,8 +66,8 @@ const nav = [
             <figure
                 class="group max-w-lg rounded-xl px-2 pt-2 transition-all ease-in hover:bg-zinc-800"
             >
-                <img
-                    src="/me-min.webp"
+                <Image
+                    src={Me}
                     class="aspect-square w-full rounded-lg object-cover"
                     alt="My picture at my office's balcony"
                 />
@@ -123,7 +124,7 @@ const nav = [
             </div>
             <div class="flow-root">
                 <p class="pb-6 font-medium sm:text-lg">Academic</p>
-                <ul role="list" class="-mb-8">
+                <ul class="-mb-8">
                     {
                         academic_parsed.map((item, i) => (
                             <ExperienceCard
