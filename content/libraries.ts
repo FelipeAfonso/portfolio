@@ -1,4 +1,8 @@
-import { Library } from "types";
+export type Library = {
+  name: string;
+  link: string;
+  experience?: string;
+};
 
 export const libraries: Record<string, Library> = {
   "React.js": {

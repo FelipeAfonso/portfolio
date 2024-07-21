@@ -1,34 +1,29 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@tippyjs/react": "^4.2.6",
-    "framer-motion": "^6.3.3",
-    "graphql": "^16.4.0",
-    "graphql-request": "^4.2.0",
-    "next": "12.1.5",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-icons": "^4.3.1",
-    "react-query": "^3.38.0",
-    "typewriter-effect": "^2.18.2"
+    "@astrojs/alpinejs": "^0.4.0",
+    "@astrojs/check": "^0.8.1",
+    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "@types/alpinejs": "^3.13.10",
+    "alpinejs": "^3.14.1",
+    "astro": "^4.11.5",
+    "dayjs": "^1.11.11",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "@types/node": "17.0.30",
-    "@types/react": "18.0.8",
-    "@types/react-dom": "18.0.3",
-    "autoprefixer": "^10.4.5",
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.5",
-    "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.24",
-    "typescript": "4.6.4"
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.0",
+    "prettier-plugin-tailwindcss": "^0.6.5"
   }
 }

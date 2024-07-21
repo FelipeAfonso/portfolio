@@ -1,4 +1,3 @@
-import { Project } from "types";
 import Flora1 from "./images/Flora-Mapa.png";
 import Flora2 from "./images/Flora-Home.png";
 import Flora3 from "./images/Flora-MapaF.png";
@@ -13,91 +12,70 @@ import Alura1 from "./images/AluraC-Community.png";
 import Alura2 from "./images/AluraC-Editor.png";
 import Alura3 from "./images/AluraCMobile-Community.png";
 import Alura4 from "./images/AluraCMobile-Editor.png";
+import HTMXGleam from "./images/HTMX_Gleam.png";
+import HomeOptions from "./images/HomeOptions.png";
+import HomeOptionsBlog from "./images/HomeOptionsBlog.png";
+import Liftup from "./images/LiftUpPortal.png";
+import LiftupCustomer from "./images/LiftUpPortalCustomer.png";
+import StupidSpiderGameIG from "./images/StupidSpiderGameIG.png";
+import StupidSpiderGameTitle from "./images/StupidSpiderGameTitle.png";
+
+import type { ImageMetadata } from "astro";
+
+export type Project = {
+  title: string;
+  description: string;
+  link?: string;
+  workedWith?: string[];
+  images?: ImageMetadata[];
+};
 
 export const projects: Record<string, Project> = {
+  stupid_spooder_game: {
+    title: "Stupid Spooder Game",
+    description:
+      "I crafted a simple game using Rust and the Bevy Game Engine. It may be a small undertaking, but I developed everything, from sprites and music to interactions.",
+    link: "https://king-cod.itch.io/stupid-spooder-game",
+    images: [StupidSpiderGameTitle, StupidSpiderGameIG],
+  },
+  gleam_htmx: {
+    title: "HTMX Tailwind Gleam",
+    description:
+      "I created an HTMX-driven web server for the functional programming Gleam language. This open-source project is a code template with built-in tailwind support, hot reloading, and componentized templating.",
+    link: "https://github.com/FelipeAfonso/gleam_htmx_tw",
+    images: [HTMXGleam],
+  },
+  liftup: {
+    title: "Liftup Public Portals",
+    description:
+      "I created and maintained all of Liftup's public portals, including numerous forms to channel customer requests, landing pages, ad campaign entry points, and more!",
+    images: [Liftup, LiftupCustomer],
+  },
+
+  homeoptions: {
+    title: "HomeOptions Public Portals",
+    images: [HomeOptions, HomeOptionsBlog],
+    description: `HomeOptions is a real estate platform that facilitates connections between buyers and sellers. I was involved in developing public portals for users to submit requests for financial products, access blog posts, and contact real estate agents.`,
+  },
+
   flora: {
     title: "AG Platform Flora",
-    description: `Flora is the internal name of the Santos Lab's main software. It is a web platform for farmers and agronomists to explore data from different origins in their properties. It contemplates complex web maps, dashboard with unique charts, lots of forms and exotic components.
-    I've started alone with the MVP in 2019 which laid the foundation for the platform. My team and I delivered the full version of the original features in 2020. And in 2021 in partnership with a major food exporter from Brazil, we created a sustainability module. In all these steps I was the main developer onboard.`,
-    link: "https://flora.santoslab.com",
+    description: `Flora, the internal name of Santos Lab's main software, is a unique web platform for farmers and agronomists. It offers a novel approach to exploring data from different origins within their properties. With its intricate web maps, unique charts on the dashboard, numerous forms, and innovative components, Flora stands out in the agricultural tech landscape.`,
     images: [Flora1, Flora2, Flora3, Flora4, Flora5],
-    workedWith: [
-      "React.js",
-      "REST APIs",
-      "Next.js",
-      "GraphQL",
-      "ApolloClient",
-      "materialUI",
-      "Leaflet",
-      "TypeScript",
-      "Jest",
-      "Cypress",
-      "Redux Toolkit",
-      "JWT",
-      "Google Analytics",
-      "Sentry.io",
-      "React Hook Form",
-      "React Router",
-      "Axios",
-      "Recharts",
-      "Husky",
-      "Eslint",
-      "Prettier",
-      "Locize",
-      "i18n",
-      "FullCalendar",
-      "Turf.js",
-    ],
+    workedWith: ["React.js", "Leaflet", "React Hook Form", "Turf.js"],
   },
   floraMonitoring: {
     title: "Prague Monitoring App",
-    description: `I was the main developer and managed a team of 4 other front end developers for a React Native app for Android and iOS. The app was made to monitor pests and plagues in farms and its fields. It was offline first as the connectivity in these places tend to be limited. And as a map-centric app we had to build extra features on top of Google Maps API. As the company is not opening for public users the app is not published on the stores yet. But it is in use by farmers and agronomists associated with Santos Lab.`,
+    description: `The Prague Monitoring App, a React Native app for Android and iOS, was developed with practicality in mind. It aimed to monitor pests and plagues in farms and their fields, with an 'offline first' approach to accommodate the limited connectivity in these areas. As a map-centric app, we built extra features on top of Google Maps API, ensuring its usefulness even in remote locations. While the app is not yet available to the public, it is already making a difference for farmers and agronomists associated with Santos Lab.`,
     images: [FloraApp1, FloraApp2, FloraApp3, FloraApp4, FloraApp5],
-    workedWith: [
-      "React Native",
-      "REST APIs",
-      "TypeScript",
-      "Redux Toolkit",
-      "JWT",
-      "Google Maps",
-      "Google Analytics",
-      "Axios",
-      "Husky",
-      "Eslint",
-      "Prettier",
-      "i18n",
-      "Turf.js",
-    ],
-  },
-  internalSantosLabServiceOrders: {
-    title: "Internal Service Orders Platform",
-    description: `This project was meant to be Santos Lab internal system for managing client service orders. I was the sole developer for the front end. The platform was form-centric and needed to be built with urgency. It was used for at least one year before some changes in the company's strategy. No images for this platform as its back end was disabled.`,
-    workedWith: [
-      "React.js",
-      "REST APIs",
-      "materialUI",
-      "TypeScript",
-      "Redux Toolkit",
-      "JWT",
-    ],
+    workedWith: ["React Native", "Google Maps", "Turf.js"],
   },
   aluraChallenge: {
     title: "Code Editor and Community",
     description:
-      "I've participated in a 4 week challenge with the goal of developing a code editor and community web app. I've used React/NextJS and some technologies I didn't had the chance of using before.",
+      "I participated in a four-week challenge to develop a code editor and community web app. I've used React/NextJS and some technologies I had never used before.",
     images: [Alura1, Alura2, Alura3, Alura4],
-    link: "https://code.felipeafonso.com",
-    workedWith: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Recoil",
-      "Firebase Auth",
-      "Firestore",
-      "Playwright",
-      "materialUI",
-      "Eslint",
-      "Prettier",
-    ],
+    link: "https://github.com/FelipeAfonso/alura-challenge-all-dev",
+    workedWith: ["Next.js"],
   },
 };

@@ -1,0 +1,67 @@
+---
+import dayjs from "dayjs";
+import locale from "dayjs/plugin/localizedFormat";
+import parse from "dayjs/plugin/customParseFormat";
+dayjs.extend(locale);
+dayjs.extend(parse);
+interface Props {
+	title: string;
+	company?: string;
+	location: string;
+	logo?: string;
+	startDate: string;
+	endDate: string | "isCurrent";
+	description?: string[];
+	workedWith?: string[];
+	isLast?: boolean;
+}
+
+const { title, logo, company, startDate, endDate, description, isLast } =
+	Astro.props;
+---
+
+<li>
+	<div class="relative pb-8">
+		{
+			!isLast ? (
+				<span
+					class="absolute left-5 top-5 -ml-px h-full w-0.5 bg-neutral-700"
+					aria-hidden="true"
+				/>
+			) : (
+				""
+			)
+		}
+		<div class="relative flex items-start space-x-3">
+			<div class="relative">
+				<img
+					class="flex aspect-square h-10 w-10 items-center justify-center rounded-full bg-neutral-400 ring-8 ring-neutral-700"
+					src={logo}
+					alt=""
+				/>
+			</div>
+			<div class="min-w-0 max-w-md flex-1">
+				<div>
+					<div class="text-lg tracking-tight max-sm:text-sm">
+						<p class="font-medium text-neutral-50">
+							{title}
+							at <span class="font-bold">{company}</span>
+						</p>
+					</div>
+					<p class="mt-0.5 text-neutral-200 max-sm:text-sm">
+						{dayjs(startDate, "MM/YYYY").format("MMM YYYY")} - {
+							endDate === "isCurrent"
+								? "Present"
+								: dayjs(endDate, "MM/YYYY").format("MMM YYYY")
+						}
+					</p>
+				</div>
+				<div class="mt-2 font-serif text-sm text-neutral-300">
+					<ul class="list-inside list-disc">
+						{description?.map((d) => <li>{d}</li>)}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</li>
