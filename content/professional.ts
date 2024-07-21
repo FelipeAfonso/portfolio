@@ -12,7 +12,7 @@ export type Experience = {
 export const professional: Record<string, Experience> = {
   liftup: {
     title: "Senior Software Engineer",
-    logo: "/liftup.png",
+    logo: "/liftup.webp",
     company: "LiftUp",
     location: "Bellevue - WA",
     startDate: "05/2023",
@@ -26,7 +26,7 @@ export const professional: Record<string, Experience> = {
   },
   homeoptions: {
     title: "Senior Software Engineer",
-    logo: "/homeoptions.png",
+    logo: "/homeoptions.webp",
     company: "HomeOptions",
     location: "Oakland - CA",
     startDate: "05/2022",
@@ -42,7 +42,7 @@ export const professional: Record<string, Experience> = {
   },
   santoslab_latter: {
     title: "Tech Lead",
-    logo: "/santoslab.jpg",
+    logo: "/santoslab.webp",
     company: "Santos Lab",
     location: "Rio de Janeiro, Brazil",
     startDate: "06/2020",
@@ -62,7 +62,7 @@ export const professional: Record<string, Experience> = {
   },
   santoslab_prev: {
     title: "Front end Developer",
-    logo: "/santoslab.jpg",
+    logo: "/santoslab.webp",
     company: "Santos Lab",
     location: "Rio de Janeiro, Brazil",
     startDate: "03/2019",
