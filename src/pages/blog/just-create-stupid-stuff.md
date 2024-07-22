@@ -1,7 +1,9 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 title: Just create stupid stuff!
+date: July 4, 2024
 description:  Why You Don't Have to Sacrifice Your Weekends for a Relevant GitHub Profile. In this article, I discuss the pressure to maintain side projects and a strong GitHub profile while working full-time in the tech industry. I share my realization that it's okay not to always aim for perfection and how I found a middle ground that allows me to share my coding explorations without feeling overwhelmed. The article encourages developers to pursue meaningful projects while also enjoying their personal time away from coding.
+image: /horsey.webp
 ---
 In my last six years working in the industry, I've already had my share of coworkers complaining about being unable to maintain side projects and keep a relevant Git Hub profile. These complaints are often followed by the excuse of already having to work during the week and, therefore, not wanting to "keep working" during the weekend. And to be honest, I'm tired of hearing it. But first, let's make some things clear.
 

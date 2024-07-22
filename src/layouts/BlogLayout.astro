@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props;
 <html lang="en" class="bg-zinc-900">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={frontmatter.description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
@@ -27,7 +27,11 @@ const { frontmatter } = Astro.props;
 		<main
 			class="lg:prose-xl prose prose-zinc prose-invert mx-auto py-8 text-white"
 		>
-			<h1>{frontmatter.title}</h1>
+			<img src={frontmatter.image} />
+			<h1 class="!mb-2">{frontmatter.title}</h1>
+			<p class="!my-0 text-sm text-zinc-200">
+				Felipe Afonso - {frontmatter.date}
+			</p>
 			<slot />
 		</main>
 	</body>
