@@ -2,9 +2,10 @@
 layout: ../../layouts/BlogLayout.astro
 title: Simple game, big challenges
 date: --
-description:  
+description:
 image: /spooder.webp
 ---
+
 - Introduce myself
 - Explain the game
 - about the engine and language

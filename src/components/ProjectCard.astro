@@ -1,11 +1,11 @@
 ---
 interface Props {
-	title: string;
-	description: string;
-	link?: string;
-	workedWith?: string[];
-	images?: ImageMetadata[];
-	id: string;
+  title: string;
+  description: string;
+  link?: string;
+  workedWith?: string[];
+  images?: ImageMetadata[];
+  id: string;
 }
 
 const { title, description, images, link } = Astro.props;
@@ -13,111 +13,108 @@ const processed_images = images?.map((i) => i.src) ?? [];
 ---
 
 <div x-data="{ open: false, img_idx: 0 }">
-	<button
-		class="rounded-lg bg-zinc-800 p-4 transition-all ease-in hover:scale-105 hover:bg-zinc-700"
-		@click="$refs.dialog.showModal()"
-	>
-		<img
-			src={images?.[0]?.src}
-			class="aspect-video w-full rounded object-cover"
-			alt={`sample project image - ${title}`}
-		/>
-		<p class="pt-4 text-center text-lg font-bold sm:text-xl">{title}</p>
-	</button>
-	<dialog
-		class="rounded-xl bg-zinc-800 p-4 ring-2 ring-indigo-400 backdrop:bg-black backdrop:bg-opacity-10"
-		x-ref="dialog"
-		@click="!is_in_dialog($event, $el) && $refs.dialog.close()"
-	>
-		<div class="space-y-2">
-			<div class="relative">
-				<button
-					class="mb-2 ml-auto block rounded-full bg-zinc-700 p-1 text-white"
-					@click="$refs.dialog.close()"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="size-5"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M6 18 18 6M6 6l12 12"
-						>
-						</path>
-					</svg>
-				</button>
-				{
-					processed_images.map((img, i) => (
-						<img
-							src={img}
-							class="max-h-96 w-full max-w-xl rounded object-contain"
-							x-show={`img_idx === ${i}`}
-							alt={`sample project image - ${title}`}
-						/>
-					))
-				}
-				<button
-					class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
-					@click={`img_idx = (img_idx - 1 + ${processed_images.length}) % ${processed_images.length}`}
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="size-6"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M15.75 19.5 8.25 12l7.5-7.5"
-						>
-						</path>
-					</svg>
-				</button>
-				<button
-					class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
-					@click={`img_idx = (img_idx + 1) % ${processed_images.length}`}
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="size-6"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="m8.25 4.5 7.5 7.5-7.5 7.5"
-						>
-						</path>
-					</svg>
-				</button>
-			</div>
-			<p class="pt-4 text-center text-lg font-bold text-white sm:text-xl">
-				{title}
-			</p>
-			<p class="mx-auto max-w-md font-serif text-white">
-				{
-					link && (
-						<a
-							href={link}
-							class="block pb-2 text-sm font-light text-zinc-200"
-						>
-							{link}
-						</a>
-					)
-				}
-				{description}
-			</p>
-		</div>
-	</dialog>
+  <button
+    class="rounded-lg bg-zinc-800 p-4 transition-all ease-in hover:scale-105 hover:bg-zinc-700"
+    @click="$refs.dialog.showModal()"
+  >
+    <img
+      src={images?.[0]?.src}
+      class="aspect-video w-full rounded object-cover"
+      alt={`sample project image - ${title}`}
+    />
+    <p class="pt-4 text-center text-lg font-bold sm:text-xl">{title}</p>
+  </button>
+  <dialog
+    class="rounded-xl bg-zinc-800 p-4 ring-2 ring-indigo-400 backdrop:bg-black backdrop:bg-opacity-10"
+    x-ref="dialog"
+    @click="!is_in_dialog($event, $el) && $refs.dialog.close()"
+  >
+    <div class="space-y-2">
+      <div class="relative">
+        <button
+          class="mb-2 ml-auto block rounded-full bg-zinc-700 p-1 text-white"
+          @click="$refs.dialog.close()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            >
+            </path>
+          </svg>
+        </button>
+        {
+          processed_images.map((img, i) => (
+            <img
+              src={img}
+              class="max-h-96 w-full max-w-xl rounded object-contain"
+              x-show={`img_idx === ${i}`}
+              alt={`sample project image - ${title}`}
+            />
+          ))
+        }
+        <button
+          class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
+          @click={`img_idx = (img_idx - 1 + ${processed_images.length}) % ${processed_images.length}`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
+            >
+            </path>
+          </svg>
+        </button>
+        <button
+          class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
+          @click={`img_idx = (img_idx + 1) % ${processed_images.length}`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            >
+            </path>
+          </svg>
+        </button>
+      </div>
+      <p class="pt-4 text-center text-lg font-bold text-white sm:text-xl">
+        {title}
+      </p>
+      <p class="mx-auto max-w-md font-serif text-white">
+        {
+          link && (
+            <a href={link} class="block pb-2 text-sm font-light text-zinc-200">
+              {link}
+            </a>
+          )
+        }
+        {description}
+      </p>
+    </div>
+  </dialog>
 </div>
