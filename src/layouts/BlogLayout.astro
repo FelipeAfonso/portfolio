@@ -6,75 +6,87 @@ const { frontmatter } = Astro.props;
 
 <!doctype html>
 <html lang="en" class="bg-zinc-900">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={frontmatter.description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{frontmatter.title} - Felipe Afonso</title>
-	</head>
-	<body>
-		<header class="app-container min-h-8 py-2">
-			<a
-				href="/"
-				class="font-mono text-lg font-bold text-white"
-				style="font-smooth:never;"
-			>
-				&RightTriangle; Felipe Afonso
-			</a>
-		</header>
-		<main
-			class="lg:prose-xl prose prose-zinc prose-invert mx-auto py-8 text-white"
-		>
-			<img src={frontmatter.image} />
-			<h1 class="!mb-2">{frontmatter.title}</h1>
-			<p class="!my-0 text-sm text-zinc-200">
-				Felipe Afonso - {frontmatter.date}
-			</p>
-			<slot />
-		</main>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={frontmatter.description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.title} - Felipe Afonso</title>
+  </head>
+  <body>
+    <header class="app-container min-h-8 py-2">
+      <a
+        href="/"
+        class="font-mono text-lg font-bold text-white"
+        style="font-smooth:never;"
+      >
+        &RightTriangle; Felipe Afonso
+      </a>
+    </header>
+    <main
+      class="prose prose-zinc prose-invert mx-auto py-8 text-white lg:prose-xl"
+    >
+      <img src={frontmatter.image} />
+      <h1 class="!mb-2">{frontmatter.title}</h1>
+      <p class="!my-0 text-sm text-zinc-200">
+        Felipe Afonso - {frontmatter.date}
+      </p>
+      <slot />
+      <section class="italic">
+        <p class="pt-8 text-lg font-semibold">
+          DISCLAIMER - I USE AI FOR GRAMMAR-CHECKING
+        </p>
+        <p>
+          Since English is not my native language, and I'm not a grammar expert
+          in any language, I feel that using AI-assisted tools for grammar
+          reviews (e.g., Grammarly) is a good idea. I also emphasize that I do
+          not use AI to generate the actual content you're reading. This
+          practice goes against my beliefs, especially when unannounced.
+        </p>
+      </section>
+    </main>
+  </body>
 </html>
 <style is:global>
-	@font-face {
-		font-family: "ProFont";
-		src: url("/fonts/profont.woff") format("woff");
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
-	.app-container {
-		width: 100%;
-		margin-inline: auto;
-		padding-inline: 16px;
-	}
-	@media (min-width: 640px) {
-		.app-container {
-			max-width: 640px;
-			margin-inline: auto;
-			padding-inline: 16px;
-		}
-	}
-	@media (min-width: 768px) {
-		.app-container {
-			max-width: 768px;
-			margin-inline: auto;
-			padding-inline: 16px;
-		}
-	}
-	@media (min-width: 1024px) {
-		.app-container {
-			max-width: 1024px;
-			margin-inline: auto;
-			padding-inline: 24px;
-		}
-	}
-	@media (min-width: 1280px) {
-		.app-container {
-			max-width: 1280px;
-			margin-inline: auto;
-			padding-inline: 24px;
-		}
-	}
+  @font-face {
+    font-family: "ProFont";
+    src: url("/fonts/profont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  .app-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 640px) {
+    .app-container {
+      max-width: 640px;
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+  }
+  @media (min-width: 768px) {
+    .app-container {
+      max-width: 768px;
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .app-container {
+      max-width: 1024px;
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .app-container {
+      max-width: 1280px;
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+  }
 </style>
