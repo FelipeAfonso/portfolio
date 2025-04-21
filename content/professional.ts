@@ -32,7 +32,7 @@ export const professional: Record<string, Experience> = {
     startDate: "05/2023",
     endDate: "04/2024",
     description: [
-      `Built a custom CRM platform with SvelteKit, tailored to seamlessly integrate with Twilio's Callcenter app, enhancing agent productivity and improving customer interactions.`,
+      `Built a custom CRM platform with SvelteKit, tailored to seamlessly integrate with Twilio's Call Center app, enhancing agent productivity and improving customer interactions.`,
       `Developed internal tools for campaign management, partner landing page customization, and contract tracking, streamlining workflows and enhancing efficiency.`,
       `Leveraged technical expertise to create and deploy performant, SEO-compliant portals that directly contributed to increased website traffic, lead generation, and overall business growth.`,
       `Relocated along with the entire development team to a sibling company, maintaining my role as Senior Software Engineer and still working with the same team of developers`,
@@ -47,13 +47,13 @@ export const professional: Record<string, Experience> = {
     startDate: "05/2022",
     endDate: "05/2023",
     description: [
-      `Revamped the legacy user portal, migrating it from a complex React SPA to a streamlined Next.js SSR architecture, enhancing performance, SEO, and form functionality while maintaining seamless back-end integration.`,
-      `Revitalized an internal CRM with reliability and UX enhancements, achieving a successful integration with a Twilio-powered call center solution.`,
-      `Developed high-performing, SEO-optimized landing pages for ad campaigns, driving increased traffic and conversions.`,
-      `Developed and implemented a comprehensive cookie banner solution, catering to both internal website needs and external clients as a SaaS product.`,
+      `Revamped the legacy user portal, migrating it from a complex React SPA to a streamlined NextJS SSR architecture, enhancing performance, SEO, and form functionality while maintaining seamless back-end integration.`,
+      `Revitalized an internal NextJS CRM with reliability and UX enhancements, achieving a successful integration with a Twilio-powered call center solution.`,
+      `Developed high-performing, SEO-optimized landing pages for ad campaigns with NextJS, driving increased traffic and conversions.`,
+      `Developed and implemented a comprehensive cookie banner solution using Svelte Kit, catering to both internal website needs and external clients as a SaaS product.`,
       `Relocated along with the entire development team to a sibling company, maintaining my role as Senior Software Engineer and still working with the same team of developers`,
     ],
-    workedWith: ["Next.js", "Tailwind", "React Hook Forms"],
+    workedWith: ["NextJS", "Tailwind", "React Hook Forms"],
   },
   santoslab_latter: {
     title: "Tech Lead",
