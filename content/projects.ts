@@ -35,7 +35,7 @@ export const projects: Record<string, Project> = {
   go_htmx: {
     title: "Go HTMX Front end Template",
     description:
-      "In need for a performant application for my work, I created a template for a Go HTMX application. It leverages Vite for Hot Reloading and bundling, which also makes it much easier to create isolated islands using other frameworks (like React) in specific locations of the website. It worked out great, and I used daily during my work at ContactAI.",
+      "In need of a performant application for my work, I created a template for a Go HTMX application. It leverages Vite for Hot Reloading and bundling, which also makes it much easier to create isolated islands using other frameworks (like React) in specific locations of the website. It worked out great, and I used it daily during my work at ContactAI.",
     link: "https://github.com/FelipeAfonso/go-htmx-starter",
     images: [GoHTMX],
   },
