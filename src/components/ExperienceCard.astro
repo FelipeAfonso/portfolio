@@ -16,8 +16,16 @@ interface Props {
   isLast?: boolean;
 }
 
-const { title, logo, company, startDate, endDate, description, isLast } =
-  Astro.props;
+const {
+  title,
+  logo,
+  company,
+  startDate,
+  endDate,
+  description,
+  isLast,
+  workedWith,
+} = Astro.props;
 ---
 
 <li>
@@ -56,6 +64,25 @@ const { title, logo, company, startDate, endDate, description, isLast } =
             }
           </p>
         </div>
+        {
+          workedWith?.length && (
+            <div class="mt-2 font-serif text-sm text-neutral-300">
+              <p class="font-xs font-light">
+                Technologies: [
+                {workedWith?.map((w, i) => {
+                  return (
+                    <span>
+                      {w}
+                      {i !== workedWith.length - 1 ? ", " : ""}
+                    </span>
+                  );
+                })}
+                ]
+              </p>
+            </div>
+          )
+        }
+
         <div class="mt-2 font-serif text-sm text-neutral-300">
           <ul class="list-inside list-disc">
             {description?.map((d) => <li>{d}</li>)}

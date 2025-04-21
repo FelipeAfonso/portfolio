@@ -19,6 +19,7 @@ import Liftup from "./images/LiftUpPortal.png";
 import LiftupCustomer from "./images/LiftUpPortalCustomer.png";
 import StupidSpiderGameIG from "./images/StupidSpiderGameIG.png";
 import StupidSpiderGameTitle from "./images/StupidSpiderGameTitle.png";
+import GoHTMX from "./images/go-htmx.webp";
 
 import type { ImageMetadata } from "astro";
 
@@ -31,8 +32,15 @@ export type Project = {
 };
 
 export const projects: Record<string, Project> = {
+  go_htmx: {
+    title: "Go HTMX Front end Template",
+    description:
+      "In need for a performant application for my work, I created a template for a Go HTMX application. It leverages Vite for Hot Reloading and bundling, which also makes it much easier to create isolated islands using other frameworks (like React) in specific locations of the website. It worked out great, and I used daily during my work at ContactAI.",
+    link: "https://github.com/FelipeAfonso/go-htmx-starter",
+    images: [GoHTMX],
+  },
   stupid_spooder_game: {
-    title: "Stupid Spooder Game",
+    title: "Spooder Game",
     description:
       "I crafted a simple game using Rust and the Bevy Game Engine. It may be a small undertaking, but I developed everything, from sprites and music to interactions.",
     link: "https://king-cod.itch.io/stupid-spooder-game",
