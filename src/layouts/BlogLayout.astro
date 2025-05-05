@@ -1,6 +1,7 @@
 ---
 import "@fontsource/roboto-slab";
 import "@fontsource-variable/josefin-sans";
+import Posthog from "../components/Posthog.astro";
 const { frontmatter } = Astro.props;
 ---
 
@@ -13,6 +14,7 @@ const { frontmatter } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title} - Felipe Afonso</title>
+    <Posthog />
   </head>
   <body>
     <header class="app-container min-h-8 py-2">
@@ -46,47 +48,47 @@ const { frontmatter } = Astro.props;
         </p>
       </section>
     </main>
+    <style is:global>
+      @font-face {
+        font-family: "ProFont";
+        src: url("/fonts/profont.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      .app-container {
+        width: 100%;
+        margin-inline: auto;
+        padding-inline: 16px;
+      }
+      @media (min-width: 640px) {
+        .app-container {
+          max-width: 640px;
+          margin-inline: auto;
+          padding-inline: 16px;
+        }
+      }
+      @media (min-width: 768px) {
+        .app-container {
+          max-width: 768px;
+          margin-inline: auto;
+          padding-inline: 16px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .app-container {
+          max-width: 1024px;
+          margin-inline: auto;
+          padding-inline: 24px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .app-container {
+          max-width: 1280px;
+          margin-inline: auto;
+          padding-inline: 24px;
+        }
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: "ProFont";
-    src: url("/fonts/profont.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  .app-container {
-    width: 100%;
-    margin-inline: auto;
-    padding-inline: 16px;
-  }
-  @media (min-width: 640px) {
-    .app-container {
-      max-width: 640px;
-      margin-inline: auto;
-      padding-inline: 16px;
-    }
-  }
-  @media (min-width: 768px) {
-    .app-container {
-      max-width: 768px;
-      margin-inline: auto;
-      padding-inline: 16px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .app-container {
-      max-width: 1024px;
-      margin-inline: auto;
-      padding-inline: 24px;
-    }
-  }
-  @media (min-width: 1280px) {
-    .app-container {
-      max-width: 1280px;
-      margin-inline: auto;
-      padding-inline: 24px;
-    }
-  }
-</style>
