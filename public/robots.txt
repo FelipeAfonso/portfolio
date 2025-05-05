@@ -1,0 +1,16 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Crawl-delay to be nice to servers (optional)
+Crawl-delay: 10
+
+# Common files and directories
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.pdf
+Allow: /fonts/ 

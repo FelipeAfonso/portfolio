@@ -14,6 +14,26 @@ const { frontmatter } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title} - Felipe Afonso</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:description" content={frontmatter.description} />
+    <meta property="og:image" content={frontmatter.image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={frontmatter.title} />
+    <meta property="twitter:description" content={frontmatter.description} />
+    <meta property="twitter:image" content={frontmatter.image} />
+
+    <!-- Article specific -->
+    <meta property="article:published_time" content={frontmatter.date} />
+    <meta property="article:author" content="Felipe Afonso" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url.href} />
+
     <Posthog />
   </head>
   <body>
