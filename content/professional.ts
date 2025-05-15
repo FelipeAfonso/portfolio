@@ -29,7 +29,7 @@ export const professional: Record<string, Experience> = {
       `Revitalized an internal NextJS CRM with reliability and UX enhancements, achieving a successful integration with a Twilio-powered call center solution.`,
       `Developed high-performing, SEO-optimized landing pages for ad campaigns with NextJS, driving increased traffic and conversions.`,
       `Developed and implemented a comprehensive cookie banner solution using Svelte Kit, catering to both internal website needs and external clients as a SaaS product.`,
-      `Relocated along with the entire development team to a sibling company, maintaining my role as Senior Software Engineer and still working with the same team of developers`,
+      // `Relocated along with the entire development team to a sibling company, maintaining my role as Senior Software Engineer and still working with the same team of developers`,
     ],
     workedWith: [
       "NextJS",
