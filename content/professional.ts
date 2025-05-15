@@ -34,10 +34,13 @@ export const professional: Record<string, Experience> = {
     workedWith: [
       "NextJS",
       "Tailwind",
-      "React Hook Forms",
       "GoLang",
       "HTMX",
       "Svelte Kit",
+      "PostgreSQL",
+      "AWS",
+      "Docker",
+      "Vercel",
     ],
   },
   santoslab_latter: {
@@ -52,7 +55,14 @@ export const professional: Record<string, Experience> = {
       `Developed a React/TypeScript precision agriculture platform, integrating drone, satellite, and in-field data to provide farmers actionable insights. Leveraged Turf.js and Leaflet for geospatial analysis, maintained a design system with Storybook/MUI, and developed data-driven GHG emissions forms with real-time estimations using React Hook Form and Zod.`,
       `Created a React Native app for offline field data collection, ensuring seamless synchronization with a precision agriculture platform to generate maps and reports, empowering farmers with real-time insights.`,
     ],
-    workedWith: ["React.js", "React Native", "Leaflet", "Turf.js"],
+    workedWith: [
+      "React.js",
+      "React Native",
+      "Leaflet",
+      "Turf.js",
+      "AWS",
+      "Docker",
+    ],
   },
   santoslab_prev: {
     title: "Front end Developer",
