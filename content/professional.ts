@@ -24,13 +24,7 @@ export const professional: Record<string, Experience> = {
       `Built an Expense and Contract Management solution to support the team's budgeting operations, centralizing tracking across diverse funding activities.`,
       `Iterated on internal tooling to reduce operational friction and process attrition, streamlining day-to-day business activities.`,
     ],
-    workedWith: [
-      "TypeScript",
-      "React",
-      "Node.js",
-      "API Integrations",
-      "Internal Tooling",
-    ],
+    workedWith: ["TypeScript", "Svelte Kit", "Node.js", "AI Coding", "Vercel"],
   },
   basement_lab: {
     title: "Software Engineer",
@@ -45,7 +39,7 @@ export const professional: Record<string, Experience> = {
       `Created a reusable open-source component library used across the company's web applications.`,
     ],
     workedWith: [
-      "React",
+      "NextJS",
       "TypeScript",
       "Component Libraries",
       "Web Performance",
