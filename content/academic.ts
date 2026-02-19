@@ -36,32 +36,18 @@ export const academic: Record<string, Experience> = {
       "Weex",
     ],
   },
-  mentor1: {
-    title: "Graduate Student Mentor",
-    logo: "/ifsp.webp",
-    company:
-      "IFSP (Federal Institute of science, technology and education of São Paulo)",
-    location: "Piracicaba - São Paulo, Brazil",
-    startDate: "05/2018",
-    endDate: "12/2018",
-    description: [
-      `Mentored a student in developing a Kotlin/Kotlin Native Android app for their final graduation project, providing guidance on language-specific concepts and best practices.`,
-      `Volunteered time and expertise to support IFSP graduates through the mentorship program, contributing to their academic and professional development.`,
-    ],
-    workedWith: ["Kotlin", "Kotlin/Native", "Android SDK"],
-  },
-  mentor2: {
+  mentor: {
     title: "Graduate Student Mentor",
     logo: "/ifsp.webp",
     company:
       "IFSP (Federal Institute of science, technology and education of São Paulo)",
     location: "Piracicaba - São Paulo, Brazil",
     startDate: "09/2017",
-    endDate: "08/2017",
+    endDate: "12/2018",
     description: [
-      `Designed and delivered a six-week virtual course on Agile methodologies for IFSP graduates, utilizing Google Classroom for content delivery and interaction.`,
-      `Mentored and evaluated students throughout the course, providing personalized feedback and guidance to enhance their understanding of Agile principles and practices.`,
+      `Mentored a student building a Kotlin/Kotlin Native Android app for their graduation project, and designed a six-week virtual course on Agile methodologies.`,
     ],
+    workedWith: ["Kotlin", "Kotlin/Native", "Android SDK"],
   },
   bach: {
     title: "Bachelor of Technology Degree in Systems Engineering",
@@ -86,7 +72,8 @@ export const academic: Record<string, Experience> = {
     startDate: "08/2016",
     endDate: "12/2016",
     description: [
-      `Served as a Web Development class monitor, providing scholarship-funded support to fellow students on their .NET Razor, jQuery, and PHP projects.`,
+      `Served as a scholarship-funded Web Development class monitor, supporting fellow students on their .NET Razor, jQuery, and PHP projects.`,
+      `Helped debug and review student code, reinforcing fundamentals in server-side rendering, DOM manipulation, and back-end integration.`,
     ],
   },
 };

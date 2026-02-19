@@ -34,9 +34,8 @@ export const professional: Record<string, Experience> = {
     startDate: "06/2025",
     endDate: "10/2025",
     description: [
-      `Led the front-end effort to rewrite a legacy application, improving resilience against slow APIs and reducing customer-facing latency.`,
-      `Reduced application login time from 25 seconds to 7 seconds.`,
-      `Created a reusable open-source component library used across the company's web applications.`,
+      `Led a legacy application rewrite focused on web performance, delivering major improvements across authentication, data fetching, and rendering.`,
+      `Built a reusable open-source component library adopted across the company's web applications.`,
     ],
     workedWith: [
       "NextJS",
@@ -53,17 +52,10 @@ export const professional: Record<string, Experience> = {
     startDate: "05/2022",
     endDate: "06/2025",
     description: [
-      `Built a performance-oriented Compliance Management Platform using GoLang, HTMX and Tailwind.`,
-      `Worked closely with Finance and Product teams to prototype a new platform for debt settlement compliance management using Svelte Kit.`,
-      `Created an application for sales agents to hand off their calls to an AI assistant, streamlining contract reading processes.`,
-      `Built a custom CRM platform with SvelteKit, tailored to seamlessly integrate with Twilio's Call Center app, enhancing agent productivity and improving customer interactions.`,
-      `Developed internal tools for campaign management, partner landing page customization, and contract tracking, streamlining workflows and enhancing efficiency.`,
-      `Leveraged technical expertise to create and deploy performant, SEO-compliant portals that directly contributed to increased website traffic, lead generation, and overall business growth.`,
-      `Revamped the legacy user portal, migrating it from a complex React SPA to a streamlined NextJS SSR architecture, enhancing performance, SEO, and form functionality while maintaining seamless back-end integration.`,
-      `Revitalized an internal NextJS CRM with reliability and UX enhancements, achieving a successful integration with a Twilio-powered call center solution.`,
-      `Developed high-performing, SEO-optimized landing pages for ad campaigns with NextJS, driving increased traffic and conversions.`,
-      `Developed and implemented a comprehensive cookie banner solution using Svelte Kit, catering to both internal website needs and external clients as a SaaS product.`,
-      // `Relocated along with the entire development team to a sibling company, maintaining my role as Senior Software Engineer and still working with the same team of developers`,
+      `Built a custom CRM platform with SvelteKit integrated with Twilio's Call Center, and created an AI-assisted call handoff tool for sales agents to streamline contract reading.`,
+      `Revamped the legacy user portal from a React SPA to NextJS SSR, improving performance and SEO, and developed high-converting landing pages for ad campaigns.`,
+      `Built a Compliance Management Platform using GoLang, HTMX and Tailwind, working closely with Finance and Product teams on debt settlement workflows.`,
+      `Developed internal tools spanning campaign management, contract tracking, and a cookie banner SaaS product used both internally and by external clients.`,
     ],
     workedWith: [
       "NextJS",
@@ -77,17 +69,17 @@ export const professional: Record<string, Experience> = {
       "Vercel",
     ],
   },
-  santoslab_latter: {
-    title: "Tech Lead",
+  santoslab: {
+    title: "Front end Developer / Tech Lead",
     logo: "/santoslab.webp",
     company: "Santos Lab",
     location: "Rio de Janeiro, Brazil",
-    startDate: "06/2019",
+    startDate: "03/2017",
     endDate: "05/2022",
     description: [
-      `Led a team of 5 engineers in the development of a comprehensive precision agriculture platform. Successfully bridged the gap between front-end and back-end teams, ensuring alignment with user needs and agricultural procedures. Provided technical guidance and mentorship to team members while maintaining hands-on development responsibilities.`,
-      `Developed a React/TypeScript precision agriculture platform, integrating drone, satellite, and in-field data to provide farmers actionable insights. Leveraged Turf.js and Leaflet for geospatial analysis, maintained a design system with Storybook/MUI, and developed data-driven GHG emissions forms with real-time estimations using React Hook Form and Zod.`,
-      `Created a React Native app for offline field data collection, ensuring seamless synchronization with a precision agriculture platform to generate maps and reports, empowering farmers with real-time insights.`,
+      `Grew from Front end Developer to Tech Lead over 5 years, eventually leading a team of 5 engineers building a comprehensive precision agriculture platform.`,
+      `Built a React/TypeScript platform integrating drone, satellite, and in-field data with geospatial analysis (Turf.js, Leaflet), giving farmers actionable insights through interactive maps with split-view comparison and measurement tools.`,
+      `Created a React Native app for offline field data collection with seamless sync to the main platform for map and report generation.`,
     ],
     workedWith: [
       "React.js",
@@ -98,19 +90,6 @@ export const professional: Record<string, Experience> = {
       "Docker",
     ],
   },
-  santoslab_prev: {
-    title: "Front end Developer",
-    logo: "/santoslab.webp",
-    company: "Santos Lab",
-    location: "Rio de Janeiro, Brazil",
-    startDate: "03/2017",
-    endDate: "06/2019",
-    description: [
-      `Successfully maintained and revitalized a legacy application, identifying and resolving critical issues while adapting it to evolving business needs. This work laid the groundwork for the development of a comprehensive precision agriculture platform.`,
-      `Developed an MVP React.js platform enabling agronomists to upload various map formats (.KMZ, .SHP, .TIF, .KML, .PNG) and farmers to access them for informed decision-making. The platform's intuitive interface featured a split-view for map comparison, multiple object handling, and various measurement tools.`,
-    ],
-    workedWith: ["React.js", "Leaflet", "Recharts"],
-  },
   seedz: {
     title: "Mobile Developer",
     logo: "/academic.svg",
@@ -119,8 +98,7 @@ export const professional: Record<string, Experience> = {
     startDate: "02/2017",
     endDate: "06/2017",
     description: [
-      `Developed a native Java Android micro-investing app with REST API integration for a startup contest sponsored by Itaú, one of Brazil's largest banks.`,
-      `Navigated legal and logistical challenges while collaborating with a team to design and execute a unique financial product, gaining valuable problem-solving experience.`,
+      `Built a native Android micro-investing app for a startup contest sponsored by Itaú, one of Brazil's largest banks.`,
     ],
     workedWith: ["Java", "Android SDK"],
   },
