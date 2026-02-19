@@ -18,7 +18,11 @@ export const professional: Record<string, Experience> = {
     startDate: "05/2025",
     endDate: "isCurrent",
     description: [
-      `Helping the US venturing team at Niterra create and expand internal tooling with full-stack applications and deep third-party integrations.`,
+      `Designed and built a custom automation layer on top of Affinity CRM, extending its native capabilities with tailored dashboards and quality-of-life improvements for the venturing team's daily workflows.`,
+      `Scaled the initial CRM tooling into a full-featured internal portal serving multiple business functions across the organization.`,
+      `Developed a Portfolio Management module with automated quarterly report ingestion, real-time performance dashboards, and custom reporting capabilities derived from submitted fund data.`,
+      `Built an Expense and Contract Management solution to support the team's budgeting operations, centralizing tracking across diverse funding activities.`,
+      `Iterated on internal tooling to reduce operational friction and process attrition, streamlining day-to-day business activities.`,
     ],
     workedWith: [
       "TypeScript",
@@ -40,7 +44,12 @@ export const professional: Record<string, Experience> = {
       `Reduced application login time from 25 seconds to 7 seconds.`,
       `Created a reusable open-source component library used across the company's web applications.`,
     ],
-    workedWith: ["React", "TypeScript", "Component Libraries", "Web Performance"],
+    workedWith: [
+      "React",
+      "TypeScript",
+      "Component Libraries",
+      "Web Performance",
+    ],
   },
   homeoptions: {
     title: "Software Engineer",
