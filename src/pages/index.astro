@@ -24,248 +24,859 @@ const date_sort = (a: any, b: any) => {
 
 const professional_parsed = Object.values(professional).sort(date_sort);
 const academic_parsed = Object.values(academic).sort(date_sort);
-const nav = [
-  { label: "About me", href: "/#about" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Contact", href: "/#contact" },
-  { label: "Blog", href: "/#blog" },
+
+const toc = [
+  { label: "About", href: "#about", id: "about" },
+  { label: "Experience", href: "#experience", id: "experience" },
+  { label: "Projects", href: "#projects", id: "projects" },
+  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Blog", href: "#blog", id: "blog" },
 ];
 ---
 
 <Layout title="Felipe Afonso's Portfolio">
-  <!-- <div -->
-  <!--     x-data="{ open: false }" -->
-  <!--     class="text-white p-8 text-xl font-bold app-container" -->
-  <!-- > -->
-  <!--     <button @click="open = true">Expand</button> -->
-  <!--     <span x-show="open"> Content... </span> -->
-  <!-- </div> -->
-  <main class="app-container py-8 text-white">
-    <div class="grid gap-4 sm:grid-cols-2">
-      <content class="flex flex-col justify-center">
-        <h1 class="font-sans text-xl font-bold lg:text-3xl">
-          Hi! I'm Felipe Afonso
-        </h1>
-        <p class="max-w-sm font-serif text-lg font-medium">
-          I'm a Software Engineer focused on end-to-end applications. Currently
-          working at Venture Lab Niterra Group.
-        </p>
-        <nav class="space-y-2 py-4 text-xl font-light">
+  <div class="v12-page">
+    <!-- Ambient background layer -->
+    <div class="v12-ambient" aria-hidden="true"></div>
+    <!-- Topographic texture -->
+    <div class="v12-topo" aria-hidden="true"></div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- HERO — full width, above the ToC split         -->
+    <!-- ══════════════════════════════════════════════ -->
+    <main class="v12-hero app-container py-12 text-white lg:py-20">
+      <div class="v12-section grid gap-6 sm:grid-cols-2">
+        <div class="flex flex-col justify-center">
+          <h1 class="font-sans text-2xl font-bold tracking-tight lg:text-4xl">
+            Hi! I'm Felipe Afonso
+          </h1>
+          <p
+            class="max-w-sm font-serif text-lg font-medium leading-relaxed text-neutral-300"
+          >
+            I'm a Software Engineer focused on end-to-end applications. Currently
+            working at Venture Lab Niterra Group.
+          </p>
+          <!-- Hero nav — observed to trigger sidebar/mobile ToC -->
+          <nav id="hero-nav" class="space-y-2 py-6 text-xl font-light max-lg:hidden">
+            {
+              toc.map(({ label, href }) => (
+                <a
+                  class="v12-nav-link block transition-all duration-300 ease-out hover:font-normal hover:text-indigo-400"
+                  href={href}
+                >
+                  &rightarrow; {label}
+                </a>
+              ))
+            }
+          </nav>
+          <!-- Compact mobile-only hero nav -->
+          <nav
+            id="hero-nav-mobile"
+            class="flex flex-wrap gap-x-4 gap-y-1 py-4 text-sm font-light lg:hidden"
+          >
+            {
+              toc.map(({ label, href }) => (
+                <a
+                  class="text-neutral-400 transition-colors duration-200 hover:text-indigo-400"
+                  href={href}
+                >
+                  {label}
+                </a>
+              ))
+            }
+          </nav>
+        </div>
+        <figure
+          class="group mx-auto max-w-lg rounded-xl px-2 pt-2 transition-all duration-500 ease-out hover:bg-zinc-800/60"
+        >
+          <Image
+            src={Me}
+            widths={[280, 344, 496]}
+            sizes="(max-width: 640px) 496px, (max-width: 768px) 280px, (max-width: 1024px) 344px, 496px"
+            class="aspect-square w-full rounded-lg object-cover ring-1 ring-zinc-700 transition-shadow duration-500 ease-out group-hover:shadow-lg group-hover:shadow-indigo-500/10"
+            alt="My picture at my office's balcony"
+          />
+          <span
+            class="block py-2 text-center text-transparent transition-all duration-500 ease-in group-hover:text-neutral-300"
+          >
+            Me at my office's balcony
+          </span>
+        </figure>
+      </div>
+    </main>
+
+    <!-- Ambient glow divider -->
+    <hr class="v12-glow-hr" aria-hidden="true" />
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- CONTENT AREA — with ToC sidebar on desktop     -->
+    <!-- ══════════════════════════════════════════════ -->
+
+    <!-- Mobile sticky ToC (appears on scroll, < lg) -->
+    <nav class="v12-mobile-toc lg:hidden" id="mobile-toc" aria-label="Sections" style="opacity: 0; transform: translateY(-100%); pointer-events: none;">
+      <div class="v12-mobile-toc-inner">
+        {
+          toc.map(({ label, href, id }) => (
+            <a
+              href={href}
+              class="v12-mobile-toc-link"
+              data-toc-link={id}
+            >
+              {label}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+
+    <div class="v12-content-area app-container">
+      <!-- Desktop sticky ToC sidebar -->
+      <aside class="v12-toc-sidebar max-lg:hidden" aria-label="Table of contents">
+        <nav class="v12-toc-nav" style="opacity: 0; transform: translateX(-8px); pointer-events: none;">
+          <p class="v12-toc-label">On this page</p>
           {
-            nav.map(({ label, href }) => (
+            toc.map(({ label, href, id }) => (
               <a
-                class="block transition-all ease-in hover:font-normal hover:text-indigo-400"
                 href={href}
+                class="v12-toc-link"
+                data-toc-link={id}
               >
-                &rightarrow; {label}
+                <span class="v12-toc-indicator" />
+                {label}
               </a>
             ))
           }
         </nav>
-      </content>
-      <figure
-        class="group mx-auto max-w-lg rounded-xl px-2 pt-2 transition-all ease-in hover:bg-zinc-800"
-      >
-        <Image
-          src={Me}
-          widths={[280, 344, 496]}
-          sizes="(max-width: 640px) 496px, (max-width: 768px) 280px, (max-width: 1024px) 344px, 496px"
-          class="aspect-square w-full rounded-lg object-cover"
-          alt="My picture at my office's balcony"
-        />
-        <span
-          class="block py-2 text-center text-transparent transition-all ease-in group-hover:text-neutral-100"
-        >
-          Me at my office's balcony
-        </span>
-      </figure>
-    </div>
-  </main>
-  <hr class="app-container border-neutral-700" />
+      </aside>
 
-  <section id="about" class="app-container py-8 text-white">
-    <h2 class="text-lg font-bold lg:text-2xl">About me</h2>
-    <content class="grid gap-x-8 gap-y-4 font-serif sm:grid-cols-2">
-      <p class="max-w-lg pt-4 text-lg font-medium">
-        I'm a passionate programmer fluent in multiple languages and diverse
-        technologies. Often recognized as the team's Arch Linux and Neovim nerd.
-      </p>
-      <p class="max-w-lg pt-4 text-lg font-medium">
-        My Master of Computer Science degree emphasized Software Engineering,
-        with a research focus on Mobile Cross-Platform development frameworks.
-      </p>
-      <p class="max-w-lg pt-4 text-lg font-medium">
-        I always worked within small dev teams at startups, focusing on product
-        creation and efficient delivery. Always seeking new challenges and
-        opportunities for learning and growth.
-      </p>
-      <p class="max-w-lg pt-4 text-lg font-medium">
-        I'm always improving my skills in multiple areas, from Front End
-        Development to Game Development, and even non tech-related skills like
-        music and mathematics.
-      </p>
-    </content>
-  </section>
-  <hr class="app-container border-neutral-700" />
-
-  <section id="experience" class="app-container py-8 text-white">
-    <h2 class="text-lg font-bold lg:text-2xl">Experience</h2>
-    <div class="grid gap-4 py-8 sm:grid-cols-2">
-      <div class="flow-root">
-        <p class="pb-6 font-medium sm:text-lg">Professional</p>
-        <ul role="list" class="-mb-8 px-2">
-          {
-            professional_parsed.map((item, i) => (
-              <ExperienceCard
-                {...item}
-                isLast={i === professional_parsed.length - 1}
-              />
-            ))
-          }
-        </ul>
-      </div>
-      <div class="flow-root">
-        <p class="pb-6 font-medium sm:text-lg">Academic</p>
-        <ul class="-mb-8 px-2">
-          {
-            academic_parsed.map((item, i) => (
-              <ExperienceCard
-                {...item}
-                isLast={i === academic_parsed.length - 1}
-              />
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </section>
-  <hr class="app-container border-neutral-700" />
-
-  <section id="projects" class="app-container py-8 text-white">
-    <h2 class="text-lg font-bold lg:text-2xl">Projects</h2>
-    <p class="font-serif text-sm text-zinc-50">
-      Some of the projects I made in the past years. These don't include
-      internal tooling, private projects, or any other non-public work.
-    </p>
-    <div class="grid gap-4 py-8 sm:grid-cols-2 md:grid-cols-3">
-      {
-        Object.entries(projects).map(([id, prj]) => (
-          <ProjectCard id={id} {...prj} />
-        ))
-      }
-    </div>
-  </section>
-  <hr class="app-container border-neutral-700" />
-
-  <section
-    id="contact"
-    class="app-container flex flex-col items-center justify-center gap-2 py-24 text-white"
-  >
-    <h2 class="pb-8 text-lg font-bold lg:text-2xl">Contact me</h2>
-    <a
-      class="flex items-center gap-2 text-xl underline"
-      href="mailto:fmunhozafonso@gmail.com"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="size-6"
-      >
-        <path
-          d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"
+      <!-- Main content column -->
+      <div class="v12-main-content">
+        <section
+          id="about"
+          class="v12-section py-12 text-white lg:py-16"
+          data-section="about"
+          data-color-temp="neutral"
         >
-        </path>
-        <path
-          d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"
-        >
-        </path>
-      </svg>
-      fmunhozafonso@gmail.com
-    </a>
-    <a
-      class="flex items-center gap-2 text-xl underline"
-      href="https://github.com/FelipeAfonso"
-      target="_blank"
-    >
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        class="size-6"
-      >
-        <title>GitHub</title><path
-          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-        >
-        </path>
-      </svg>
-      @FelipeAfonso
-    </a>
-    <a
-      class="flex items-center gap-2 text-xl underline"
-      href="https://www.linkedin.com/in/felipe-afonso"
-      target="_blank"
-    >
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        class="size-6"
-      >
-        <title>LinkedIn</title><path
-          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-        >
-        </path>
-      </svg>
-      in/felipe-afonso
-    </a>
-  </section>
-
-  <hr class="app-container border-neutral-700" />
-  <section id="blog" class="app-container py-8 text-white">
-    <h2 class="pb-8 text-lg font-bold lg:text-2xl">Blog</h2>
-    <div class="space-y-20">
-      <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-        <div
-          class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0"
-        >
-          <img
-            src="/horsey.webp"
-            alt="A horse shooting laser of its eyes in a pink background"
-            class="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-          />
-          <div
-            class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"
-          >
-          </div>
-        </div>
-        <div>
-          <div class="flex items-center gap-x-4 text-xs">
-            <time datetime="2020-03-16" class="text-zinc-200">
-              July 4, 2024
-            </time>
-          </div>
-          <div class="group relative max-w-xl">
-            <h3
-              class="mt-3 text-lg font-semibold leading-6 text-white group-hover:text-indigo-300"
-            >
-              <a href="/blog/just-create-stupid-stuff">
-                <span class="absolute inset-0"></span>
-                Just create stupid stuff
-              </a>
-            </h3>
-            <p class="mt-5 text-sm leading-6 text-zinc-300">
-              Why You Don't Have to Sacrifice Your Weekends for a Relevant
-              GitHub Profile. In this article, I discuss the pressure to
-              maintain side projects and a strong GitHub profile while working
-              full-time in the tech industry.
+          <h2 class="text-xl font-bold tracking-tight lg:text-3xl">About me</h2>
+          <div class="grid gap-x-8 gap-y-4 font-serif sm:grid-cols-2">
+            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
+              I'm a passionate programmer fluent in multiple languages and diverse
+              technologies. Often recognized as the team's Arch Linux and Neovim
+              nerd.
+            </p>
+            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
+              My Master of Computer Science degree emphasized Software Engineering,
+              with a research focus on Mobile Cross-Platform development frameworks.
+            </p>
+            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
+              I always worked within small dev teams at startups, focusing on
+              product creation and efficient delivery. Always seeking new challenges
+              and opportunities for learning and growth.
+            </p>
+            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
+              I'm always improving my skills in multiple areas, from Front End
+              Development to Game Development, and even non tech-related skills like
+              music and mathematics.
             </p>
           </div>
-        </div>
-      </article>
+        </section>
+
+        <hr class="v12-glow-hr" aria-hidden="true" />
+
+        <section
+          id="experience"
+          class="v12-section py-12 text-white lg:py-16"
+          data-section="experience"
+          data-color-temp="neutral"
+        >
+          <h2 class="text-xl font-bold tracking-tight lg:text-3xl">
+            Experience
+          </h2>
+          <div class="grid gap-4 py-8 sm:grid-cols-2">
+            <div class="flow-root">
+              <p class="pb-6 font-medium sm:text-lg">Professional</p>
+              <ul role="list" class="-mb-8 px-2">
+                {
+                  professional_parsed.map((item, i) => (
+                    <ExperienceCard
+                      {...item}
+                      isLast={i === professional_parsed.length - 1}
+                    />
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="flow-root">
+              <p class="pb-6 font-medium sm:text-lg">Academic</p>
+              <ul class="-mb-8 px-2">
+                {
+                  academic_parsed.map((item, i) => (
+                    <ExperienceCard
+                      {...item}
+                      isLast={i === academic_parsed.length - 1}
+                    />
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <hr class="v12-glow-hr" aria-hidden="true" />
+
+        <section
+          id="projects"
+          class="v12-section py-12 text-white lg:py-16"
+          data-section="projects"
+          data-color-temp="cool"
+        >
+          <h2 class="text-xl font-bold tracking-tight lg:text-3xl">Projects</h2>
+          <p class="font-serif text-sm text-zinc-400">
+            Some of the projects I made in the past years. These don't include
+            internal tooling, private projects, or any other non-public work.
+          </p>
+          <div
+            class="v12-projects-grid grid gap-4 py-8 sm:grid-cols-2 md:grid-cols-3"
+          >
+            {
+              Object.entries(projects).map(([id, prj]) => (
+                <ProjectCard id={id} {...prj} />
+              ))
+            }
+          </div>
+        </section>
+
+        <hr class="v12-glow-hr" aria-hidden="true" />
+
+        <section
+          id="contact"
+          class="v12-section flex flex-col items-center justify-center gap-2 py-24 text-white"
+          data-section="contact"
+          data-color-temp="warm"
+        >
+          <h2 class="pb-4 text-xl font-bold tracking-tight lg:text-3xl">
+            Contact me
+          </h2>
+          <p class="pb-6 font-serif text-sm text-neutral-400">Get in touch</p>
+          <a
+            class="group flex items-center gap-2 text-xl underline decoration-neutral-600 underline-offset-4 transition-all duration-300 hover:text-indigo-400 hover:decoration-indigo-400/50"
+            href="mailto:fmunhozafonso@gmail.com"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-6 transition-transform duration-200 group-hover:scale-110"
+            >
+              <path
+                d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"
+              ></path>
+              <path
+                d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"
+              ></path>
+            </svg>
+            fmunhozafonso@gmail.com
+          </a>
+          <a
+            class="group flex items-center gap-2 text-xl underline decoration-neutral-600 underline-offset-4 transition-all duration-300 hover:text-indigo-400 hover:decoration-indigo-400/50"
+            href="https://github.com/FelipeAfonso"
+            target="_blank"
+          >
+            <svg
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="size-6 transition-transform duration-200 group-hover:scale-110"
+            >
+              <title>GitHub</title>
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              ></path>
+            </svg>
+            @FelipeAfonso
+          </a>
+          <a
+            class="group flex items-center gap-2 text-xl underline decoration-neutral-600 underline-offset-4 transition-all duration-300 hover:text-indigo-400 hover:decoration-indigo-400/50"
+            href="https://www.linkedin.com/in/felipe-afonso"
+            target="_blank"
+          >
+            <svg
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="size-6 transition-transform duration-200 group-hover:scale-110"
+            >
+              <title>LinkedIn</title>
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              ></path>
+            </svg>
+            in/felipe-afonso
+          </a>
+        </section>
+
+        <hr class="v12-glow-hr" aria-hidden="true" />
+
+        <section
+          id="blog"
+          class="v12-section py-12 text-white lg:py-16"
+          data-section="blog"
+          data-color-temp="neutral"
+        >
+          <h2 class="pb-8 text-xl font-bold tracking-tight lg:text-3xl">Blog</h2>
+          <div class="space-y-20">
+            <article
+              class="relative isolate flex flex-col gap-8 rounded-xl ring-1 ring-neutral-700/50 transition-all duration-300 hover:-translate-y-0.5 hover:ring-neutral-600/50 lg:flex-row"
+            >
+              <div
+                class="relative aspect-[16/9] overflow-hidden rounded-t-xl sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0 lg:rounded-l-xl lg:rounded-tr-none"
+              >
+                <img
+                  src="/horsey.webp"
+                  alt="A horse shooting laser of its eyes in a pink background"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div class="px-4 py-4 lg:py-6">
+                <div class="flex items-center gap-x-4 text-xs">
+                  <time
+                    datetime="2024-07-04"
+                    class="font-serif text-neutral-400"
+                  >
+                    July 4, 2024
+                  </time>
+                </div>
+                <div class="group relative max-w-xl">
+                  <h3
+                    class="mt-3 text-lg font-semibold leading-6 text-white group-hover:text-indigo-300"
+                  >
+                    <a href="/blog/just-create-stupid-stuff">
+                      <span class="absolute inset-0"></span>
+                      Just create stupid stuff
+                    </a>
+                  </h3>
+                  <p class="mt-5 text-sm leading-relaxed text-zinc-300">
+                    Why You Don't Have to Sacrifice Your Weekends for a Relevant
+                    GitHub Profile. In this article, I discuss the pressure to
+                    maintain side projects and a strong GitHub profile while
+                    working full-time in the tech industry.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer
+          class="border-t border-zinc-800/50 py-8 text-center text-sm text-zinc-500"
+        >
+          <p>&copy; {new Date().getFullYear()} Felipe Afonso</p>
+        </footer>
+      </div>
     </div>
-  </section>
+  </div>
 </Layout>
+
+<style>
+  /* ────────────────────────────────────────────
+     BASE
+     ──────────────────────────────────────────── */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .v12-page {
+    position: relative;
+    overflow-x: clip;
+    /* CSS custom properties driven by scroll JS */
+    --ambient-r: 24;
+    --ambient-g: 24;
+    --ambient-b: 27;
+    --accent-r: 99;
+    --accent-g: 102;
+    --accent-b: 241;
+  }
+
+  /* ────────────────────────────────────────────
+     VIGNETTE
+     ──────────────────────────────────────────── */
+  .v12-page::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: inset 0 0 180px 50px rgba(0, 0, 0, 0.55);
+  }
+
+  /* ────────────────────────────────────────────
+     AMBIENT BACKGROUND
+     ──────────────────────────────────────────── */
+  .v12-ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 80% 60% at 50% 40%,
+      rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.06) 0%,
+      transparent 70%
+    );
+    transition: background 800ms ease-out;
+  }
+
+  /* ────────────────────────────────────────────
+     TOPOGRAPHIC TEXTURE
+     ──────────────────────────────────────────── */
+  .v12-topo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cstyle%3E path %7B fill: none; stroke: %23a0a0a0; stroke-width: 0.5; %7D %3C/style%3E%3C/defs%3E%3Cpath d='M0 300 Q75 280 150 300 T300 300 T450 300 T600 300'/%3E%3Cpath d='M0 260 Q90 230 180 260 T360 260 T540 260 T600 260'/%3E%3Cpath d='M0 340 Q60 370 120 340 T240 340 T360 340 T480 340 T600 340'/%3E%3Cpath d='M0 200 Q100 170 200 200 T400 200 T600 200'/%3E%3Cpath d='M0 400 Q80 430 160 400 T320 400 T480 400 T600 400'/%3E%3Cpath d='M0 150 Q120 110 240 150 T480 150 T600 150'/%3E%3Cpath d='M0 450 Q70 480 140 450 T280 450 T420 450 T560 450 T600 450'/%3E%3Cpath d='M0 100 Q150 60 300 100 T600 100'/%3E%3Cpath d='M0 500 Q100 530 200 500 T400 500 T600 500'/%3E%3Cpath d='M0 50 Q130 20 260 50 T520 50 T600 50'/%3E%3Cpath d='M0 550 Q80 570 160 550 T320 550 T480 550 T600 550'/%3E%3Cpath d='M0 230 Q110 205 220 230 T440 230 T600 230'/%3E%3Cpath d='M0 370 Q65 395 130 370 T260 370 T390 370 T520 370 T600 370'/%3E%3Cpath d='M0 170 Q140 140 280 170 T560 170 T600 170'/%3E%3Cpath d='M0 430 Q90 460 180 430 T360 430 T540 430 T600 430'/%3E%3Cpath d='M0 75 Q160 45 320 75 T600 75'/%3E%3Cpath d='M0 525 Q100 555 200 525 T400 525 T600 525'/%3E%3C/svg%3E");
+    background-size: 600px 600px;
+    background-repeat: repeat;
+    mask-image: radial-gradient(
+      ellipse 70% 50% at 50% 30%,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      transparent 80%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 50% at 50% 30%,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      transparent 80%
+    );
+  }
+
+  /* ────────────────────────────────────────────
+     GLOW DIVIDERS
+     ──────────────────────────────────────────── */
+  .v12-glow-hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.25) 30%,
+      rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.4) 50%,
+      rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.25) 70%,
+      transparent 100%
+    );
+    box-shadow:
+      0 0 8px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15),
+      0 0 24px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.06);
+    transition:
+      background 800ms ease-out,
+      box-shadow 800ms ease-out;
+    margin: 0;
+  }
+
+  /* ────────────────────────────────────────────
+     LAYOUT: CONTENT AREA + TOC
+     ──────────────────────────────────────────── */
+  .v12-content-area {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 1024px) {
+    .v12-content-area {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .v12-content-area {
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+    }
+  }
+
+  /* ────────────────────────────────────────────
+     DESKTOP TOC SIDEBAR
+     ──────────────────────────────────────────── */
+  .v12-toc-sidebar {
+    position: relative;
+  }
+
+  .v12-toc-nav {
+    position: sticky;
+    top: 6rem;
+    padding-top: 1rem;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+      opacity 400ms ease-out,
+      transform 400ms ease-out;
+    pointer-events: none;
+  }
+
+  .v12-toc-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgb(113 113 122);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .v12-toc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    font-size: 0.8rem;
+    color: rgb(161 161 170);
+    text-decoration: none;
+    transition: color 300ms ease-out;
+    font-family: "Josefin Sans", sans-serif;
+  }
+
+  .v12-toc-link:hover {
+    color: rgb(228 228 231);
+  }
+
+  .v12-toc-link.active {
+    color: rgb(255 255 255);
+  }
+
+  .v12-toc-indicator {
+    display: inline-block;
+    width: 2px;
+    height: 16px;
+    border-radius: 1px;
+    background: transparent;
+    transition:
+      background-color 300ms ease-out,
+      box-shadow 300ms ease-out;
+    flex-shrink: 0;
+  }
+
+  .v12-toc-link.active .v12-toc-indicator {
+    background-color: rgba(
+      var(--accent-r),
+      var(--accent-g),
+      var(--accent-b),
+      0.9
+    );
+    box-shadow: 0 0 6px
+      rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.4);
+  }
+
+  /* ────────────────────────────────────────────
+     MOBILE STICKY TOC
+     ──────────────────────────────────────────── */
+  .v12-mobile-toc {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition:
+      opacity 300ms ease-out,
+      transform 300ms ease-out;
+    pointer-events: none;
+    background: rgba(24, 24, 27, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgb(39 39 42 / 0.8);
+  }
+
+  .v12-mobile-toc-inner {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.6rem 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .v12-mobile-toc-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .v12-mobile-toc-link {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    color: rgb(161 161 170);
+    text-decoration: none;
+    transition:
+      color 200ms ease-out,
+      background-color 200ms ease-out;
+    font-family: "Josefin Sans", sans-serif;
+    white-space: nowrap;
+  }
+
+  .v12-mobile-toc-link:hover {
+    color: rgb(228 228 231);
+  }
+
+  .v12-mobile-toc-link.active {
+    color: rgb(255 255 255);
+    background: rgba(
+      var(--accent-r),
+      var(--accent-g),
+      var(--accent-b),
+      0.15
+    );
+  }
+
+  /* ────────────────────────────────────────────
+     HERO
+     ──────────────────────────────────────────── */
+  .v12-hero {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ────────────────────────────────────────────
+     NAV LINK HOVER (desktop hero nav)
+     ──────────────────────────────────────────── */
+  .v12-nav-link {
+    position: relative;
+    padding-left: 0;
+    border-left: 2px solid transparent;
+    transition:
+      border-color 300ms ease-out,
+      padding-left 300ms ease-out,
+      color 300ms ease-out,
+      font-weight 300ms ease-out;
+  }
+
+  .v12-nav-link:hover {
+    border-left-color: rgba(
+      var(--accent-r),
+      var(--accent-g),
+      var(--accent-b),
+      0.8
+    );
+    padding-left: 0.5rem;
+  }
+
+  /* ────────────────────────────────────────────
+     SECTION REVEALS
+     ──────────────────────────────────────────── */
+  .v12-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 600ms ease-out,
+      transform 600ms ease-out;
+  }
+
+  .v12-section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children */
+  .v12-stagger {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 500ms ease-out,
+      transform 500ms ease-out;
+  }
+
+  .v12-section.revealed .v12-stagger:nth-child(1) {
+    transition-delay: 0ms;
+  }
+  .v12-section.revealed .v12-stagger:nth-child(2) {
+    transition-delay: 80ms;
+  }
+  .v12-section.revealed .v12-stagger:nth-child(3) {
+    transition-delay: 160ms;
+  }
+  .v12-section.revealed .v12-stagger:nth-child(4) {
+    transition-delay: 240ms;
+  }
+
+  .v12-section.revealed .v12-stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ────────────────────────────────────────────
+     PROJECT CARD ENHANCEMENTS
+     ──────────────────────────────────────────── */
+  .v12-projects-grid :global([x-data]) > button {
+    border: 1px solid rgb(63 63 70 / 0.5);
+    transition:
+      transform 300ms ease-out,
+      background-color 300ms ease-out,
+      box-shadow 300ms ease-out,
+      border-color 300ms ease-out;
+  }
+
+  .v12-projects-grid :global([x-data]) > button:hover {
+    box-shadow: 0 0 20px
+      rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.12);
+    border-color: rgba(
+      var(--accent-r),
+      var(--accent-g),
+      var(--accent-b),
+      0.25
+    );
+  }
+
+  /* ────────────────────────────────────────────
+     MAIN CONTENT
+     ──────────────────────────────────────────── */
+  .v12-main-content {
+    position: relative;
+    z-index: 1;
+    min-width: 0; /* prevent grid blowout */
+  }
+</style>
+
+<script>
+  // ════════════════════════════════════════════
+  // Section reveal (IntersectionObserver)
+  // ════════════════════════════════════════════
+  const sections = document.querySelectorAll(".v12-section");
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+  );
+
+  // Immediately reveal sections already in the viewport on page load
+  sections.forEach((s) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      s.classList.add("revealed");
+    } else {
+      revealObserver.observe(s);
+    }
+  });
+
+  // ════════════════════════════════════════════
+  // Active section tracking (ToC + mobile ToC)
+  // ════════════════════════════════════════════
+  const tracked_sections = document.querySelectorAll("[data-section]");
+  const toc_links = document.querySelectorAll("[data-toc-link]");
+  let active_section = "";
+
+  const toc_observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = (entry.target as HTMLElement).dataset.section ?? "";
+          if (id) active_section = id;
+        }
+      });
+      // Update ToC links
+      toc_links.forEach((link) => {
+        const link_id = (link as HTMLElement).dataset.tocLink;
+        if (link_id === active_section) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+      // Update ambient color
+      update_ambient_color();
+    },
+    { threshold: 0, rootMargin: "0px 0px -80% 0px" },
+  );
+  tracked_sections.forEach((s) => toc_observer.observe(s));
+
+  // ════════════════════════════════════════════
+  // ToC visibility (both desktop sidebar & mobile bar)
+  // Triggered when the hero nav scrolls out of view
+  // ════════════════════════════════════════════
+  const hero_nav_desktop = document.getElementById("hero-nav");
+  const hero_nav_mobile = document.getElementById("hero-nav-mobile");
+  const mobile_toc = document.getElementById("mobile-toc");
+  const desktop_toc_nav = document.querySelector(".v12-toc-nav");
+
+  function show_toc() {
+    if (desktop_toc_nav instanceof HTMLElement) {
+      desktop_toc_nav.style.opacity = "1";
+      desktop_toc_nav.style.transform = "translateX(0)";
+      desktop_toc_nav.style.pointerEvents = "auto";
+    }
+    if (mobile_toc instanceof HTMLElement) {
+      mobile_toc.style.opacity = "1";
+      mobile_toc.style.transform = "translateY(0)";
+      mobile_toc.style.pointerEvents = "auto";
+    }
+  }
+
+  function hide_toc() {
+    if (desktop_toc_nav instanceof HTMLElement) {
+      desktop_toc_nav.style.opacity = "0";
+      desktop_toc_nav.style.transform = "translateX(-8px)";
+      desktop_toc_nav.style.pointerEvents = "none";
+    }
+    if (mobile_toc instanceof HTMLElement) {
+      mobile_toc.style.opacity = "0";
+      mobile_toc.style.transform = "translateY(-100%)";
+      mobile_toc.style.pointerEvents = "none";
+    }
+  }
+
+  // Observe whichever hero nav is actually visible (desktop or mobile)
+  const is_lg = window.matchMedia("(min-width: 1024px)").matches;
+  const hero_nav_target = is_lg ? hero_nav_desktop : hero_nav_mobile;
+
+  if (hero_nav_target) {
+    const nav_observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        if (!entry.isIntersecting) {
+          show_toc();
+        } else {
+          hide_toc();
+        }
+      },
+      { threshold: 0 },
+    );
+    nav_observer.observe(hero_nav_target);
+  }
+
+  // ════════════════════════════════════════════
+  // Ambient color shifts
+  // ════════════════════════════════════════════
+  type ColorTemp = { r: number; g: number; b: number };
+
+  const color_temps: Record<string, { accent: ColorTemp }> = {
+    neutral: { accent: { r: 99, g: 102, b: 241 } }, // indigo
+    cool: { accent: { r: 56, g: 136, b: 241 } }, // blue
+    warm: { accent: { r: 168, g: 85, b: 247 } }, // purple
+  };
+
+  function update_ambient_color() {
+    const section_el = document.querySelector(
+      `[data-section="${active_section}"]`,
+    ) as HTMLElement | null;
+    if (!section_el) return;
+
+    const temp_key = section_el.dataset.colorTemp ?? "neutral";
+    const palette = color_temps[temp_key];
+    if (!palette) return;
+
+    const page = document.querySelector(".v12-page") as HTMLElement | null;
+    if (!page) return;
+
+    page.style.setProperty("--accent-r", String(palette.accent.r));
+    page.style.setProperty("--accent-g", String(palette.accent.g));
+    page.style.setProperty("--accent-b", String(palette.accent.b));
+  }
+</script>
