@@ -10,14 +10,45 @@ export type Experience = {
 };
 
 export const professional: Record<string, Experience> = {
+  venture_lab_niterra: {
+    title: "Software Engineer",
+    logo: "/venture-lab-niterra-group.webp",
+    company: "Venture Lab Niterra Group",
+    location: "United States",
+    startDate: "05/2025",
+    endDate: "isCurrent",
+    description: [
+      `Helping the US venturing team at Niterra create and expand internal tooling with full-stack applications and deep third-party integrations.`,
+    ],
+    workedWith: [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "API Integrations",
+      "Internal Tooling",
+    ],
+  },
+  basement_lab: {
+    title: "Software Engineer",
+    logo: "/the-basement-lab.webp",
+    company: "The Basement LAB",
+    location: "Spain",
+    startDate: "06/2025",
+    endDate: "10/2025",
+    description: [
+      `Led the front-end effort to rewrite a legacy application, improving resilience against slow APIs and reducing customer-facing latency.`,
+      `Reduced application login time from 25 seconds to 7 seconds.`,
+      `Created a reusable open-source component library used across the company's web applications.`,
+    ],
+    workedWith: ["React", "TypeScript", "Component Libraries", "Web Performance"],
+  },
   homeoptions: {
-    title: "Senior Software Engineer",
+    title: "Software Engineer",
     logo: "/homeoptions.webp",
     company: "HomeOptions",
     location: "Oakland - CA",
     startDate: "05/2022",
-    endDate: "isCurrent",
-    // endDate: "05/2023",
+    endDate: "06/2025",
     description: [
       `Built a performance-oriented Compliance Management Platform using GoLang, HTMX and Tailwind.`,
       `Worked closely with Finance and Product teams to prototype a new platform for debt settlement compliance management using Svelte Kit.`,
