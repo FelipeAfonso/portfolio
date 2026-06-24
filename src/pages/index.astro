@@ -51,13 +51,16 @@ const toc = [
             Hi! I'm Felipe Afonso
           </h1>
           <p
-            class="max-w-sm font-serif text-lg font-medium leading-relaxed text-neutral-300"
+            class="max-w-sm font-serif text-lg leading-relaxed font-medium text-neutral-300"
           >
-            I'm a Software Engineer focused on end-to-end applications. Currently
-            working at Venture Lab Niterra Group.
+            I'm a Software Engineer focused on end-to-end applications.
+            Currently working at Venture Lab Niterra Group.
           </p>
           <!-- Hero nav — observed to trigger sidebar/mobile ToC -->
-          <nav id="hero-nav" class="space-y-2 py-6 text-xl font-light max-lg:hidden">
+          <nav
+            id="hero-nav"
+            class="space-y-2 py-6 text-xl font-light max-lg:hidden"
+          >
             {
               toc.map(({ label, href }) => (
                 <a
@@ -113,15 +116,16 @@ const toc = [
     <!-- ══════════════════════════════════════════════ -->
 
     <!-- Mobile sticky ToC (appears on scroll, < lg) -->
-    <nav class="v12-mobile-toc lg:hidden" id="mobile-toc" aria-label="Sections" style="opacity: 0; transform: translateY(-100%); pointer-events: none;">
+    <nav
+      class="v12-mobile-toc lg:hidden"
+      id="mobile-toc"
+      aria-label="Sections"
+      style="opacity: 0; transform: translateY(-100%); pointer-events: none;"
+    >
       <div class="v12-mobile-toc-inner">
         {
           toc.map(({ label, href, id }) => (
-            <a
-              href={href}
-              class="v12-mobile-toc-link"
-              data-toc-link={id}
-            >
+            <a href={href} class="v12-mobile-toc-link" data-toc-link={id}>
               {label}
             </a>
           ))
@@ -131,16 +135,18 @@ const toc = [
 
     <div class="v12-content-area app-container">
       <!-- Desktop sticky ToC sidebar -->
-      <aside class="v12-toc-sidebar max-lg:hidden" aria-label="Table of contents">
-        <nav class="v12-toc-nav" style="opacity: 0; transform: translateX(-8px); pointer-events: none;">
+      <aside
+        class="v12-toc-sidebar max-lg:hidden"
+        aria-label="Table of contents"
+      >
+        <nav
+          class="v12-toc-nav"
+          style="opacity: 0; transform: translateX(-8px); pointer-events: none;"
+        >
           <p class="v12-toc-label">On this page</p>
           {
             toc.map(({ label, href, id }) => (
-              <a
-                href={href}
-                class="v12-toc-link"
-                data-toc-link={id}
-              >
+              <a href={href} class="v12-toc-link" data-toc-link={id}>
                 <span class="v12-toc-indicator" />
                 {label}
               </a>
@@ -159,26 +165,33 @@ const toc = [
         >
           <h2 class="text-xl font-bold tracking-tight lg:text-3xl">About me</h2>
           <div class="grid gap-x-8 gap-y-4 font-serif sm:grid-cols-2">
-            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
+            <p
+              class="v12-stagger max-w-lg pt-4 text-lg leading-relaxed font-medium"
+            >
               Full-stack engineer comfortable across the stack and across
-              languages. I pick up tools fast and care about getting the
-              details right. The team's Arch Linux and Neovim guy.
+              languages. I pick up tools fast and care about getting the details
+              right. The team's Arch Linux and Neovim guy.
             </p>
-            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
+            <p
+              class="v12-stagger max-w-lg pt-4 text-lg leading-relaxed font-medium"
+            >
               Master's in Computer Science with a research focus on
-              cross-platform development — which turned into a habit of
-              picking up new frameworks and shipping with them.
+              cross-platform development — which turned into a habit of picking
+              up new frameworks and shipping with them.
             </p>
-            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
-              I thrive in small teams where I can see my work directly
-              improving people's lives. Building products end-to-end,
-              wearing multiple hats, and shipping features that matter —
-              not just tickets.
+            <p
+              class="v12-stagger max-w-lg pt-4 text-lg leading-relaxed font-medium"
+            >
+              I thrive in small teams where I can see my work directly improving
+              people's lives. Building products end-to-end, wearing multiple
+              hats, and shipping features that matter — not just tickets.
             </p>
-            <p class="v12-stagger max-w-lg pt-4 text-lg font-medium leading-relaxed">
-              Big on AI-assisted coding — always testing different models
-              and harnesses to find better workflows. It's a multiplier
-              for what a small team can deliver, and I'm all in on that.
+            <p
+              class="v12-stagger max-w-lg pt-4 text-lg leading-relaxed font-medium"
+            >
+              Big on AI-assisted coding — always testing different models and
+              harnesses to find better workflows. It's a multiplier for what a
+              small team can deliver, and I'm all in on that.
             </p>
           </div>
         </section>
@@ -272,10 +285,12 @@ const toc = [
             >
               <path
                 d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"
-              ></path>
+              >
+              </path>
               <path
                 d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"
-              ></path>
+              >
+              </path>
             </svg>
             fmunhozafonso@gmail.com
           </a>
@@ -294,7 +309,8 @@ const toc = [
               <title>GitHub</title>
               <path
                 d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-              ></path>
+              >
+              </path>
             </svg>
             @FelipeAfonso
           </a>
@@ -313,7 +329,8 @@ const toc = [
               <title>LinkedIn</title>
               <path
                 d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              ></path>
+              >
+              </path>
             </svg>
             in/felipe-afonso
           </a>
@@ -327,7 +344,9 @@ const toc = [
           data-section="blog"
           data-color-temp="neutral"
         >
-          <h2 class="pb-8 text-xl font-bold tracking-tight lg:text-3xl">Blog</h2>
+          <h2 class="pb-8 text-xl font-bold tracking-tight lg:text-3xl">
+            Blog
+          </h2>
           <div class="space-y-20">
             <article
               class="relative isolate flex flex-col gap-8 rounded-xl ring-1 ring-neutral-700/50 transition-all duration-300 hover:-translate-y-0.5 hover:ring-neutral-600/50 lg:flex-row"
@@ -352,7 +371,7 @@ const toc = [
                 </div>
                 <div class="group relative max-w-xl">
                   <h3
-                    class="mt-3 text-lg font-semibold leading-6 text-white group-hover:text-indigo-300"
+                    class="mt-3 text-lg leading-6 font-semibold text-white group-hover:text-indigo-300"
                   >
                     <a href="/blog/just-create-stupid-stuff">
                       <span class="absolute inset-0"></span>
@@ -613,12 +632,7 @@ const toc = [
 
   .v12-mobile-toc-link.active {
     color: rgb(255 255 255);
-    background: rgba(
-      var(--accent-r),
-      var(--accent-g),
-      var(--accent-b),
-      0.15
-    );
+    background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15);
   }
 
   /* ────────────────────────────────────────────
@@ -711,12 +725,7 @@ const toc = [
   .v12-projects-grid :global([x-data]) > button:hover {
     box-shadow: 0 0 20px
       rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.12);
-    border-color: rgba(
-      var(--accent-r),
-      var(--accent-g),
-      var(--accent-b),
-      0.25
-    );
+    border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.25);
   }
 
   /* ────────────────────────────────────────────

@@ -25,7 +25,7 @@ const processed_images = images?.map((i) => i.src) ?? [];
     <p class="pt-4 text-center text-lg font-bold sm:text-xl">{title}</p>
   </button>
   <dialog
-    class="rounded-xl bg-zinc-800 p-4 ring-2 ring-indigo-400 backdrop:bg-black backdrop:bg-opacity-10"
+    class="rounded-xl bg-zinc-800 p-4 ring-2 ring-indigo-400 backdrop:bg-black/10"
     x-ref="dialog"
     @click="!is_in_dialog($event, $el) && $refs.dialog.close()"
   >
@@ -62,7 +62,7 @@ const processed_images = images?.map((i) => i.src) ?? [];
           ))
         }
         <button
-          class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
+          class="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
           @click={`img_idx = (img_idx - 1 + ${processed_images.length}) % ${processed_images.length}`}
         >
           <svg
@@ -82,7 +82,7 @@ const processed_images = images?.map((i) => i.src) ?? [];
           </svg>
         </button>
         <button
-          class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
+          class="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-indigo-600/50 p-1 text-white"
           @click={`img_idx = (img_idx + 1) % ${processed_images.length}`}
         >
           <svg

@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@source "../";
+
+@theme {
+  --font-sans: "Josefin Sans", sans-serif;
+  --font-serif: "Roboto Slab", serif;
+  --font-mono:
+    "ProFont", "Menlo", "Monaco", "Lucida Console", "Liberation Mono",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  --animate-cradle: cradle 1.5s ease-in-out infinite;
+
+  @keyframes cradle {
+    0% {
+      transform: rotate(-5deg);
+    }
+
+    50% {
+      transform: rotate(5deg);
+    }
+
+    100% {
+      transform: rotate(-5deg);
+    }
+  }
+}

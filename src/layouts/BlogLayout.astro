@@ -1,6 +1,7 @@
 ---
-import "@fontsource/roboto-slab";
-import "@fontsource-variable/josefin-sans";
+import "@fontsource/roboto-slab/index.css";
+import "@fontsource-variable/josefin-sans/index.css";
+import "../styles/global.css";
 import Posthog from "../components/Posthog.astro";
 const { frontmatter } = Astro.props;
 ---
@@ -48,7 +49,7 @@ const { frontmatter } = Astro.props;
       </a>
     </header>
     <main
-      class="prose prose-zinc prose-invert mx-auto py-8 text-white lg:prose-xl"
+      class="prose prose-zinc prose-invert lg:prose-xl mx-auto py-8 text-white"
     >
       <img src={frontmatter.image} />
       <h1 class="!mb-2">{frontmatter.title}</h1>
