@@ -1,0 +1,21 @@
+---
+interface Props {
+  label?: string;
+  lines: string[];
+  srText: string;
+  class?: string;
+}
+
+const { label, lines, srText, class: cls = "" } = Astro.props;
+---
+
+<div
+  class={`reveal rounded-[3px] border border-rule bg-paper-raised p-5 sm:p-6 ${cls}`}
+  style="box-shadow: var(--shadow-paper);"
+>
+  {label && <p class="kicker mb-4 text-accent">{label}</p>}
+  <pre
+    aria-hidden="true"
+    class="overflow-x-auto font-mono text-[0.78rem] leading-relaxed text-ink"><code>{lines.join("\n")}</code></pre>
+  <span class="visually-hidden">{srText}</span>
+</div>

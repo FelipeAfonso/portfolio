@@ -1,116 +1,71 @@
 ---
-import "@fontsource/roboto-slab/index.css";
 import "@fontsource-variable/josefin-sans/index.css";
+import "@fontsource/roboto-slab/400.css";
+import "@fontsource/roboto-slab/500.css";
+import "@fontsource/roboto-slab/700.css";
 import "../styles/global.css";
 import Posthog from "../components/Posthog.astro";
 const { frontmatter } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-zinc-900">
+<html lang="en">
   <head>
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
     <meta charset="UTF-8" />
     <meta name="description" content={frontmatter.description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title} - Felipe Afonso</title>
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:title" content={frontmatter.title} />
     <meta property="og:description" content={frontmatter.description} />
     <meta property="og:image" content={frontmatter.image} />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={frontmatter.title} />
     <meta property="twitter:description" content={frontmatter.description} />
     <meta property="twitter:image" content={frontmatter.image} />
 
-    <!-- Article specific -->
     <meta property="article:published_time" content={frontmatter.date} />
     <meta property="article:author" content="Felipe Afonso" />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url.href} />
 
     <Posthog />
   </head>
   <body>
-    <header class="app-container min-h-8 py-2">
-      <a
-        href="/"
-        class="font-mono text-lg font-bold text-white"
-        style="font-smooth:never;"
-      >
-        &RightTriangle; Felipe Afonso
+    <header class="wrap py-4">
+      <a href="/" class="kicker text-ink no-underline">
+        Felipe Afonso <span class="text-accent">—</span> Field Notes
       </a>
     </header>
-    <main
-      class="prose prose-zinc prose-invert lg:prose-xl mx-auto py-8 text-white"
-    >
-      <img src={frontmatter.image} />
-      <h1 class="!mb-2">{frontmatter.title}</h1>
-      <p class="!my-0 text-sm text-zinc-200">
-        Felipe Afonso - {frontmatter.date}
-      </p>
-      <slot />
-      <section class="italic">
-        <p class="pt-8 text-lg font-semibold">
-          DISCLAIMER - I USE AI FOR GRAMMAR-CHECKING
+    <main class="wrap">
+      <article class="prose prose-stone mx-auto max-w-[68ch] py-10">
+        <img src={frontmatter.image} alt={frontmatter.title} />
+        <h1 class="t-headline !mb-2">{frontmatter.title}</h1>
+        <p class="!my-0 font-mono text-sm text-ink-muted">
+          Felipe Afonso — {frontmatter.date}
         </p>
-        <p>
-          Since English is not my native language, and I'm not a grammar expert
-          in any language, I feel that using AI-assisted tools for grammar
-          reviews (e.g., Grammarly) is a good idea. I also emphasize that I do
-          not use AI to generate the actual content you're reading. This
-          practice goes against my beliefs, especially when unannounced.
-        </p>
-      </section>
+        <slot />
+        <section class="italic">
+          <p class="pt-8 text-lg font-semibold">
+            DISCLAIMER - I USE AI FOR GRAMMAR-CHECKING
+          </p>
+          <p>
+            Since English is not my native language, and I'm not a grammar
+            expert in any language, I feel that using AI-assisted tools for
+            grammar reviews (e.g., Grammarly) is a good idea. I also emphasize
+            that I do not use AI to generate the actual content you're reading.
+            This practice goes against my beliefs, especially when unannounced.
+          </p>
+        </section>
+      </article>
     </main>
-    <style is:global>
-      @font-face {
-        font-family: "ProFont";
-        src: url("/fonts/profont.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      .app-container {
-        width: 100%;
-        margin-inline: auto;
-        padding-inline: 16px;
-      }
-      @media (min-width: 640px) {
-        .app-container {
-          max-width: 640px;
-          margin-inline: auto;
-          padding-inline: 16px;
-        }
-      }
-      @media (min-width: 768px) {
-        .app-container {
-          max-width: 768px;
-          margin-inline: auto;
-          padding-inline: 16px;
-        }
-      }
-      @media (min-width: 1024px) {
-        .app-container {
-          max-width: 1024px;
-          margin-inline: auto;
-          padding-inline: 24px;
-        }
-      }
-      @media (min-width: 1280px) {
-        .app-container {
-          max-width: 1280px;
-          margin-inline: auto;
-          padding-inline: 24px;
-        }
-      }
-    </style>
   </body>
 </html>

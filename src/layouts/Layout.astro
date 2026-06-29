@@ -1,89 +1,59 @@
 ---
-import "@fontsource/roboto-slab/index.css";
 import "@fontsource-variable/josefin-sans/index.css";
+import "@fontsource/roboto-slab/400.css";
+import "@fontsource/roboto-slab/500.css";
+import "@fontsource/roboto-slab/700.css";
 import "../styles/global.css";
 import Posthog from "../components/Posthog.astro";
+
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Felipe Afonso — software engineer who operates like a product team of one. Hand me a problem; I'll hand back a working product. Full-stack delivery, end-to-end ownership.",
+  image = "/me-min.webp",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const og_image = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en" class="bg-zinc-900">
+<html lang="en">
   <head>
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og_image} />
+    <meta property="og:site_name" content="Felipe Afonso" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og_image} />
+
     <Posthog />
   </head>
   <body>
-    <header class="app-container min-h-8 py-2">
-      <a
-        href="/"
-        class="font-mono text-lg font-bold text-white"
-        style="font-smooth:never;"
-      >
-        &RightTriangle; Felipe Afonso
-      </a>
-    </header>
     <slot />
-    <script is:inline is:raw>
-      function is_in_dialog(t, i) {
-        i = i.getBoundingClientRect();
-        return (
-          i.top <= t.clientY &&
-          t.clientY <= i.top + i.height &&
-          i.left <= t.clientX &&
-          t.clientX <= i.left + i.width
-        );
-      }
-    </script>
-    <style is:global>
-      @font-face {
-        font-family: "ProFont";
-        src: url("/fonts/profont.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      .app-container {
-        width: 100%;
-        margin-inline: auto;
-        padding-inline: 16px;
-      }
-      @media (min-width: 640px) {
-        .app-container {
-          max-width: 640px;
-          margin-inline: auto;
-          padding-inline: 16px;
-        }
-      }
-      @media (min-width: 768px) {
-        .app-container {
-          max-width: 768px;
-          margin-inline: auto;
-          padding-inline: 16px;
-        }
-      }
-      @media (min-width: 1024px) {
-        .app-container {
-          max-width: 1024px;
-          margin-inline: auto;
-          padding-inline: 24px;
-        }
-      }
-      @media (min-width: 1280px) {
-        .app-container {
-          max-width: 1280px;
-          margin-inline: auto;
-          padding-inline: 24px;
-        }
-      }
-    </style>
   </body>
 </html>

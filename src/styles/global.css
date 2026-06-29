@@ -4,25 +4,279 @@
 
 @source "../";
 
+@font-face {
+  font-family: "ProFont";
+  src: url("/fonts/profont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   Origin — the felipeafonso.com identity: dark zinc ground,
+   indigo→violet ambient glow, topographic texture behind content,
+   Josefin Sans (display) / Roboto Slab (body) / ProFont (mono).
+   Tokens live in @theme + :root so Tailwind generates bg-paper,
+   text-ink, text-accent, font-display, etc. Product sub-palettes
+   (wq-*, pondera-*) are constant.
+   ============================================================ */
 @theme {
-  --font-sans: "Josefin Sans", sans-serif;
-  --font-serif: "Roboto Slab", serif;
-  --font-mono:
-    "ProFont", "Menlo", "Monaco", "Lucida Console", "Liberation Mono",
-    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
-  --animate-cradle: cradle 1.5s ease-in-out infinite;
+  --color-paper: #18181b;
+  --color-paper-raised: #232328;
+  --color-ink: #fafafa;
+  --color-ink-muted: #a1a1aa;
+  --color-accent: #818cf8;
+  --color-accent-2: #a855f7;
+  --color-rule: oklch(1 0 0 / 0.1);
 
-  @keyframes cradle {
-    0% {
-      transform: rotate(-5deg);
-    }
+  --font-display: "Josefin Sans Variable", system-ui, sans-serif;
+  --font-body: "Roboto Slab", Georgia, serif;
+  --font-mono: "ProFont", ui-monospace, monospace;
 
-    50% {
-      transform: rotate(5deg);
-    }
+  /* CONSTANT product sub-palettes */
+  --color-wq-ground: #0d0f17;
+  --color-wq-text: #f4f0e8;
+  --color-wq-lime: #a9e34b;
+  --color-wq-frame: #262a36;
+  --color-pondera-paper: #f7f5ef;
+  --color-pondera-ink: #1a1714;
+  --color-pondera-navy: #1e3a52;
+  --color-pondera-gold: #b8860b;
 
-    100% {
-      transform: rotate(-5deg);
-    }
+  --ease-press: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+:root {
+  --content-max: 80rem;
+  --gutter: clamp(1.25rem, 5vw, 6rem);
+  --space-section: clamp(5rem, 11vw, 9rem);
+  --running-head-h: 2.75rem;
+
+  /* topographic map behind content + ambient accent glow */
+  --grain-opacity: 0.07;
+  --overlay-blend: normal;
+  --overlay-image: url("/topo.svg");
+  --overlay-size: cover;
+  --overlay-z: -1;
+  --glow:
+    radial-gradient(
+      52% 36% at 50% -4%,
+      color-mix(in oklch, var(--color-accent) 24%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      42% 32% at 88% 62%,
+      color-mix(in oklch, var(--color-accent-2) 16%, transparent),
+      transparent 72%
+    );
+  --shadow-paper: 0 1px 2px oklch(0 0 0 / 0.35), 0 18px 44px oklch(0 0 0 / 0.5);
+  --display-weight: 600;
+  --display-tracking: -0.01em;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--running-head-h) + 1rem);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  background-image: var(--glow, none);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* topographic texture, behind content (--overlay-z: -1) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: var(--overlay-z, 60);
+  pointer-events: none;
+  opacity: var(--grain-opacity, 0.04);
+  mix-blend-mode: var(--overlay-blend, soft-light);
+  background-image: var(--overlay-image, none);
+  background-size: var(--overlay-size, 160px 160px);
+}
+
+/* ---- layout helpers ---- */
+.wrap {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.col-measure {
+  max-width: 62ch;
+}
+
+/* ---- display type ---- */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight, 640);
+  font-variation-settings: "wght" var(--display-weight, 640);
+  letter-spacing: var(--display-tracking, -0.02em);
+  line-height: 0.98;
+}
+.t-headline {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight, 600);
+  font-variation-settings: "wght" var(--display-weight, 600);
+  letter-spacing: var(--display-tracking, -0.01em);
+  line-height: 1;
+}
+.t-emph {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ---- mono kicker ---- */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ---- editorial CTA links (animated accent underline) ---- */
+.ed-link {
+  font-family: var(--font-mono);
+  position: relative;
+  color: var(--color-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ed-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1.5px;
+  background: var(--color-accent);
+  transform: scaleX(var(--u, 0.18));
+  transform-origin: left;
+  transition: transform 0.28s var(--ease-press);
+}
+.ed-link:hover::after,
+.ed-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* hero headline draw-in underline */
+.draw-underline {
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 3px;
+  transition: background-size 0.5s var(--ease-press) 0.25s;
+}
+.js .draw-underline {
+  background-size: 0% 3px;
+}
+.is-revealed .draw-underline,
+.draw-underline.is-revealed {
+  background-size: 100% 3px;
+}
+
+/* ---- scroll reveal ---- */
+.reveal {
+  transition:
+    opacity 0.6s var(--ease-press),
+    transform 0.6s var(--ease-press);
+}
+.js .reveal {
+  opacity: 0;
+  transform: translateY(1rem);
+  will-change: opacity, transform;
+}
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+.reveal-1 {
+  transition-delay: 80ms;
+}
+.reveal-2 {
+  transition-delay: 160ms;
+}
+.reveal-3 {
+  transition-delay: 240ms;
+}
+
+/* draw-in hairline rules */
+.rule-draw {
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-press);
+}
+.js .rule-draw {
+  transform: scaleX(0);
+}
+.rule-draw.is-revealed {
+  transform: scaleX(1);
+}
+
+/* writequit blinking cursor — the only decorative loop */
+@keyframes wq-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.wq-cursor {
+  animation: wq-blink 1.06s step-end infinite;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal,
+  .rule-draw {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .draw-underline {
+    background-size: 100% 3px !important;
   }
 }
