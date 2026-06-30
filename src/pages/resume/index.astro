@@ -1,0 +1,650 @@
+---
+import ResumeLayout from "../../layouts/ResumeLayout.astro";
+import { Image } from "astro:assets";
+
+import { profile } from "../../../content/profile";
+import { professional, type Experience } from "../../../content/professional";
+import { academic } from "../../../content/academic";
+import { libraries, type Library } from "../../../content/libraries";
+import { projects } from "../../../content/projects";
+
+// Niterra Ventures — demo screens (clean-slate instance, fictional data)
+import niDash from "../../../content/images/niterra/niterra-dashboard.png";
+import niValuation from "../../../content/images/niterra/niterra-valuation.png";
+// Flora — Santos Lab
+import flMapa from "../../../content/images/Flora-Mapa.png";
+
+// ---- date formatting: "05/2025" -> "May 2025", "isCurrent" -> "Present" ----
+const MONTHS = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+function fmtDate(d: string): string {
+  if (d === "isCurrent") return "Present";
+  const [mm, yy] = d.split("/");
+  const month = MONTHS[Number(mm) - 1] ?? mm ?? "";
+  return `${month} ${yy ?? ""}`.trim();
+}
+const range = (e: Experience) => `${fmtDate(e.startDate)} — ${fmtDate(e.endDate)}`;
+
+// Authored order is the intended display order — keep it (current role first).
+const roles = Object.values(professional);
+const education = Object.values(academic);
+
+// ---- skills grouped from libraries.ts (undefined-safe under noUncheckedIndexedAccess) ----
+const stackGroups: { label: string; keys: string[] }[] = [
+  { label: "Frontend", keys: ["React.js", "React Native", "Next.js", "materialUI", "React Hook Form", "React Router", "Recharts"] },
+  { label: "Backend & APIs", keys: ["REST APIs", "GraphQL", "ApolloClient", "Axios", "JWT"] },
+  { label: "Geospatial", keys: ["Leaflet", "Turf.js", "Google Maps"] },
+  { label: "Languages & mobile", keys: ["TypeScript", "Java", "Android SDK"] },
+  { label: "Quality & tooling", keys: ["Jest", "Cypress", "Eslint", "Prettier", "Husky", "Redux Toolkit", "i18n", "Locize", "FullCalendar", "Google Analytics", "Sentry.io"] },
+  { label: "Design", keys: ["Corel Draw", "Photoshop"] },
+];
+const stack = stackGroups
+  .map((g) => ({
+    label: g.label,
+    items: g.keys
+      .map((k) => libraries[k])
+      .filter((l): l is Library => Boolean(l)),
+  }))
+  .filter((g) => g.items.length > 0);
+
+// ---- "built for the love of it" — pulled live from projects.ts ----
+const funKeys = ["go_htmx", "gleam_htmx", "stupid_spooder_game", "sudokouija"];
+const fun = funKeys
+  .map((k) => projects[k])
+  .filter((p): p is NonNullable<(typeof projects)[string]> => Boolean(p));
+
+const generated = new Date().toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+});
+---
+
+<ResumeLayout title="Felipe Afonso — Résumé">
+  <article class="dossier">
+    <!-- ============ MASTHEAD ============ -->
+    <header class="resume-section masthead">
+      <div class="mark t-display" aria-hidden="true">F<span class="text-accent">—</span></div>
+      <h1 class="t-display name text-ink">{profile.name}</h1>
+      <p class="kicker title text-accent">{profile.title}</p>
+
+      <p class="summary text-ink">{profile.summary}</p>
+
+      <ul class="contact">
+        {
+          profile.contact.map((c) => (
+            <li>
+              <a class="ed-link" href={c.href}>{c.display}</a>
+            </li>
+          ))
+        }
+        <li class="loc">{profile.location}</li>
+      </ul>
+
+      <ul class="highlights">
+        {profile.highlights.map((h) => <li>{h}</li>)}
+      </ul>
+    </header>
+
+    <!-- ============ 01 · IMPACT ============ -->
+    <section class="resume-section block">
+      <p class="kicker sec-label text-accent"><span aria-hidden="true">01</span> · Impact at the flagship</p>
+      <div class="stats">
+        {
+          profile.flagshipMetrics.map((s) => (
+            <div class="resume-card stat">
+              <p class="t-display stat-big c-teal">{s.big}</p>
+              <p class="kicker stat-label text-ink">{s.label}</p>
+              <p class="stat-note text-ink-muted">{s.note}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ============ 02 · CORE STACK ============ -->
+    <section class="resume-section block">
+      <p class="kicker sec-label text-accent"><span aria-hidden="true">02</span> · Core stack</p>
+      <div class="stack">
+        {
+          stack.map((g) => (
+            <div class="stack-group">
+              <p class="stack-label font-mono text-ink-muted">{g.label}</p>
+              <ul class="tags">
+                {g.items.map((l) => (
+                  <li class="tag font-mono">
+                    <span class="text-ink">{l.name}</span>
+                    {l.experience && <span class="exp text-ink-muted">{l.experience}</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ============ 03 · EXPERIENCE ============ -->
+    <section class="block">
+      <p class="kicker sec-label text-accent"><span aria-hidden="true">03</span> · Experience</p>
+      <div class="entries">
+        {
+          roles.map((e) => (
+            <div class="resume-entry entry">
+              <div class="entry-head">
+                <div>
+                  <h2 class="t-headline entry-title text-ink">{e.title}</h2>
+                  <p class="entry-meta text-ink-muted">
+                    {e.company}
+                    {e.location && <span class="dot" aria-hidden="true"> · </span>}
+                    {e.location}
+                  </p>
+                </div>
+                <p class="entry-dates font-mono text-ink-muted">{range(e)}</p>
+              </div>
+              {e.description && (
+                <ul class="bullets">
+                  {e.description.map((d) => <li class="text-ink">{d}</li>)}
+                </ul>
+              )}
+              {e.workedWith && (
+                <ul class="tags compact">
+                  {e.workedWith.map((w) => (
+                    <li class="tag font-mono text-ink-muted">{w}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ============ 04 · SELECTED WORK ============ -->
+    <section class="block resume-page-break">
+      <p class="kicker sec-label text-accent"><span aria-hidden="true">04</span> · Selected work</p>
+
+      <!-- Niterra flagship -->
+      <div class="resume-entry work">
+        <p class="kicker work-kicker c-teal">Flagship · internal platform, shipped solo</p>
+        <h2 class="t-headline work-title text-ink">Niterra Ventures</h2>
+        <p class="work-lede text-ink">
+          The system of record for a venture firm's whole investment lifecycle —
+          portfolio companies and quarterly financials, editable cap tables,
+          scenario-based exit models, a deal funnel, expense &amp; contract
+          tracking, board-deck generation, and P&amp;L / balance-sheet reporting —
+          fed by live integrations and mapped Excel imports.
+        </p>
+        <p class="work-stack font-mono text-ink-muted">
+          SvelteKit · Svelte 5 · Bun · TypeScript · Tailwind 4 · shadcn-svelte ·
+          Drizzle / Turso · Lucia auth · LayerChart · pdfkit · Vercel · integrates
+          Affinity CRM · PitchBook · Webflow
+        </p>
+        <div class="shots two">
+          <figure class="resume-card shot">
+            <Image src={niDash} width={1100} loading="eager" alt="Niterra portfolio dashboard" />
+            <figcaption class="font-mono text-ink-muted">Portfolio dashboard — invested capital, exit-value range, TVPI and quarterly trends.</figcaption>
+          </figure>
+          <figure class="resume-card shot">
+            <Image src={niValuation} width={1100} loading="eager" alt="Niterra exit-valuation model" />
+            <figcaption class="font-mono text-ink-muted">Exit modeling — enterprise value &amp; MOIC across low / mid / high scenarios.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Two commercial products -->
+      <div class="products">
+        <div class="resume-entry product">
+          <p class="kicker text-accent">Shipped solo · developer tool</p>
+          <h3 class="t-headline product-title text-ink">writequit.dev</h3>
+          <p class="product-body text-ink">
+            A terminal-native task manager, time tracker and invoice generator for
+            freelancers — auth, jsPDF invoicing, real-time chat and
+            password-gated shared client boards. Product design and marketing
+            voice, not just the code.
+          </p>
+          <p class="product-stack font-mono text-ink-muted">SvelteKit 5 · Convex · Tailwind 4 · Vercel</p>
+        </div>
+        <div class="resume-entry product">
+          <p class="kicker text-accent">Shipped solo · consumer product</p>
+          <h3 class="t-headline product-title text-ink">pondera.casa</h3>
+          <p class="product-body text-ink">
+            An AI property-comparison tool: a pasted listing URL becomes a
+            structured decision — real scraping and LLM extraction, scoring,
+            side-by-side comparison and AI ranking, not a chat box.
+          </p>
+          <p class="product-stack font-mono text-ink-muted">Next.js 16 · React 19 · Convex · OpenRouter</p>
+        </div>
+      </div>
+
+      <!-- Flora -->
+      <div class="resume-entry work">
+        <p class="kicker work-kicker text-accent">Precision-ag platform · web + mobile</p>
+        <h2 class="t-headline work-title text-ink">Flora — Santos Lab</h2>
+        <p class="work-lede text-ink">
+          Drone, satellite and field data fused onto one interactive map
+          (Leaflet + Turf.js), with an offline-first React Native field app — the
+          project where I grew from developer to Tech Lead of five.
+        </p>
+        <figure class="resume-card shot wide">
+          <Image src={flMapa} width={1400} loading="eager" alt="Flora interactive geospatial map" />
+          <figcaption class="font-mono text-ink-muted">Multi-source geospatial data on one interactive map.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Built for the love of it -->
+      <div class="resume-entry work">
+        <p class="kicker work-kicker text-accent">Built for the love of it</p>
+        <ul class="fun">
+          {
+            fun.map((p) => (
+              <li class="fun-item">
+                <span class="t-headline fun-title text-ink">{p.title}</span>
+                <span class="fun-desc text-ink-muted">{p.description}</span>
+                {p.link && (
+                  <a class="ed-link fun-link font-mono" href={p.link}>
+                    {p.link.replace(/^https?:\/\//, "")}
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 05 · EDUCATION ============ -->
+    <section class="block">
+      <p class="kicker sec-label text-accent"><span aria-hidden="true">05</span> · Education</p>
+      <div class="entries">
+        {
+          education.map((e) => (
+            <div class="resume-entry entry">
+              <div class="entry-head">
+                <div>
+                  <h2 class="t-headline entry-title text-ink">{e.title}</h2>
+                  <p class="entry-meta text-ink-muted">
+                    {e.company}
+                    {e.location && <span class="dot" aria-hidden="true"> · </span>}
+                    {e.location}
+                  </p>
+                </div>
+                <p class="entry-dates font-mono text-ink-muted">{range(e)}</p>
+              </div>
+              {e.description && (
+                <ul class="bullets">
+                  {e.description.map((d) => <li class="text-ink">{d}</li>)}
+                </ul>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ============ COLOPHON ============ -->
+    <footer class="resume-section colophon">
+      <div class="rule"></div>
+      <div class="colophon-row">
+        <p class="font-mono cta text-ink">Have a problem that needs an owner, not a committee? Send me the messy version.</p>
+        <ul class="contact mono-only">
+          {
+            profile.contact.map((c) => (
+              <li><a class="ed-link" href={c.href}>{c.display}</a></li>
+            ))
+          }
+        </ul>
+      </div>
+      <p class="font-mono generated text-ink-muted">
+        Generated from {profile.site} · {generated}
+      </p>
+    </footer>
+  </article>
+</ResumeLayout>
+
+<style>
+  .dossier {
+    --ni-teal: #2dd4bf; /* résumé-local accent — no dependency on global niterra tokens */
+    max-width: 8.5in;
+    margin-inline: auto;
+    padding: 16mm 15mm 18mm;
+    background: var(--color-paper);
+  }
+  .c-teal {
+    color: var(--ni-teal);
+  }
+
+  /* ---- masthead ---- */
+  .mark {
+    font-size: 1.4rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+  .name {
+    font-size: 2.7rem;
+    line-height: 0.95;
+    margin-top: 0.5rem;
+  }
+  .title {
+    margin-top: 0.6rem;
+  }
+  .summary {
+    max-width: 70ch;
+    margin-top: 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1.1rem;
+    margin-top: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+  .contact .loc {
+    color: var(--color-ink-muted);
+  }
+  .highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1rem;
+  }
+  .highlights li {
+    border: 1px solid var(--color-rule);
+    border-radius: 999px;
+    padding: 0.22rem 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: var(--color-ink);
+  }
+
+  /* ---- section scaffolding ---- */
+  .block {
+    margin-top: 2.4rem;
+  }
+  .sec-label {
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--color-rule);
+    break-after: avoid; /* keep a section label with its content */
+  }
+
+  /* the homepage's .ed-link animates its underline on hover; in print there is
+     no hover, so pin it to a clean, consistent full underline. */
+  .ed-link::after {
+    transform: scaleX(1);
+    height: 1px;
+    opacity: 0.5;
+  }
+
+  /* ---- 01 impact ---- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+    margin-top: 1.1rem;
+  }
+  .stat {
+    border: 1px solid color-mix(in oklch, var(--ni-teal) 18%, transparent);
+    border-radius: 4px;
+    background: var(--color-paper-raised);
+    padding: 0.9rem 1rem;
+  }
+  .stat-big {
+    font-size: 1.55rem;
+    line-height: 1;
+  }
+  .stat-label {
+    margin-top: 0.55rem;
+    font-size: 0.64rem;
+  }
+  .stat-note {
+    margin-top: 0.4rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  /* ---- 02 core stack ---- */
+  .stack {
+    margin-top: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .stack-group {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0.6rem;
+    align-items: start;
+  }
+  .stack-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-top: 0.18rem;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    border: 1px solid var(--color-rule);
+    border-radius: 3px;
+    padding: 0.18rem 0.5rem;
+    font-size: 0.72rem;
+  }
+  .tag .exp {
+    font-size: 0.62rem;
+  }
+  .tags.compact .tag {
+    padding: 0.12rem 0.45rem;
+    font-size: 0.68rem;
+  }
+
+  /* ---- 03 experience / 05 education entries ---- */
+  .entries {
+    margin-top: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .entry-title {
+    font-size: 1.08rem;
+    line-height: 1.15;
+  }
+  .entry-meta {
+    margin-top: 0.2rem;
+    font-size: 0.82rem;
+  }
+  .entry-dates {
+    font-size: 0.72rem;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+  .bullets {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-left: 1rem;
+  }
+  .bullets li {
+    position: relative;
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+  .bullets li::before {
+    content: "▹";
+    position: absolute;
+    left: -1rem;
+    color: var(--color-accent);
+  }
+  .entry .tags.compact {
+    margin-top: 0.6rem;
+  }
+
+  /* ---- 04 selected work ---- */
+  .work {
+    margin-top: 1.3rem;
+  }
+  .work + .work,
+  .products + .work {
+    margin-top: 1.8rem;
+  }
+  .work-kicker {
+    margin-bottom: 0.3rem;
+  }
+  .work-title {
+    font-size: 1.3rem;
+  }
+  .work-lede {
+    max-width: 72ch;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .work-stack {
+    margin-top: 0.55rem;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--color-ink-muted);
+  }
+  .shots {
+    margin-top: 0.9rem;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .shots.two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shot img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+  }
+  .shot figcaption {
+    margin-top: 0.35rem;
+    font-size: 0.66rem;
+    line-height: 1.4;
+  }
+  .shot.wide {
+    margin-top: 0.9rem;
+    max-width: 75%;
+  }
+
+  .products {
+    margin-top: 1.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+  .product {
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+    background: var(--color-paper-raised);
+    padding: 1rem 1.05rem;
+  }
+  .product-title {
+    font-size: 1.15rem;
+    margin-top: 0.3rem;
+  }
+  .product-body {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .product-stack {
+    margin-top: 0.55rem;
+    font-size: 0.7rem;
+  }
+
+  .fun {
+    margin-top: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .fun-item {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0.2rem 0.9rem;
+    align-items: baseline;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .fun-title {
+    font-size: 0.95rem;
+  }
+  .fun-desc {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+  .fun-link {
+    grid-column: 2;
+    font-size: 0.68rem;
+  }
+
+  /* ---- colophon ---- */
+  .colophon {
+    margin-top: 2.6rem;
+  }
+  .rule {
+    height: 1px;
+    width: 100%;
+    background: var(--color-rule);
+  }
+  .colophon-row {
+    margin-top: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .cta {
+    max-width: 40ch;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .contact.mono-only {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+    font-size: 0.74rem;
+  }
+  .generated {
+    margin-top: 1.6rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* on-screen, give the dark sheet a little float */
+  @media screen {
+    body.resume {
+      padding-block: 2.5rem;
+    }
+    .dossier {
+      box-shadow: var(--shadow-paper);
+      border: 1px solid var(--color-rule);
+    }
+  }
+</style>
