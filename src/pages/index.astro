@@ -43,6 +43,14 @@ import gleamHtmx from "../../content/images/HTMX_Gleam.png";
 // logo
 import niterraLogo from "../../content/images/venturelabngk_logo.jpg";
 
+// Niterra Ventures — demo app screens (clean-slate instance, fictional data)
+import niDash from "../../content/images/niterra/niterra-dashboard.png";
+import niCompany from "../../content/images/niterra/niterra-company.png";
+import niValuation from "../../content/images/niterra/niterra-valuation.png";
+import niFunnel from "../../content/images/niterra/niterra-funnel.png";
+import niExpend from "../../content/images/niterra/niterra-expenditures.png";
+import niAccuracy from "../../content/images/niterra/niterra-accuracy.png";
+
 const niterraMap = [
   "Affinity CRM",
   "     │",
@@ -467,34 +475,6 @@ const homeOptionsMap = [
             lines={niterraMap}
             srText="Affinity CRM feeds an automation layer, which feeds an internal portal containing a Portfolio Management module and an Expense and Contract Management module."
           />
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div
-              class="reveal flex aspect-[16/10] flex-col items-center justify-center gap-2 rounded-[3px] border border-dashed border-rule bg-paper-raised p-4 text-center"
-            >
-              <span
-                class="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent"
-                >Plate to come</span
-              >
-              <span class="font-mono text-[0.78rem] leading-relaxed text-ink">
-                Portfolio module — dashboards & custom reporting<br /><span
-                  class="text-ink-muted">confidential · crop/blur pending</span
-                >
-              </span>
-            </div>
-            <div
-              class="reveal flex aspect-[16/10] flex-col items-center justify-center gap-2 rounded-[3px] border border-dashed border-rule bg-paper-raised p-4 text-center"
-            >
-              <span
-                class="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent"
-                >Plate to come</span
-              >
-              <span class="font-mono text-[0.78rem] leading-relaxed text-ink">
-                Expense & Contract module<br /><span class="text-ink-muted"
-                  >confidential · crop/blur pending</span
-                >
-              </span>
-            </div>
-          </div>
         </div>
 
         <div class="space-y-6 lg:col-span-5">
@@ -526,6 +506,67 @@ const homeOptionsMap = [
             >
           </div>
         </div>
+      </div>
+
+      <!-- 04 · showcase: 6 demo screens (clean-slate instance, fictional data) -->
+      <div class="wrap mt-12 lg:mt-16">
+        <Plate
+          src={niDash}
+          alt="Niterra Ventures portfolio dashboard — total invested, estimated exit value and average TVPI above a quarterly revenue trend and a recent-movers list"
+          sizes="(min-width:1024px) 78vw, 92vw"
+          widths={[768, 1280, 1920]}
+          caption="Portfolio dashboard — total invested, estimated exit value and TVPI up top; a quarterly revenue trend, recent movers and a projected exit timeline below."
+        />
+
+        <p class="kicker reveal mt-12 text-accent">Portfolio Management</p>
+        <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <Plate
+            src={niCompany}
+            chrome
+            alt="Niterra per-company financial detail with revenue and net-income charts versus plan"
+            sizes="(min-width:1024px) 26vw, (min-width:640px) 46vw, 92vw"
+            caption="Per-company financials — revenue and net income vs plan, liquidity ratios, quarter and YTD variance."
+          />
+          <Plate
+            src={niValuation}
+            chrome
+            alt="Niterra exit-valuation model showing enterprise value and MOIC across low, mid and high scenarios"
+            sizes="(min-width:1024px) 26vw, (min-width:640px) 46vw, 92vw"
+            caption="Exit modeling — enterprise value and MOIC across low / mid / high scenarios, with a liquidation-preference waterfall and comps."
+          />
+          <Plate
+            src={niFunnel}
+            chrome
+            alt="Niterra deal funnel tracking conversion across the investment pipeline stages"
+            sizes="(min-width:1024px) 26vw, (min-width:640px) 46vw, 92vw"
+            caption="Deal funnel — conversion from intake to investment across the pipeline, with drop and long-term-follow lanes."
+          />
+        </div>
+
+        <p class="kicker reveal mt-12 text-accent">Expense &amp; Contract</p>
+        <div class="mt-5 grid gap-5 sm:grid-cols-2">
+          <Plate
+            src={niExpend}
+            chrome
+            alt="Niterra expenditure tracking dashboard with spend versus budget broken down by domain"
+            sizes="(min-width:1024px) 39vw, 92vw"
+            caption="Expenditure tracking — spend vs budget by domain, paid / forecasted split, multi-currency totals."
+          />
+          <Plate
+            src={niAccuracy}
+            chrome
+            alt="Niterra forecast-accuracy report comparing forecasted and actual spend per engagement"
+            sizes="(min-width:1024px) 39vw, 92vw"
+            caption="Forecast accuracy — forecasted vs actual spend per engagement, scored by variance."
+          />
+        </div>
+
+        <p
+          class="reveal mt-8 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-ink-muted"
+        >
+          Screens from a public demo seeded with fictional data — no real
+          portfolio data shown.
+        </p>
       </div>
     </section>
 
