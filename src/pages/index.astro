@@ -35,6 +35,8 @@ import liftPortal from "../../content/images/LiftUpPortal.png";
 // range / build-for-fun
 import gameTitle from "../../content/images/StupidSpiderGameTitle.png";
 import gameIG from "../../content/images/StupidSpiderGameIG.png";
+import sudoTitle from "../../content/images/SudokouijaTitle.png";
+import sudoBoard from "../../content/images/SudokouijaBoard.png";
 import goHtmx from "../../content/images/go-htmx.webp";
 import gleamHtmx from "../../content/images/HTMX_Gleam.png";
 
@@ -84,9 +86,9 @@ const homeOptionsMap = [
       <p
         class="reveal reveal-2 col-measure mt-8 text-[clamp(1.0625rem,0.5vw+1rem,1.25rem)] leading-relaxed text-ink"
       >
-        I operate like an embedded product team of one — full-stack delivery,
-        end-to-end ownership, minimal hand-offs. I've also led a team of five, so
-        I know which problems are worth coordinating on.
+        I work like an embedded product team of one: I take a problem from rough
+        idea to a running product — design, build, deploy — with minimal hand-offs
+        in between.
       </p>
       <div
         class="reveal reveal-3 mt-10 flex flex-col gap-3 text-sm sm:flex-row sm:gap-10"
@@ -110,19 +112,18 @@ const homeOptionsMap = [
         <p
           class="reveal max-w-[64ch] text-[clamp(1.25rem,1vw+1rem,1.6rem)] leading-snug text-ink"
         >
-          Give me a vague problem and I'll come back with a shipped product. I
-          take a thing end-to-end — design, build, deploy, and the parts no one
-          volunteers for: auth, billing, the deploy pipeline — so it lands as one
-          decision instead of five hand-offs.
+          I tend to take a problem end-to-end — design, build, deploy, and the
+          parts no one volunteers for: auth, billing, the deploy pipeline — so it
+          lands as one decision instead of a chain of hand-offs.
         </p>
         <p class="reveal reveal-1 col-measure mt-5 leading-relaxed text-ink">
-          I'm comfortable across the whole stack and across languages, which
-          means I pick the tool the problem wants, not the one I'm stuck with. I
-          treat AI as a multiplier on delivery speed, not a gimmick — it's why
-          the two products below, with auth, billing, real-time, AI extraction,
-          and their own marketing sites, shipped from one pair of hands. And
-          because I've led engineers, I know when to absorb a problem and when to
-          pull people in.
+          I'm comfortable across the stack and across languages, so I can usually
+          reach for the tool a problem wants rather than the one I happen to know.
+          I lean on AI as a multiplier on delivery speed — it's a big part of why
+          the two products below, each with auth, billing, real-time, AI
+          extraction, and its own marketing site, shipped from one pair of hands.
+          I've also led a small team, so I'm comfortable coordinating when a
+          problem is bigger than one person.
         </p>
       </div>
     </section>
@@ -309,9 +310,6 @@ const homeOptionsMap = [
             <p
               class="t-emph reveal reveal-1 mt-4 text-[clamp(1.4rem,1.4vw+1rem,1.9rem)] leading-snug text-pondera-navy"
             >
-              Escolha a casa certa — sem se perder no meio do caminho.
-            </p>
-            <p class="reveal reveal-1 mt-2 text-[0.9rem] text-pondera-ink">
               Choose the right house — without getting lost along the way.
             </p>
 
@@ -337,9 +335,7 @@ const homeOptionsMap = [
                 >
                 <div>
                   <p class="font-mono text-sm">
-                    <span lang="pt" class="font-medium text-pondera-navy"
-                      >Cole</span
-                    > <span class="text-pondera-ink">· Paste</span>
+                    <span class="font-medium text-pondera-navy">Paste</span>
                   </p>
                   <Plate
                     src={poCole}
@@ -348,7 +344,7 @@ const homeOptionsMap = [
                     url="pondera.casa"
                     class="mt-3"
                     captionClass="text-pondera-ink"
-                    caption="Cole — paste a link; AI extracts price, area, photos and a pros / contras / atenção card. No data entry."
+                    caption="Paste a link; AI extracts price, area, photos and a pros / cons / watch-outs card. No data entry."
                   />
                 </div>
               </li>
@@ -359,9 +355,7 @@ const homeOptionsMap = [
                 >
                 <div>
                   <p class="font-mono text-sm">
-                    <span lang="pt" class="font-medium text-pondera-navy"
-                      >Pontue</span
-                    > <span class="text-pondera-ink">· Score</span>
+                    <span class="font-medium text-pondera-navy">Score</span>
                   </p>
                   <Plate
                     src={poPontue}
@@ -370,7 +364,7 @@ const homeOptionsMap = [
                     url="pondera.casa"
                     class="mt-3"
                     captionClass="text-pondera-ink"
-                    caption="Pontue — score each property on a checklist; portfolio stats update as you go."
+                    caption="Score each property on a checklist; portfolio stats update as you go."
                   />
                 </div>
               </li>
@@ -381,9 +375,7 @@ const homeOptionsMap = [
                 >
                 <div>
                   <p class="font-mono text-sm">
-                    <span lang="pt" class="font-medium text-pondera-navy"
-                      >Compare</span
-                    > <span class="text-pondera-ink">· Compare</span>
+                    <span class="font-medium text-pondera-navy">Compare</span>
                   </p>
                   <Plate
                     src={poCompare}
@@ -394,7 +386,7 @@ const homeOptionsMap = [
                     captionClass="text-pondera-ink"
                   >
                     <span slot="caption"
-                      >Compare — side-by-side table with <span
+                      >A side-by-side table with <span
                         class="font-semibold text-pondera-gold"
                         >best value per criterion highlighted in gold</span
                       >.</span
@@ -409,9 +401,7 @@ const homeOptionsMap = [
                 >
                 <div>
                   <p class="font-mono text-sm">
-                    <span lang="pt" class="font-medium text-pondera-navy"
-                      >Decida</span
-                    > <span class="text-pondera-ink">· Decide</span>
+                    <span class="font-medium text-pondera-navy">Decide</span>
                   </p>
                   <Plate
                     src={poDecida}
@@ -420,7 +410,7 @@ const homeOptionsMap = [
                     url="pondera.casa"
                     class="mt-3"
                     captionClass="text-pondera-ink"
-                    caption="Decida — AI ranks the options and explains each position in plain language. You decide."
+                    caption="AI ranks the options and explains each position in plain language. You decide."
                   />
                 </div>
               </li>
@@ -703,30 +693,42 @@ const homeOptionsMap = [
       <div class="wrap mt-6">
         <p class="reveal col-measure leading-relaxed text-ink">
           When the work's done, I still build. A sampling of things made for the
-          love of it — sprites, code, and all.
+          love of it — small games, starter templates, sprites and code, all
+          mine.
         </p>
-        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <Plate
             src={gameTitle}
             alt="Stupid Spider game title screen, built in Rust with the Bevy engine"
-            sizes="(min-width:1024px) 22vw, 92vw"
+            sizes="(min-width:1024px) 30vw, 92vw"
             caption="Stupid Spider — a game built ground-up in Rust + Bevy: sprites, original music, and code, all mine."
           />
           <Plate
             src={gameIG}
             alt="Stupid Spider gameplay screenshot"
-            sizes="(min-width:1024px) 22vw, 92vw"
+            sizes="(min-width:1024px) 30vw, 92vw"
           />
           <Plate
             src={goHtmx}
             alt="Go + HTMX starter template"
-            sizes="(min-width:1024px) 22vw, 92vw"
+            sizes="(min-width:1024px) 30vw, 92vw"
             caption="Go + HTMX starter template — shared for other builders."
+          />
+          <Plate
+            src={sudoTitle}
+            alt="Sudokouija title screen — pixel-art sun and moon framing the menu, built in LÖVE for Scream Jam 2025"
+            sizes="(min-width:1024px) 30vw, 92vw"
+            caption="Sudokouija — a horror sudoku built in LÖVE for Scream Jam 2025: solve the board before the timer runs out. Sprites and code by hand, no generative AI."
+          />
+          <Plate
+            src={sudoBoard}
+            alt="Sudokouija gameplay — a sepia pixel-art sudoku board with a countdown timer and a number pad"
+            sizes="(min-width:1024px) 30vw, 92vw"
           />
           <Plate
             src={gleamHtmx}
             alt="HTMX starter template for the Gleam functional language"
-            sizes="(min-width:1024px) 22vw, 92vw"
+            sizes="(min-width:1024px) 30vw, 92vw"
             caption="HTMX starter for the Gleam functional language — range across stacks."
           />
         </div>

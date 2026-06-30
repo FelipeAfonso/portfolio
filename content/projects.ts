@@ -19,6 +19,8 @@ import Liftup from "./images/LiftUpPortal.png";
 import LiftupCustomer from "./images/LiftUpPortalCustomer.png";
 import StupidSpiderGameIG from "./images/StupidSpiderGameIG.png";
 import StupidSpiderGameTitle from "./images/StupidSpiderGameTitle.png";
+import SudokouijaTitle from "./images/SudokouijaTitle.png";
+import SudokouijaBoard from "./images/SudokouijaBoard.png";
 import GoHTMX from "./images/go-htmx.webp";
 
 import type { ImageMetadata } from "astro";
@@ -45,6 +47,13 @@ export const projects: Record<string, Project> = {
       "I crafted a simple game using Rust and the Bevy Game Engine. It may be a small undertaking, but I developed everything, from sprites and music to interactions.",
     link: "https://king-cod.itch.io/stupid-spooder-game",
     images: [StupidSpiderGameTitle, StupidSpiderGameIG],
+  },
+  sudokouija: {
+    title: "Sudokouija",
+    description:
+      "A horror sudoku built in the LÖVE (Love2D) engine for Scream Jam 2025. It turns the classic puzzle into a race against time and against the board itself — psychological-horror mechanics layered over a 9×9 grid. Sprites and code by hand, no generative AI.",
+    link: "https://king-cod.itch.io/sudokouija",
+    images: [SudokouijaTitle, SudokouijaBoard],
   },
   gleam_htmx: {
     title: "HTMX Tailwind Gleam",
