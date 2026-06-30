@@ -22,6 +22,23 @@ import StupidSpiderGameTitle from "./images/StupidSpiderGameTitle.png";
 import SudokouijaTitle from "./images/SudokouijaTitle.png";
 import SudokouijaBoard from "./images/SudokouijaBoard.png";
 import GoHTMX from "./images/go-htmx.webp";
+import niDash from "./images/niterra/niterra-dashboard.png";
+import niCompanies from "./images/niterra/niterra-companies.png";
+import niCompany from "./images/niterra/niterra-company.png";
+import niValuation from "./images/niterra/niterra-valuation.png";
+import niCaptable from "./images/niterra/niterra-captable.png";
+import niFunnel from "./images/niterra/niterra-funnel.png";
+import niExpend from "./images/niterra/niterra-expenditures.png";
+import niReports from "./images/niterra/niterra-reports.png";
+import wqBoard from "./images/pitch/writequit-board.webp";
+import wqTime from "./images/pitch/writequit-time.webp";
+import wqInvoice from "./images/pitch/writequit-invoice.webp";
+import wqBoardAdmin from "./images/pitch/writequit-board-admin.webp";
+import wqClient from "./images/pitch/writequit-client-board.webp";
+import poCole from "./images/pitch/pondera-cole.png";
+import poPontue from "./images/pitch/pondera-pontue.png";
+import poCompare from "./images/pitch/pondera-compare.png";
+import poDecida from "./images/pitch/pondera-decida.png";
 
 import type { ImageMetadata } from "astro";
 
@@ -34,10 +51,51 @@ export type Project = {
 };
 
 export const projects: Record<string, Project> = {
+  niterra: {
+    title: "Niterra Ventures",
+    description:
+      "Niterra Ventures is the internal system of record I built for the venture arm of Niterra Group, covering the whole investment lifecycle: portfolio companies and their quarterly financials, editable cap tables, scenario-based exit models, a deal funnel, expense & contract tracking, board-deck generation, and P&L / balance-sheet reporting — fed by live integrations (Affinity CRM, PitchBook, Webflow) and mapped Excel imports. It replaced a CRM and eight spreadsheets with one platform (8 → 1) and became the daily system of record for 40+ people across the firm. Screens are from a public demo seeded with fictional data — no real portfolio data shown.",
+    images: [
+      niDash,
+      niCompanies,
+      niCompany,
+      niValuation,
+      niCaptable,
+      niFunnel,
+      niExpend,
+      niReports,
+    ],
+    workedWith: [
+      "SvelteKit",
+      "Svelte 5",
+      "Bun",
+      "TypeScript",
+      "Tailwind 4",
+      "Drizzle / Turso",
+      "Lucia",
+      "LayerChart",
+    ],
+  },
+  writequit: {
+    title: "writequit.dev",
+    description:
+      "A full commercial SaaS for freelance developers — task manager, time tracker, and invoice generator in one terminal-native tool with vim keybindings and markdown tasks. It bundles auth (WorkOS), PDF invoice generation (jsPDF), real-time chat and shared client boards (Convex), and password-gated permissioned sharing. I shipped it end-to-end: the product design, the opinionated UX, and the marketing voice — not just the code.",
+    link: "https://writequit.dev",
+    images: [wqBoard, wqTime, wqInvoice, wqBoardAdmin, wqClient],
+    workedWith: ["SvelteKit 5", "Convex", "Tailwind 4", "WorkOS", "jsPDF", "Vercel"],
+  },
+  pondera: {
+    title: "pondera.casa",
+    description:
+      "A consumer product that helps you choose the right house without getting lost along the way. Paste a listing URL and pondera turns it into a structured decision — real scraping and LLM extraction, not a chat box — then curates, compares, and ranks: it pulls price, area and photos into a pros / cons / watch-outs card, scores each property on a checklist, lays them side by side with the best value per criterion highlighted, and ranks the options with plain-language reasoning. Shipped end-to-end, marketing site included.",
+    link: "https://pondera.casa",
+    images: [poCole, poPontue, poCompare, poDecida],
+    workedWith: ["Next.js 16", "React 19", "Convex", "OpenRouter"],
+  },
   go_htmx: {
     title: "Go HTMX Front end Template",
     description:
-      "In need of a performant application for my work, I created a template for a Go HTMX application. It leverages Vite for Hot Reloading and bundling, which also makes it much easier to create isolated islands using other frameworks (like React) in specific locations of the website. It worked out great, and I used it daily during my work at ContactAI.",
+      "In need of a performant application for my work, I created a template for a Go HTMX application. It leverages Vite for Hot Reloading and bundling, which also makes it much easier to create isolated islands using other frameworks (like React) in specific locations of the website. It worked out great, and I used it daily in my own work.",
     link: "https://github.com/FelipeAfonso/go-htmx-starter",
     images: [GoHTMX],
   },
