@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "resume:pdf": "astro build && bun scripts/generate-resume-pdf.ts"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^1.0.0",
@@ -29,6 +30,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.8.0"
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "puppeteer": "^25.2.1"
   }
 }

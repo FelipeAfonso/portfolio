@@ -1,0 +1,104 @@
+---
+// Slim layout for the printable /resume dossier.
+// Reuses the @fontsource faces + global.css helpers (.t-display/.t-headline/
+// .kicker) and the design tokens, but OVERRIDES the colour tokens to a light,
+// print-friendly palette (Tailwind v4 utilities reference var(--color-*), so
+// re-defining them on body.resume re-themes bg-paper/text-ink/etc. without
+// touching global.css). Also strips the homepage chrome: no RunningHead, no
+// Posthog, no fixed topo.svg overlay, no ambient glow.
+import "@fontsource-variable/josefin-sans/index.css";
+import "@fontsource/roboto-slab/400.css";
+import "@fontsource/roboto-slab/500.css";
+import "@fontsource/roboto-slab/700.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Felipe Afonso — Software Engineer. Full-stack delivery, end-to-end ownership. Résumé / portfolio dossier.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{title}</title>
+  </head>
+  <body class="resume">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* ---- light, print-friendly palette (overrides the dark @theme tokens) ---- */
+  body.resume {
+    --color-paper: #ffffff;
+    --color-paper-raised: #f5f5f4; /* subtle card surface */
+    --color-ink: #1a1a1a; /* near-black body text */
+    --color-ink-muted: #57575c; /* muted (AA on white) */
+    --color-accent: #4f46e5; /* indigo-600 — strong on white */
+    --color-rule: #e4e4e7; /* light hairline */
+
+    --overlay-image: none; /* kill the fixed topo.svg overlay */
+    background-image: none; /* kill the ambient indigo/violet glow */
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+  body.resume::before {
+    display: none; /* belt-and-suspenders: no topographic texture */
+  }
+
+  /* keep accents/borders/screenshots through print economization */
+  :root,
+  html,
+  body.resume {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---- page geometry: CSS owns size + margins (preferCSSPageSize) ---- */
+  @page {
+    size: A4;
+    margin: 16mm; /* uniform margins on EVERY page — clean for printing */
+  }
+
+  /* ---- pagination control ---- */
+  .resume-section,
+  .resume-entry,
+  .resume-card {
+    break-inside: avoid;
+  }
+  .resume-page-break {
+    break-before: page;
+  }
+  /* never strand a heading at the bottom of a page */
+  h1,
+  h2,
+  h3,
+  .resume-section-title {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* on screen, float the white page on a neutral backdrop */
+  @media screen {
+    body.resume {
+      background: #e7e7ea;
+      padding-block: 2.5rem;
+    }
+  }
+</style>
