@@ -94,62 +94,60 @@ const homeOptionsMap = [
     <section
       data-folio="01"
       data-title="Cover"
-      class="wrap flex min-h-[90vh] flex-col justify-center"
+      class="wrap flex min-h-[82svh] flex-col justify-center pb-[var(--space-section)]"
       style="padding-top: calc(var(--running-head-h) + 5vh);"
     >
       <p class="kicker reveal text-accent">
         <span aria-hidden="true">01</span>
-        <span class="ml-4 sm:ml-6"
-          >Software Engineer · Full-Stack · End-to-End Ownership</span
-        >
+        <span class="ml-4 sm:ml-6">
+          Software Engineer · Full-Stack · End-to-End Ownership
+        </span>
       </p>
       <h1
-        class="t-display reveal reveal-1 mt-6 max-w-[16ch] text-[clamp(2.75rem,6vw+1rem,6.5rem)] text-ink"
+        class="t-display reveal reveal-1 text-ink mt-6 max-w-[16ch] text-[clamp(2.75rem,6vw+1rem,6.5rem)]"
       >
-        Hand me a problem. I'll hand back a <span class="draw-underline"
-          >working product</span
-        ><span class="text-accent">.</span>
+        Hand me a problem. I'll hand back a <span class="draw-underline">
+          working product
+        </span><span class="text-accent">.</span>
       </h1>
       <p
-        class="reveal reveal-2 col-measure mt-8 text-[clamp(1.0625rem,0.5vw+1rem,1.25rem)] leading-relaxed text-ink"
+        class="reveal reveal-2 col-measure text-ink mt-8 text-[clamp(1.0625rem,0.5vw+1rem,1.25rem)] leading-relaxed"
       >
         I work like an embedded product team of one: I take a problem from rough
-        idea to a running product — design, build, deploy — with minimal hand-offs
-        in between.
+        idea to a running product — design, build, deploy — with minimal
+        hand-offs in between.
       </p>
       <div
         class="reveal reveal-3 mt-10 flex flex-col gap-3 text-sm sm:flex-row sm:gap-10"
       >
-        <a class="ed-link" href="mailto:fmunhozafonso@gmail.com"
-          >Start a conversation → fmunhozafonso@gmail.com</a
-        >
-        <a class="ed-link" target="_blank" href="/resume.pdf">/resume.pdf — the full record</a>
+        <a class="ed-link" href="mailto:fmunhozafonso@gmail.com">
+          Start a conversation → fmunhozafonso@gmail.com
+        </a>
+        <a class="ed-link" target="_blank" href="/resume.pdf">
+          /resume.pdf — the full record
+        </a>
       </div>
     </section>
 
     <!-- ============ 02 · HOW I WORK ============ -->
-    <section
-      data-folio="02"
-      data-title="Operating Model"
-      class="mt-[var(--space-section)]"
-    >
+    <section data-folio="02" data-title="Operating Model">
       <SectionHeader folio="02" kicker="Operating Model" id="how" />
       <div class="wrap mt-6">
         <p
-          class="reveal max-w-[64ch] text-[clamp(1.25rem,1vw+1rem,1.6rem)] leading-snug text-ink"
+          class="reveal text-ink max-w-[64ch] text-[clamp(1.25rem,1vw+1rem,1.6rem)] leading-snug"
         >
           I tend to take a problem end-to-end — design, build, deploy, and the
-          parts no one volunteers for: auth, billing, the deploy pipeline — so it
-          lands as one decision instead of a chain of hand-offs.
+          parts no one volunteers for: auth, billing, the deploy pipeline — so
+          it lands as one decision instead of a chain of hand-offs.
         </p>
-        <p class="reveal reveal-1 col-measure mt-5 leading-relaxed text-ink">
-          I'm comfortable across the stack and across languages, so I can usually
-          reach for the tool a problem wants rather than the one I happen to know.
-          I lean on AI as a multiplier on delivery speed — it's a big part of why
-          the work below — a complete internal platform for a venture firm, plus
-          two commercial products of my own — each shipped from one pair of hands.
-          I've also led a small team, so I'm comfortable coordinating when a
-          problem is bigger than one person.
+        <p class="reveal reveal-1 col-measure text-ink mt-5 leading-relaxed">
+          I'm comfortable across the stack and across languages, so I can
+          usually reach for the tool a problem wants rather than the one I
+          happen to know. I lean on AI as a multiplier on delivery speed — it's
+          a big part of why the work below — a complete internal platform for a
+          venture firm, plus two commercial products of my own — each shipped
+          from one pair of hands. I've also led a small team, so I'm comfortable
+          coordinating when a problem is bigger than one person.
         </p>
       </div>
     </section>
@@ -160,325 +158,334 @@ const homeOptionsMap = [
       data-title="Flagship — Niterra Ventures"
       class="relative mt-[var(--space-section)]"
     >
-      <!-- mobile-only transition: site paper → masthead deep -->
-      <div
-        aria-hidden="true"
-        class="h-[7vh] lg:hidden"
-        style="background-image: linear-gradient(to bottom, var(--color-paper), var(--color-ni-deep));"
-      >
-      </div>
-
-      <!-- ===== BAND 1 · dark masthead ===== -->
-      <div
-        class="relative overflow-hidden bg-ni-deep pt-14 pb-28 lg:pt-20 lg:pb-40"
-      >
-        <!-- contained teal glow (clipped by overflow-hidden — can't bleed into §02) -->
+      <div class="mx-auto w-full max-w-[var(--content-max)] px-[var(--gutter)]">
         <div
-          aria-hidden="true"
-          class="pointer-events-none absolute inset-x-0 top-0 z-0 h-[60vh]"
-          style="background: radial-gradient(48% 50% at 50% 0%, color-mix(in oklch, var(--color-ni-teal) 18%, transparent), transparent 70%);"
+          class="border-rule relative overflow-hidden rounded-[var(--panel-radius)] border"
+          style="box-shadow: var(--shadow-paper);"
         >
-        </div>
-        <!-- faint secondary glow, lower-right -->
-        <div
-          aria-hidden="true"
-          class="pointer-events-none absolute -bottom-[10vh] right-0 z-0 h-[40vh] w-[55vw]"
-          style="background: radial-gradient(50% 50% at 80% 60%, color-mix(in oklch, var(--color-ni-teal) 9%, transparent), transparent 72%);"
-        >
-        </div>
-
-        <div class="wrap relative z-10">
-          <header id="niterra">
-            <div class="grid grid-cols-12 items-baseline gap-x-4">
-              <div
-                class="kicker reveal col-span-12 text-ni-teal lg:col-span-1"
-                aria-hidden="true"
-              >
-                03
-              </div>
-              <div class="col-span-12 lg:col-span-11">
-                <div class="reveal flex items-center gap-3">
-                  <Image
-                    src={niterraLogo}
-                    alt=""
-                    width={36}
-                    height={36}
-                    class="rounded-[3px] border border-ni-teal/25"
-                  />
-                  <p class="kicker text-ni-teal">
-                    Flagship · Internal platform, shipped solo
-                  </p>
-                </div>
-                <h2
-                  class="t-headline reveal reveal-1 mt-4 text-[clamp(2rem,3.5vw+1rem,4.25rem)] text-ni-paper"
-                >
-                  Niterra Ventures
-                </h2>
-                <p
-                  class="t-emph reveal reveal-1 col-measure mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug text-ni-paper"
-                >
-                  The investment team's work lived across a CRM and a stack of
-                  spreadsheets. I built one internal platform to bring it
-                  together — and it became how the team works.
-                </p>
-              </div>
-            </div>
-          </header>
-
-          <div class="mt-8 grid gap-x-12 gap-y-6 lg:grid-cols-12">
-            <p
-              class="reveal text-[1.0625rem] leading-relaxed text-ni-paper/85 lg:col-span-7"
-            >
-              Built for the venture arm of Niterra Group, it's the system of
-              record for the whole investment lifecycle: portfolio companies and
-              their quarterly financials, editable cap tables, scenario-based
-              exit models, a deal funnel, expense & contract tracking,
-              board-deck generation, and P&amp;L / balance-sheet reporting — fed
-              by live integrations and mapped Excel imports.
-            </p>
-            <p
-              class="reveal reveal-1 font-mono text-[0.8rem] leading-relaxed text-ni-paper/55 lg:col-span-5"
-            >
-              <span class="text-ni-teal">stack</span> · SvelteKit · Svelte 5 ·
-              Bun · TypeScript · Tailwind 4 · shadcn-svelte · Drizzle / Turso ·
-              Zod · Lucia auth · LayerChart · TipTap · pdfkit · deployed on
-              Vercel<br /><br />
-              <span class="text-ni-teal">integrates</span> · Affinity CRM ·
-              PitchBook · Webflow
-            </p>
-          </div>
-
-          <!-- impact bar: what it changed -->
-          <div class="mt-12 lg:mt-16">
-            <p class="kicker reveal text-ni-teal">What it changed</p>
-            <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {
-                niStats.map((s) => (
-                  <div
-                    class="reveal rounded-[3px] border border-ni-teal/15 bg-white/[0.03] p-5"
-                    style="box-shadow: var(--shadow-paper);"
-                  >
-                    <p class="t-display text-[clamp(1.6rem,1.4vw+1rem,2.1rem)] leading-none text-ni-teal">
-                      {s.big}
-                    </p>
-                    <p class="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-ni-paper">
-                      {s.label}
-                    </p>
-                    <p class="mt-2 text-[0.9rem] leading-relaxed text-ni-paper/65">
-                      {s.note}
-                    </p>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== BAND 2 · light product gallery ===== -->
-      <div class="relative bg-ni-paper pb-[var(--space-section)] text-ni-ink">
-        <div class="wrap">
-          <!-- hero pedestal — straddles the dark→light seam -->
-          <div class="relative z-20 -mt-24 lg:-mt-32">
+          <!-- ===== BAND 1 · dark masthead ===== -->
+          <div
+            class="bg-ni-deep relative overflow-hidden pt-14 pb-28 lg:pt-20 lg:pb-40"
+          >
+            <!-- contained teal glow (clipped by overflow-hidden — can't bleed into §02) -->
             <div
               aria-hidden="true"
-              class="pointer-events-none absolute -inset-x-6 -top-10 -bottom-10 z-0"
-              style="background: radial-gradient(60% 55% at 50% 35%, color-mix(in oklch, var(--color-ni-teal) 22%, transparent), transparent 70%); filter: blur(8px);"
+              class="pointer-events-none absolute inset-x-0 top-0 z-0 h-[60vh]"
+              style="background: radial-gradient(48% 50% at 50% 0%, color-mix(in oklch, var(--color-ni-teal) 18%, transparent), transparent 70%);"
             >
             </div>
-            <div class="relative z-10">
-              <Plate
-                src={niDash}
-                tone="niterra"
-                eager
-                alt="Niterra Ventures portfolio dashboard — invested capital, exit-value range and average TVPI above a quarterly revenue trend, recent movers and a projected exit timeline"
-                sizes="(min-width:1024px) 80vw, 92vw"
-                widths={[768, 1280, 1920, 2560]}
-                caption="Portfolio dashboard — invested capital, exit-value range and TVPI up top; a quarterly revenue trend, recent movers and a projected exit timeline below."
-              />
+            <!-- faint secondary glow, lower-right -->
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute right-0 -bottom-[10vh] z-0 h-[40vh] w-[55vw]"
+              style="background: radial-gradient(50% 50% at 80% 60%, color-mix(in oklch, var(--color-ni-teal) 9%, transparent), transparent 72%);"
+            >
             </div>
-          </div>
 
-          <!-- featured showpiece: exit modeling -->
-          <div class="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-12 lg:items-center">
-            <div class="lg:col-span-8">
-              <Plate
-                src={niValuation}
-                tone="niterra"
-                alt="Niterra exit-valuation model showing enterprise value and MOIC across low, mid and high scenarios beside a performance-ratio panel"
-                sizes="(min-width:1024px) 64vw, 92vw"
-                widths={[768, 1280, 1920, 2560]}
-                caption="Exit modeling — enterprise value and MOIC across low / mid / high scenarios, with a live performance-ratio panel."
-              />
-            </div>
-            <div class="lg:col-span-4">
-              <p class="kicker reveal text-ni-teal-deep">
-                Exit modeling · the showpiece
-              </p>
-              <p
-                class="reveal reveal-1 mt-3 text-[1.0625rem] leading-relaxed text-ni-ink"
-              >
-                A live scenario model from entry to exit, with the waterfall and
-                comps a real diligence deck would carry.
-              </p>
-              <blockquote
-                class="reveal reveal-2 mt-6 flex gap-3 border-l-2 border-ni-teal-deep pl-4"
-              >
-                <DeliveredToken tone="teal" class="mt-1" />
-                <p class="t-emph text-[1.2rem] leading-snug text-ni-ink">
-                  The analytical heart of the platform — the scenario math a
-                  diligence team builds by hand, made live and reusable across
-                  the whole portfolio.
+            <div class="relative z-10 px-[var(--gutter)]">
+              <header id="niterra">
+                <div class="grid grid-cols-12 items-baseline gap-x-4">
+                  <div
+                    class="kicker reveal text-ni-teal col-span-12 lg:col-span-1"
+                    aria-hidden="true"
+                  >
+                    03
+                  </div>
+                  <div class="col-span-12 lg:col-span-11">
+                    <div class="reveal flex items-center gap-3">
+                      <Image
+                        src={niterraLogo}
+                        alt=""
+                        width={36}
+                        height={36}
+                        class="border-ni-teal/25 rounded-[3px] border"
+                      />
+                      <p class="kicker text-ni-teal">
+                        Flagship · Internal platform, shipped solo
+                      </p>
+                    </div>
+                    <h2
+                      class="t-headline reveal reveal-1 text-ni-paper mt-4 text-[clamp(2rem,3.5vw+1rem,4.25rem)]"
+                    >
+                      Niterra Ventures
+                    </h2>
+                    <p
+                      class="t-emph reveal reveal-1 col-measure text-ni-paper mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug"
+                    >
+                      The investment team's work lived across a CRM and a stack
+                      of spreadsheets. I built one internal platform to bring it
+                      together — and it became how the team works.
+                    </p>
+                  </div>
+                </div>
+              </header>
+
+              <div class="mt-8 grid gap-x-12 gap-y-6 lg:grid-cols-12">
+                <p
+                  class="reveal text-ni-paper/85 text-[1.0625rem] leading-relaxed lg:col-span-7"
+                >
+                  Built for the venture arm of Niterra Group, it's the system of
+                  record for the whole investment lifecycle: portfolio companies
+                  and their quarterly financials, editable cap tables,
+                  scenario-based exit models, a deal funnel, expense & contract
+                  tracking, board-deck generation, and P&amp;L / balance-sheet
+                  reporting — fed by live integrations and mapped Excel imports.
                 </p>
-              </blockquote>
-            </div>
-          </div>
-
-          <!-- supporting modules -->
-          <div class="mt-16 space-y-14 lg:mt-24">
-            <div>
-              <p class="kicker reveal text-ni-teal-deep">
-                Portfolio &amp; companies
-              </p>
-              <p
-                class="reveal reveal-1 col-measure mt-3 text-[0.95rem] leading-relaxed text-ni-ink-muted"
-              >
-                Every holding, its rounds and ownership, and per-company
-                financials tracked against plan.
-              </p>
-              <div class="mt-5 grid gap-5 sm:grid-cols-2">
-                <Plate
-                  src={niCompanies}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra companies list — every portfolio company with its rounds, investment stages, carry value and ownership"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Companies — every holding with its rounds, carry value, ownership and major rights."
-                />
-                <Plate
-                  src={niCompany}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra per-company financial detail with revenue and net-income charts versus plan and liquidity ratios"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Per-company detail — revenue, net income and cash generation vs plan, with quarter-over-quarter growth, runway and per-metric variance."
-                />
+                <p
+                  class="reveal reveal-1 text-ni-paper/55 font-mono text-[0.8rem] leading-relaxed lg:col-span-5"
+                >
+                  <span class="text-ni-teal">stack</span> · SvelteKit · Svelte 5 ·
+                  Bun · TypeScript · Tailwind 4 · shadcn-svelte · Drizzle / Turso
+                  · Zod · Lucia auth · LayerChart · TipTap · pdfkit · deployed on
+                  Vercel<br /><br />
+                  <span class="text-ni-teal">integrates</span> · Affinity CRM · PitchBook
+                  · Webflow
+                </p>
               </div>
-            </div>
 
-            <div>
-              <p class="kicker reveal text-ni-teal-deep">
-                Cap tables &amp; deal flow
-              </p>
-              <div class="mt-5 grid gap-5 sm:grid-cols-2">
-                <Plate
-                  src={niCaptable}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra editable cap table — rounds, per-investor ownership and fully-diluted shares auto-computed from investments"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Editable cap table — rounds, per-investor ownership and fully-diluted shares, auto-computed from the underlying investments."
-                />
-                <Plate
-                  src={niFunnel}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra deal funnel tracking conversion across the investment pipeline stages"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Deal funnel — conversion from intake to investment across the pipeline, with drop and long-term-follow lanes."
-                />
-              </div>
-            </div>
-
-            <div>
-              <p class="kicker reveal text-ni-teal-deep">
-                Spend &amp; forecasting
-              </p>
-              <div class="mt-5 grid gap-5 sm:grid-cols-2">
-                <Plate
-                  src={niExpend}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra expenditure dashboard with spend versus budget broken down by domain"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Expenditure tracking — spend vs budget by domain, with a paid / forecasted split."
-                />
-                <Plate
-                  src={niAccuracy}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra forecast-accuracy report comparing forecasted and actual spend per engagement"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Forecast accuracy — forecasted vs actual spend per engagement, scored by variance."
-                />
-              </div>
-            </div>
-
-            <div>
-              <p class="kicker reveal text-ni-teal-deep">
-                Board decks &amp; reporting
-              </p>
-              <div class="mt-5 grid gap-5 sm:grid-cols-2">
-                <Plate
-                  src={niPresentation}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra presentation builder showing investment composition, a frozen portfolio snapshot and per-company sections, exported to PowerPoint"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Presentation builder — composition, frozen snapshots and per-company sections, exported to PPTX. The portfolio deck, in seconds."
-                />
-                <Plate
-                  src={niReports}
-                  tone="niterra"
-                  chrome
-                  alt="Niterra financial reports — a profit-and-loss table across quarters with balance-sheet, cash-flow and KPI tabs"
-                  sizes="(min-width:1024px) 39vw, 92vw"
-                  widths={[480, 768, 1080, 1280]}
-                  caption="Financial reports — P&L, balance sheet, cash-flow and KPI tabs, per company."
-                />
+              <!-- impact bar: what it changed -->
+              <div class="mt-12 lg:mt-16">
+                <p class="kicker reveal text-ni-teal">What it changed</p>
+                <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {
+                    niStats.map((s) => (
+                      <div
+                        class="reveal border-ni-teal/15 rounded-[3px] border bg-white/[0.03] p-5"
+                        style="box-shadow: var(--shadow-paper);"
+                      >
+                        <p class="t-display text-ni-teal text-[clamp(1.6rem,1.4vw+1rem,2.1rem)] leading-none">
+                          {s.big}
+                        </p>
+                        <p class="text-ni-paper mt-3 font-mono text-[0.7rem] tracking-[0.12em] uppercase">
+                          {s.label}
+                        </p>
+                        <p class="text-ni-paper/65 mt-2 text-[0.9rem] leading-relaxed">
+                          {s.note}
+                        </p>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- footer: attribution + demo disclaimer -->
+          <!-- ===== BAND 2 · light product gallery ===== -->
           <div
-            class="reveal mt-16 flex flex-col gap-4 border-t border-ni-line pt-6 sm:flex-row sm:items-center sm:justify-between lg:mt-24"
+            class="bg-ni-paper text-ni-ink relative pt-16 pb-[var(--space-section)] lg:pt-24"
           >
-            <div class="flex items-center gap-3">
-              <Image
-                src={niterraLogo}
-                alt="Venture Lab, Niterra Group"
-                width={40}
-                height={40}
-                class="rounded-[3px] border border-ni-line"
-              />
-              <span class="font-mono text-[0.75rem] text-ni-ink"
-                >Venture Lab · Niterra Group</span
+            <div class="px-[var(--gutter)]">
+              <!-- light-band intro: orients the reader into the product gallery -->
+              <div class="max-w-[60ch]">
+                <p class="kicker reveal text-ni-teal-deep">
+                  Inside the platform
+                </p>
+                <p
+                  class="reveal reveal-1 text-ni-ink mt-3 text-[1.0625rem] leading-relaxed"
+                >
+                  The screens the investment team lives in — portfolio, exit
+                  models, cap tables, spend and board decks — that replaced the
+                  CRM and eight spreadsheets.
+                </p>
+              </div>
+
+              <!-- hero pedestal — now opens below the intro, with real top margin -->
+              <div class="relative z-20 mt-8 lg:mt-12">
+                <div
+                  aria-hidden="true"
+                  class="pointer-events-none absolute -inset-x-6 -top-10 -bottom-10 z-0"
+                  style="background: radial-gradient(60% 55% at 50% 35%, color-mix(in oklch, var(--color-ni-teal) 22%, transparent), transparent 70%); filter: blur(8px);"
+                >
+                </div>
+                <div class="relative z-10">
+                  <Plate
+                    src={niDash}
+                    tone="niterra"
+                    eager
+                    alt="Niterra Ventures portfolio dashboard — invested capital, exit-value range and average TVPI above a quarterly revenue trend, recent movers and a projected exit timeline"
+                    sizes="(min-width:1024px) 80vw, 92vw"
+                    widths={[768, 1280, 1920, 2560]}
+                    caption="Portfolio dashboard — invested capital, exit-value range and TVPI up top; a quarterly revenue trend, recent movers and a projected exit timeline below."
+                  />
+                </div>
+              </div>
+
+              <!-- featured showpiece: exit modeling -->
+              <div
+                class="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-12 lg:items-center"
               >
+                <div class="lg:col-span-8">
+                  <Plate
+                    src={niValuation}
+                    tone="niterra"
+                    alt="Niterra exit-valuation model showing enterprise value and MOIC across low, mid and high scenarios beside a performance-ratio panel"
+                    sizes="(min-width:1024px) 64vw, 92vw"
+                    widths={[768, 1280, 1920, 2560]}
+                    caption="Exit modeling — enterprise value and MOIC across low / mid / high scenarios, with a live performance-ratio panel."
+                  />
+                </div>
+                <div class="lg:col-span-4">
+                  <p class="kicker reveal text-ni-teal-deep">
+                    Exit modeling · the showpiece
+                  </p>
+                  <p
+                    class="reveal reveal-1 text-ni-ink mt-3 text-[1.0625rem] leading-relaxed"
+                  >
+                    A live scenario model from entry to exit, with the waterfall
+                    and comps a real diligence deck would carry.
+                  </p>
+                  <blockquote
+                    class="reveal reveal-2 border-ni-teal-deep mt-6 flex gap-3 border-l-2 pl-4"
+                  >
+                    <DeliveredToken tone="teal" class="mt-1" />
+                    <p class="t-emph text-ni-ink text-[1.2rem] leading-snug">
+                      The analytical heart of the platform — the scenario math a
+                      diligence team builds by hand, made live and reusable
+                      across the whole portfolio.
+                    </p>
+                  </blockquote>
+                </div>
+              </div>
+
+              <!-- supporting modules -->
+              <div class="mt-16 space-y-14 lg:mt-24">
+                <div>
+                  <p class="kicker reveal text-ni-teal-deep">
+                    Portfolio &amp; companies
+                  </p>
+                  <p
+                    class="reveal reveal-1 col-measure text-ni-ink-muted mt-3 text-[0.95rem] leading-relaxed"
+                  >
+                    Every holding, its rounds and ownership, and per-company
+                    financials tracked against plan.
+                  </p>
+                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                    <Plate
+                      src={niCompanies}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra companies list — every portfolio company with its rounds, investment stages, carry value and ownership"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Companies — every holding with its rounds, carry value, ownership and major rights."
+                    />
+                    <Plate
+                      src={niCompany}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra per-company financial detail with revenue and net-income charts versus plan and liquidity ratios"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Per-company detail — revenue, net income and cash generation vs plan, with quarter-over-quarter growth, runway and per-metric variance."
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <p class="kicker reveal text-ni-teal-deep">
+                    Cap tables &amp; deal flow
+                  </p>
+                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                    <Plate
+                      src={niCaptable}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra editable cap table — rounds, per-investor ownership and fully-diluted shares auto-computed from investments"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Editable cap table — rounds, per-investor ownership and fully-diluted shares, auto-computed from the underlying investments."
+                    />
+                    <Plate
+                      src={niFunnel}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra deal funnel tracking conversion across the investment pipeline stages"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Deal funnel — conversion from intake to investment across the pipeline, with drop and long-term-follow lanes."
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <p class="kicker reveal text-ni-teal-deep">
+                    Spend &amp; forecasting
+                  </p>
+                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                    <Plate
+                      src={niExpend}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra expenditure dashboard with spend versus budget broken down by domain"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Expenditure tracking — spend vs budget by domain, with a paid / forecasted split."
+                    />
+                    <Plate
+                      src={niAccuracy}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra forecast-accuracy report comparing forecasted and actual spend per engagement"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Forecast accuracy — forecasted vs actual spend per engagement, scored by variance."
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <p class="kicker reveal text-ni-teal-deep">
+                    Board decks &amp; reporting
+                  </p>
+                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                    <Plate
+                      src={niPresentation}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra presentation builder showing investment composition, a frozen portfolio snapshot and per-company sections, exported to PowerPoint"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Presentation builder — composition, frozen snapshots and per-company sections, exported to PPTX. The portfolio deck, in seconds."
+                    />
+                    <Plate
+                      src={niReports}
+                      tone="niterra"
+                      chrome
+                      alt="Niterra financial reports — a profit-and-loss table across quarters with balance-sheet, cash-flow and KPI tabs"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Financial reports — P&L, balance sheet, cash-flow and KPI tabs, per company."
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- footer: attribution + demo disclaimer -->
+              <div
+                class="reveal border-ni-line mt-16 flex flex-col gap-4 border-t pt-6 sm:flex-row sm:items-center sm:justify-between lg:mt-24"
+              >
+                <div class="flex items-center gap-3">
+                  <Image
+                    src={niterraLogo}
+                    alt="Venture Lab, Niterra Group"
+                    width={40}
+                    height={40}
+                    class="border-ni-line rounded-[3px] border"
+                  />
+                  <span class="text-ni-ink font-mono text-[0.75rem]">
+                    Venture Lab · Niterra Group
+                  </span>
+                </div>
+                <p
+                  class="text-ni-ink-muted font-mono text-[0.72rem] tracking-[0.12em] uppercase"
+                >
+                  Screens from a public demo seeded with fictional data — no
+                  real portfolio data shown.
+                </p>
+              </div>
             </div>
-            <p
-              class="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-ni-ink-muted"
-            >
-              Screens from a public demo seeded with fictional data — no real
-              portfolio data shown.
-            </p>
           </div>
         </div>
-      </div>
-
-      <!-- mobile-only transition: gallery paper → site paper -->
-      <div
-        aria-hidden="true"
-        class="h-[7vh] lg:hidden"
-        style="background-image: linear-gradient(to bottom, var(--color-ni-paper), var(--color-paper));"
-      >
       </div>
     </section>
 
@@ -496,295 +503,315 @@ const homeOptionsMap = [
       <h2 class="visually-hidden">Two commercial products, shipped solo</h2>
 
       <div class="mt-10 lg:mt-14">
-        <div class="grid lg:grid-cols-2">
-          <!-- 04A writequit (dark) -->
-          <div class="relative bg-wq-ground text-wq-text">
-            <div
-              class="h-[8vh] lg:hidden"
-              style="background-image:linear-gradient(to bottom,var(--color-paper),var(--color-wq-ground));"
-            >
-            </div>
-            <div class="px-[var(--gutter)] py-12 lg:py-16">
-              <div
-                class="flex items-center gap-2 border-b border-wq-frame pb-3 font-mono text-xs text-wq-lime"
-              >
-                <span>:wq</span>
-                <span class="text-wq-text/40">— writequit.dev</span>
-                <span
-                  class="wq-cursor ml-auto inline-block h-3.5 w-2 bg-wq-lime"
-                  aria-hidden="true"></span>
-              </div>
-
-              <p class="kicker reveal mt-6 text-wq-lime">
-                Shipped Solo / Developer Tool
-              </p>
-              <h3
-                class="t-headline reveal reveal-1 mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)] text-wq-text"
-              >
-                writequit.dev
-              </h3>
-              <p
-                class="reveal reveal-1 mt-4 max-w-[48ch] text-[1.0625rem] leading-relaxed text-wq-text/85"
-              >
-                Freelance developers juggle tasks, time, and invoices across
-                three disconnected tools — and lose the thread.
-              </p>
-
-              <ul
-                class="reveal reveal-2 mt-6 space-y-3 font-mono text-[0.85rem] leading-relaxed text-wq-text/90"
-              >
-                <li class="flex gap-3">
-                  <span class="text-wq-lime" aria-hidden="true">[*]</span>
-                  <span
-                    >A full commercial SaaS — task manager, time tracker, invoice
-                    generator — in one terminal-native tool with vim keybindings
-                    and markdown tasks.</span
-                  >
-                </li>
-                <li class="flex gap-3">
-                  <span class="text-wq-lime" aria-hidden="true">[*]</span>
-                  <span
-                    >Auth (WorkOS), invoice generation (jsPDF), real-time chat and
-                    shared client boards (Convex), password-gated permissioned
-                    sharing.</span
-                  >
-                </li>
-                <li class="flex gap-3">
-                  <span class="text-wq-lime" aria-hidden="true">[*]</span>
-                  <span
-                    >The product design, the opinionated UX, and the marketing
-                    voice — not just the code.</span
-                  >
-                </li>
-                <li class="flex gap-3">
-                  <span class="text-wq-lime" aria-hidden="true">[*]</span>
-                  <span
-                    >SvelteKit 5 · Convex · Tailwind 4 · deployed on Vercel.</span
-                  >
-                </li>
-              </ul>
-
-              <div class="mt-9 space-y-5">
-                <Plate
-                  src={wqBoard}
-                  alt="writequit task board: markdown tasks, a running timer, and status filters in one terminal-style view"
-                  tone="dark"
-                  chrome
-                  sizes="(min-width:1024px) 42vw, 92vw"
-                  caption="The board freelancers live in: markdown tasks, running timer, status filters. “manage work, not a workspace.”"
-                />
-                <div class="grid gap-5 sm:grid-cols-2">
-                  <Plate
-                    src={wqTime}
-                    alt="writequit time-tracking sessions with a live running timer"
-                    tone="dark"
-                    chrome
-                    caption="Time tracking with live running timers — part of the same tool, not a second app. “tasks. time. invoices.”"
-                  />
-                  <Plate
-                    src={wqInvoice}
-                    alt="writequit invoices generated as PDFs"
-                    tone="dark"
-                    chrome
-                    caption="jsPDF invoice generation — billing built into the same tool, not bolted on."
-                  />
-                </div>
-                <Plate
-                  src={wqBoardAdmin}
-                  alt="writequit shared client board management with a share URL, password, and a live chat panel"
-                  tone="dark"
-                  chrome
-                  caption="Password-protected client boards with live chat (Convex) — permissioned sharing, real-time."
-                />
-                <Plate
-                  src={wqClient}
-                  alt="the public client view of a writequit shared board, unlocked, with live chat"
-                  tone="dark"
-                  chrome
-                  class="sm:max-w-[82%]"
-                  caption="What the client sees: a password-unlocked board with live chat — the sharing surface, from the other side."
-                />
-              </div>
-
-              <!-- live status bar (Alpine; functional timer) -->
-              <div
-                x-data="wqTimer"
-                class="mt-9 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-wq-frame pt-4 font-mono text-[0.8rem] text-wq-text/80"
-              >
-                <span class="flex items-center gap-2">
-                  <span
-                    class="h-2 w-2 rounded-full bg-accent"
-                    aria-hidden="true"></span>REC
-                </span>
-                <span class="text-wq-lime" x-text="display">00:48:21</span>
-                <span class="text-wq-text/50">:stop</span>
-              </div>
-
-              <blockquote
-                class="reveal mt-9 flex gap-3 border-l-2 border-wq-lime pl-4"
-              >
-                <DeliveredToken tone="lime" class="mt-1" />
-                <p class="t-emph text-[1.3rem] leading-snug text-wq-text">
-                  A complete, billable product — auth to invoice to live client
-                  collaboration — shipped end-to-end by one builder.
-                  <span
-                    class="mt-2 block font-mono text-[0.75rem] not-italic text-wq-text/55"
-                    >[Felipe: add metric — e.g., paying customers /
-                    time-to-first-invoice]</span
-                  >
-                </p>
-              </blockquote>
-
-              <p
-                class="reveal mt-6 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-wq-lime/80"
-              >
-                a tool, not a lifestyle · write. quit. ship. · for developers
-                who'd rather ship than organize
-              </p>
-            </div>
-            <div
-              class="h-[8vh] lg:hidden"
-              style="background-image:linear-gradient(to bottom,var(--color-wq-ground),var(--color-paper));"
-            >
-            </div>
-          </div>
-
-          <!-- 04B pondera (light) -->
+        <div
+          class="mx-auto w-full max-w-[var(--content-max)] px-[var(--gutter)]"
+        >
           <div
-            class="bg-pondera-paper px-[var(--gutter)] py-12 lg:border-l lg:border-pondera-navy/15 lg:py-16"
+            class="border-rule relative overflow-hidden rounded-[var(--panel-radius)] border"
+            style="box-shadow: var(--shadow-paper);"
           >
-            <p class="kicker reveal text-pondera-navy">
-              Shipped Solo / Consumer Product
-            </p>
-            <h3
-              class="t-headline reveal reveal-1 mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)] text-pondera-ink"
-            >
-              pondera.casa
-            </h3>
-            <p
-              class="t-emph reveal reveal-1 mt-4 text-[clamp(1.4rem,1.4vw+1rem,1.9rem)] leading-snug text-pondera-navy"
-            >
-              Choose the right house — without getting lost along the way.
-            </p>
-
-            <p
-              class="reveal reveal-2 mt-6 max-w-[50ch] text-[1.0625rem] leading-relaxed text-pondera-ink"
-            >
-              Choosing a property means drowning in tabs and gut feeling. pondera
-              turns a pasted listing URL into a structured decision — real
-              scraping and LLM extraction, not a chat box — then curates,
-              compares, and ranks.
-            </p>
-            <p
-              class="reveal reveal-2 mt-3 font-mono text-[0.75rem] tracking-[0.04em] text-pondera-ink"
-            >
-              Next.js 16 · React 19 · Convex · OpenRouter (gpt-4o-mini)
-            </p>
-
-            <ol class="mt-9 space-y-9">
-              <li class="reveal grid grid-cols-[auto_1fr] gap-4">
-                <span
-                  class="font-mono text-2xl leading-none text-pondera-navy"
-                  aria-hidden="true">01</span
-                >
-                <div>
-                  <p class="font-mono text-sm">
-                    <span class="font-medium text-pondera-navy">Paste</span>
-                  </p>
-                  <Plate
-                    src={poCole}
-                    alt="pondera property detail: AI-extracted price, area and neighborhood with a pros, cons and watch-outs card"
-                    chrome
-                    url="pondera.casa"
-                    class="mt-3"
-                    captionClass="text-pondera-ink"
-                    caption="Paste a link; AI extracts price, area, photos and a pros / cons / watch-outs card. No data entry."
-                  />
-                </div>
-              </li>
-              <li class="reveal grid grid-cols-[auto_1fr] gap-4">
-                <span
-                  class="font-mono text-2xl leading-none text-pondera-navy"
-                  aria-hidden="true">02</span
-                >
-                <div>
-                  <p class="font-mono text-sm">
-                    <span class="font-medium text-pondera-navy">Score</span>
-                  </p>
-                  <Plate
-                    src={poPontue}
-                    alt="pondera gallery with per-property ratings, favorites and portfolio stats"
-                    chrome
-                    url="pondera.casa"
-                    class="mt-3"
-                    captionClass="text-pondera-ink"
-                    caption="Score each property on a checklist; portfolio stats update as you go."
-                  />
-                </div>
-              </li>
-              <li class="reveal grid grid-cols-[auto_1fr] gap-4">
-                <span
-                  class="font-mono text-2xl leading-none text-pondera-navy"
-                  aria-hidden="true">03</span
-                >
-                <div>
-                  <p class="font-mono text-sm">
-                    <span class="font-medium text-pondera-navy">Compare</span>
-                  </p>
-                  <Plate
-                    src={poCompare}
-                    alt="pondera side-by-side comparison table with the best value per criterion highlighted in gold"
-                    chrome
-                    url="pondera.casa"
-                    class="mt-3"
-                    captionClass="text-pondera-ink"
+            <div class="grid lg:grid-cols-2 lg:items-stretch">
+              <!-- 04A writequit (dark) -->
+              <div
+                class="bg-wq-ground text-wq-text lg:border-wq-frame relative lg:border-r"
+              >
+                <div class="px-[var(--gutter)] py-12 lg:py-16">
+                  <div
+                    class="border-wq-frame text-wq-lime flex items-center gap-2 border-b pb-3 font-mono text-xs"
                   >
-                    <span slot="caption"
-                      >A side-by-side table with <span
-                        class="font-semibold text-pondera-gold"
-                        >best value per criterion highlighted in gold</span
-                      >.</span
+                    <span>:wq</span>
+                    <span class="text-wq-text/40">— writequit.dev</span>
+                    <span
+                      class="wq-cursor bg-wq-lime ml-auto inline-block h-3.5 w-2"
+                      aria-hidden="true"
                     >
-                  </Plate>
-                </div>
-              </li>
-              <li class="reveal grid grid-cols-[auto_1fr] gap-4">
-                <span
-                  class="font-mono text-2xl leading-none text-pondera-navy"
-                  aria-hidden="true">04</span
-                >
-                <div>
-                  <p class="font-mono text-sm">
-                    <span class="font-medium text-pondera-navy">Decide</span>
-                  </p>
-                  <Plate
-                    src={poDecida}
-                    alt="pondera AI recommendation ranking that explains each position in plain language"
-                    chrome
-                    url="pondera.casa"
-                    class="mt-3"
-                    captionClass="text-pondera-ink"
-                    caption="AI ranks the options and explains each position in plain language. You decide."
-                  />
-                </div>
-              </li>
-            </ol>
+                    </span>
+                  </div>
 
-            <blockquote
-              class="reveal mt-9 flex gap-3 border-l-2 border-pondera-navy pl-4"
-            >
-              <DeliveredToken tone="accent" class="mt-1" />
-              <p class="t-emph text-[1.3rem] leading-snug text-pondera-ink">
-                Real AI work — scraping, extraction, curation, ranking — wrapped
-                in a polished consumer product and its marketing site, shipped
-                end-to-end.
-                <span
-                  class="mt-2 block font-mono text-[0.75rem] not-italic text-pondera-ink"
-                  >[Felipe: add metric — e.g., listings processed / decisions
-                  made]</span
+                  <p class="kicker reveal text-wq-lime mt-6">
+                    Shipped Solo / Developer Tool
+                  </p>
+                  <h3
+                    class="t-headline reveal reveal-1 text-wq-text mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)]"
+                  >
+                    writequit.dev
+                  </h3>
+                  <p
+                    class="reveal reveal-1 text-wq-text/85 mt-4 max-w-[48ch] text-[1.0625rem] leading-relaxed"
+                  >
+                    Freelance developers juggle tasks, time, and invoices across
+                    three disconnected tools — and lose the thread.
+                  </p>
+
+                  <ul
+                    class="reveal reveal-2 text-wq-text/90 mt-6 space-y-3 font-mono text-[0.85rem] leading-relaxed"
+                  >
+                    <li class="flex gap-3">
+                      <span class="text-wq-lime" aria-hidden="true">[*]</span>
+                      <span>
+                        A full commercial SaaS — task manager, time tracker,
+                        invoice generator — in one terminal-native tool with vim
+                        keybindings and markdown tasks.
+                      </span>
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="text-wq-lime" aria-hidden="true">[*]</span>
+                      <span>
+                        Auth (WorkOS), invoice generation (jsPDF), real-time
+                        chat and shared client boards (Convex), password-gated
+                        permissioned sharing.
+                      </span>
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="text-wq-lime" aria-hidden="true">[*]</span>
+                      <span>
+                        The product design, the opinionated UX, and the
+                        marketing voice — not just the code.
+                      </span>
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="text-wq-lime" aria-hidden="true">[*]</span>
+                      <span>
+                        SvelteKit 5 · Convex · Tailwind 4 · deployed on Vercel.
+                      </span>
+                    </li>
+                  </ul>
+
+                  <div class="mt-9 space-y-5">
+                    <Plate
+                      src={wqBoard}
+                      alt="writequit task board: markdown tasks, a running timer, and status filters in one terminal-style view"
+                      tone="dark"
+                      chrome
+                      sizes="(min-width:1024px) 42vw, 92vw"
+                      caption="The board freelancers live in: markdown tasks, running timer, status filters. “manage work, not a workspace.”"
+                    />
+                    <div class="grid gap-5 sm:grid-cols-2">
+                      <Plate
+                        src={wqTime}
+                        alt="writequit time-tracking sessions with a live running timer"
+                        tone="dark"
+                        chrome
+                        caption="Time tracking with live running timers — part of the same tool, not a second app. “tasks. time. invoices.”"
+                      />
+                      <Plate
+                        src={wqInvoice}
+                        alt="writequit invoices generated as PDFs"
+                        tone="dark"
+                        chrome
+                        caption="jsPDF invoice generation — billing built into the same tool, not bolted on."
+                      />
+                    </div>
+                    <Plate
+                      src={wqBoardAdmin}
+                      alt="writequit shared client board management with a share URL, password, and a live chat panel"
+                      tone="dark"
+                      chrome
+                      caption="Password-protected client boards with live chat (Convex) — permissioned sharing, real-time."
+                    />
+                    <Plate
+                      src={wqClient}
+                      alt="the public client view of a writequit shared board, unlocked, with live chat"
+                      tone="dark"
+                      chrome
+                      class="sm:max-w-[82%]"
+                      caption="What the client sees: a password-unlocked board with live chat — the sharing surface, from the other side."
+                    />
+                  </div>
+
+                  <!-- live status bar (Alpine; functional timer) -->
+                  <div
+                    x-data="wqTimer"
+                    class="border-wq-frame text-wq-text/80 mt-9 flex flex-wrap items-center gap-x-4 gap-y-2 border-t pt-4 font-mono text-[0.8rem]"
+                  >
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="bg-accent h-2 w-2 rounded-full"
+                        aria-hidden="true"
+                      >
+                      </span>REC
+                    </span>
+                    <span class="text-wq-lime" x-text="display">00:48:21</span>
+                    <span class="text-wq-text/50">:stop</span>
+                  </div>
+
+                  <blockquote
+                    class="reveal border-wq-lime mt-9 flex gap-3 border-l-2 pl-4"
+                  >
+                    <DeliveredToken tone="lime" class="mt-1" />
+                    <p class="t-emph text-wq-text text-[1.3rem] leading-snug">
+                      A complete, billable product — auth to invoice to live
+                      client collaboration — shipped end-to-end by one builder.
+                      <span
+                        class="text-wq-text/55 mt-2 block font-mono text-[0.75rem] not-italic"
+                      >
+                        [Felipe: add metric — e.g., paying customers /
+                        time-to-first-invoice]
+                      </span>
+                    </p>
+                  </blockquote>
+
+                  <p
+                    class="reveal text-wq-lime/80 mt-6 font-mono text-[0.72rem] tracking-[0.12em] uppercase"
+                  >
+                    a tool, not a lifestyle · write. quit. ship. · for
+                    developers who'd rather ship than organize
+                  </p>
+                </div>
+              </div>
+
+              <!-- 04B pondera (light) -->
+              <div
+                class="bg-pondera-paper border-pondera-navy/15 lg:border-pondera-navy/35 border-t px-[var(--gutter)] py-12 lg:border-t-0 lg:border-l-2 lg:py-16"
+              >
+                <p class="kicker reveal text-pondera-navy">
+                  Shipped Solo / Consumer Product
+                </p>
+                <h3
+                  class="t-headline reveal reveal-1 text-pondera-ink mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)]"
                 >
-              </p>
-            </blockquote>
+                  pondera.casa
+                </h3>
+                <p
+                  class="t-emph reveal reveal-1 text-pondera-navy mt-4 text-[clamp(1.4rem,1.4vw+1rem,1.9rem)] leading-snug"
+                >
+                  Choose the right house — without getting lost along the way.
+                </p>
+
+                <p
+                  class="reveal reveal-2 text-pondera-ink mt-6 max-w-[50ch] text-[1.0625rem] leading-relaxed"
+                >
+                  Choosing a property means drowning in tabs and gut feeling.
+                  pondera turns a pasted listing URL into a structured decision
+                  — real scraping and LLM extraction, not a chat box — then
+                  curates, compares, and ranks.
+                </p>
+                <p
+                  class="reveal reveal-2 text-pondera-ink mt-3 font-mono text-[0.75rem] tracking-[0.04em]"
+                >
+                  Next.js 16 · React 19 · Convex · OpenRouter (gpt-4o-mini)
+                </p>
+
+                <ol class="mt-9 space-y-9">
+                  <li class="reveal grid grid-cols-[auto_1fr] gap-4">
+                    <span
+                      class="text-pondera-navy font-mono text-2xl leading-none"
+                      aria-hidden="true"
+                    >
+                      01
+                    </span>
+                    <div>
+                      <p class="font-mono text-sm">
+                        <span class="text-pondera-navy font-medium">Paste</span>
+                      </p>
+                      <Plate
+                        src={poCole}
+                        alt="pondera property detail: AI-extracted price, area and neighborhood with a pros, cons and watch-outs card"
+                        chrome
+                        url="pondera.casa"
+                        class="mt-3"
+                        captionClass="text-pondera-ink"
+                        caption="Paste a link; AI extracts price, area, photos and a pros / cons / watch-outs card. No data entry."
+                      />
+                    </div>
+                  </li>
+                  <li class="reveal grid grid-cols-[auto_1fr] gap-4">
+                    <span
+                      class="text-pondera-navy font-mono text-2xl leading-none"
+                      aria-hidden="true"
+                    >
+                      02
+                    </span>
+                    <div>
+                      <p class="font-mono text-sm">
+                        <span class="text-pondera-navy font-medium">Score</span>
+                      </p>
+                      <Plate
+                        src={poPontue}
+                        alt="pondera gallery with per-property ratings, favorites and portfolio stats"
+                        chrome
+                        url="pondera.casa"
+                        class="mt-3"
+                        captionClass="text-pondera-ink"
+                        caption="Score each property on a checklist; portfolio stats update as you go."
+                      />
+                    </div>
+                  </li>
+                  <li class="reveal grid grid-cols-[auto_1fr] gap-4">
+                    <span
+                      class="text-pondera-navy font-mono text-2xl leading-none"
+                      aria-hidden="true"
+                    >
+                      03
+                    </span>
+                    <div>
+                      <p class="font-mono text-sm">
+                        <span class="text-pondera-navy font-medium">
+                          Compare
+                        </span>
+                      </p>
+                      <Plate
+                        src={poCompare}
+                        alt="pondera side-by-side comparison table with the best value per criterion highlighted in gold"
+                        chrome
+                        url="pondera.casa"
+                        class="mt-3"
+                        captionClass="text-pondera-ink"
+                      >
+                        <span slot="caption">
+                          A side-by-side table with <span
+                            class="text-pondera-gold font-semibold"
+                          >
+                            best value per criterion highlighted in gold
+                          </span>.
+                        </span>
+                      </Plate>
+                    </div>
+                  </li>
+                  <li class="reveal grid grid-cols-[auto_1fr] gap-4">
+                    <span
+                      class="text-pondera-navy font-mono text-2xl leading-none"
+                      aria-hidden="true"
+                    >
+                      04
+                    </span>
+                    <div>
+                      <p class="font-mono text-sm">
+                        <span class="text-pondera-navy font-medium">
+                          Decide
+                        </span>
+                      </p>
+                      <Plate
+                        src={poDecida}
+                        alt="pondera AI recommendation ranking that explains each position in plain language"
+                        chrome
+                        url="pondera.casa"
+                        class="mt-3"
+                        captionClass="text-pondera-ink"
+                        caption="AI ranks the options and explains each position in plain language. You decide."
+                      />
+                    </div>
+                  </li>
+                </ol>
+
+                <blockquote
+                  class="reveal border-pondera-navy mt-9 flex gap-3 border-l-2 pl-4"
+                >
+                  <DeliveredToken tone="accent" class="mt-1" />
+                  <p class="t-emph text-pondera-ink text-[1.3rem] leading-snug">
+                    Real AI work — scraping, extraction, curation, ranking —
+                    wrapped in a polished consumer product and its marketing
+                    site, shipped end-to-end.
+                    <span
+                      class="text-pondera-ink mt-2 block font-mono text-[0.75rem] not-italic"
+                    >
+                      [Felipe: add metric — e.g., listings processed / decisions
+                      made]
+                    </span>
+                  </p>
+                </blockquote>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -803,12 +830,14 @@ const homeOptionsMap = [
         id="flora"
       />
       <div class="wrap mt-8">
-        <p class="reveal max-w-[62ch] text-[1.0625rem] leading-relaxed text-ink">
+        <p
+          class="reveal text-ink max-w-[62ch] text-[1.0625rem] leading-relaxed"
+        >
           Agronomists needed drone, satellite, and field data fused into
           something they could read on a map — and capture offline in the field.
           I built the React/TypeScript platform (Leaflet + Turf.js) and an
-          offline-first React Native field app, and grew from developer into Tech
-          Lead of five.
+          offline-first React Native field app, and grew from developer into
+          Tech Lead of five.
         </p>
 
         <div class="mt-8 grid gap-6 lg:grid-cols-12 lg:items-start">
@@ -851,14 +880,14 @@ const homeOptionsMap = [
           />
         </div>
 
-        <blockquote class="reveal mt-8 flex gap-3 border-l-2 border-accent pl-4">
+        <blockquote
+          class="reveal border-accent mt-8 flex gap-3 border-l-2 pl-4"
+        >
           <DeliveredToken class="mt-1" />
-          <p
-            class="t-emph max-w-[60ch] text-[1.3rem] leading-snug text-ink"
-          >
+          <p class="t-emph text-ink max-w-[60ch] text-[1.3rem] leading-snug">
             A web + mobile platform that put multi-source geospatial data in one
-            place — and the case where I went from building to leading the build,
-            developer to Tech Lead of 5.
+            place — and the case where I went from building to leading the
+            build, developer to Tech Lead of 5.
           </p>
         </blockquote>
       </div>
@@ -879,13 +908,13 @@ const homeOptionsMap = [
       <div class="wrap mt-8 grid gap-10 lg:grid-cols-12 lg:gap-12">
         <div class="space-y-6 lg:col-span-7">
           <p
-            class="reveal max-w-[56ch] text-[1.0625rem] leading-relaxed text-ink"
+            class="reveal text-ink max-w-[56ch] text-[1.0625rem] leading-relaxed"
           >
             HomeOptions' real engine was internal. For a call-center sales
             operation I owned a custom SvelteKit CRM wired into Twilio's call
             center, an AI-assisted call-handoff tool, and a Go/HTMX compliance &
-            debt-settlement platform — the systems that don't screenshot well but
-            run the business.
+            debt-settlement platform — the systems that don't screenshot well
+            but run the business.
           </p>
           <ArchitectureCallout
             label="HomeOptions internal"
@@ -894,19 +923,21 @@ const homeOptionsMap = [
           />
         </div>
         <div class="lg:col-span-5">
-          <blockquote class="reveal flex gap-3 border-l-2 border-accent pl-4">
+          <blockquote class="reveal border-accent flex gap-3 border-l-2 pl-4">
             <DeliveredToken class="mt-1" />
-            <p class="t-emph text-[1.4rem] leading-snug text-ink">
+            <p class="t-emph text-ink text-[1.4rem] leading-snug">
               “Three internal systems for a call-center operation — CRM, AI
               call-handoff, and a compliance/debt-settlement platform — owned
               end-to-end.”
             </p>
           </blockquote>
-          <p class="reveal mt-4 font-mono text-[0.82rem] leading-relaxed text-ink">
-            <span class="text-ink-muted"
-              >[Felipe: add metric — calls handled / agent handoff time /
-              compliance cases processed]</span
-            >
+          <p
+            class="reveal text-ink mt-4 font-mono text-[0.82rem] leading-relaxed"
+          >
+            <span class="text-ink-muted">
+              [Felipe: add metric — calls handled / agent handoff time /
+              compliance cases processed]
+            </span>
           </p>
         </div>
       </div>
@@ -954,7 +985,7 @@ const homeOptionsMap = [
         id="range"
       />
       <div class="wrap mt-6">
-        <p class="reveal col-measure leading-relaxed text-ink">
+        <p class="reveal col-measure text-ink leading-relaxed">
           When the work's done, I still build. A sampling of things made for the
           love of it — small games, starter templates, sprites and code, all
           mine.
@@ -1005,9 +1036,9 @@ const homeOptionsMap = [
       class="mt-[var(--space-section)] pb-16"
     >
       <div class="wrap">
-        <div class="rule-draw h-px w-full bg-rule"></div>
+        <div class="rule-draw bg-rule h-px w-full"></div>
         <div
-          class="reveal mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-ink"
+          class="reveal text-ink mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.72rem] tracking-[0.1em] uppercase"
         >
           <span>~9 yrs shipping software</span>
           <span class="text-rule" aria-hidden="true">·</span>
@@ -1023,32 +1054,35 @@ const homeOptionsMap = [
         <div class="mt-14 grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
             <p
-              class="t-headline reveal text-[clamp(1.7rem,2.6vw+1rem,2.75rem)] text-ink"
+              class="t-headline reveal text-ink text-[clamp(1.7rem,2.6vw+1rem,2.75rem)]"
             >
               Have a problem that needs an owner, not a committee?
             </p>
-            <p class="reveal reveal-1 mt-4 max-w-[46ch] leading-relaxed text-ink">
+            <p
+              class="reveal reveal-1 text-ink mt-4 max-w-[46ch] leading-relaxed"
+            >
               Send me the messy version — I'll come back with where I'd start.
             </p>
           </div>
           <div
             class="reveal reveal-1 flex flex-col gap-3 font-mono text-sm lg:items-end lg:text-right"
           >
-            <a class="ed-link" href="mailto:fmunhozafonso@gmail.com"
-              >fmunhozafonso@gmail.com</a
-            >
-            <a class="ed-link" href="https://github.com/FelipeAfonso"
-              >github.com/FelipeAfonso</a
-            >
-            <a class="ed-link" href="https://www.linkedin.com/in/felipe-afonso"
-              >linkedin.com/in/felipe-afonso</a
-            >
-            <a class="ed-link" href="/resume.pdf">/resume.pdf — the full record</a
-            >
+            <a class="ed-link" href="mailto:fmunhozafonso@gmail.com">
+              fmunhozafonso@gmail.com
+            </a>
+            <a class="ed-link" href="https://github.com/FelipeAfonso">
+              github.com/FelipeAfonso
+            </a>
+            <a class="ed-link" href="https://www.linkedin.com/in/felipe-afonso">
+              linkedin.com/in/felipe-afonso
+            </a>
+            <a class="ed-link" href="/resume.pdf">
+              /resume.pdf — the full record
+            </a>
           </div>
         </div>
 
-        <p class="mt-20 font-mono text-[0.7rem] text-ink-muted">
+        <p class="text-ink-muted mt-20 font-mono text-[0.7rem]">
           Felipe Afonso — Field Notes · A product team of one
         </p>
       </div>
@@ -1081,7 +1115,9 @@ const homeOptionsMap = [
 
   <script>
     // Scroll reveals + running-head section indicator
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const io = new IntersectionObserver(
       (entries) => {
