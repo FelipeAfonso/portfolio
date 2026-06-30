@@ -9,7 +9,7 @@ interface Props {
   chrome?: boolean;
   url?: string;
   eager?: boolean;
-  tone?: "light" | "dark";
+  tone?: "light" | "dark" | "niterra";
   sizes?: string;
   widths?: number[];
   class?: string;
@@ -31,8 +31,15 @@ const {
 } = Astro.props;
 
 const isDark = tone === "dark";
-const frame = isDark ? "border-wq-frame bg-wq-ground" : "border-rule bg-paper-raised";
-const capColor = captionClass ?? (isDark ? "text-wq-lime" : "text-ink");
+const isNiterra = tone === "niterra";
+const frame = isDark
+  ? "border-wq-frame bg-wq-ground"
+  : isNiterra
+    ? "border-ni-line bg-white"
+    : "border-rule bg-paper-raised";
+const capColor =
+  captionClass ??
+  (isDark ? "text-wq-lime" : isNiterra ? "text-ni-ink-muted" : "text-ink");
 const hasCaption = Boolean(caption) || Astro.slots.has("caption");
 ---
 
@@ -44,19 +51,29 @@ const hasCaption = Boolean(caption) || Astro.slots.has("caption");
     {
       chrome && (
         <div
-          class={`flex items-center gap-2 border-b px-3 py-2 ${isDark ? "border-wq-frame" : "border-rule"}`}
+          class={`flex items-center gap-2 border-b px-3 py-2 ${isDark ? "border-wq-frame" : isNiterra ? "border-ni-line" : "border-rule"}`}
         >
           {isDark ? (
             <span class="font-mono text-xs font-medium text-wq-lime">:wq</span>
           ) : (
             <span class="flex gap-1.5" aria-hidden="true">
-              <span class="h-2.5 w-2.5 rounded-full bg-rule" />
-              <span class="h-2.5 w-2.5 rounded-full bg-rule" />
-              <span class="h-2.5 w-2.5 rounded-full bg-rule" />
+              <span
+                class={`h-2.5 w-2.5 rounded-full ${isNiterra ? "bg-ni-teal-deep/40" : "bg-rule"}`}
+              />
+              <span
+                class={`h-2.5 w-2.5 rounded-full ${isNiterra ? "bg-ni-teal-deep/40" : "bg-rule"}`}
+              />
+              <span
+                class={`h-2.5 w-2.5 rounded-full ${isNiterra ? "bg-ni-teal-deep/40" : "bg-rule"}`}
+              />
             </span>
           )}
           {url && (
-            <span class="truncate font-mono text-[0.7rem] text-ink">{url}</span>
+            <span
+              class={`truncate font-mono text-[0.7rem] ${isNiterra ? "text-ni-ink-muted" : "text-ink"}`}
+            >
+              {url}
+            </span>
           )}
         </div>
       )

@@ -1,11 +1,16 @@
 ---
 interface Props {
-  tone?: "accent" | "lime";
+  tone?: "accent" | "lime" | "teal";
   class?: string;
 }
 
 const { tone = "accent", class: cls = "" } = Astro.props;
-const color = tone === "lime" ? "var(--color-wq-lime)" : "var(--color-accent)";
+const color =
+  tone === "lime"
+    ? "var(--color-wq-lime)"
+    : tone === "teal"
+      ? "var(--color-ni-teal)"
+      : "var(--color-accent)";
 ---
 
 <svg

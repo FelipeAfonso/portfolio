@@ -1,0 +1,100 @@
+---
+// Slim layout for the printable /resume dossier.
+// Reuses the @fontsource faces + global.css design tokens (@theme colors,
+// ProFont @font-face, .t-display/.t-headline/.kicker helpers) but strips the
+// homepage chrome that prints badly: no RunningHead, no Posthog, no fixed
+// topo.svg overlay (body::before) and no ambient --glow background.
+import "@fontsource-variable/josefin-sans/index.css";
+import "@fontsource/roboto-slab/400.css";
+import "@fontsource/roboto-slab/500.css";
+import "@fontsource/roboto-slab/700.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Felipe Afonso — Software Engineer. Full-stack delivery, end-to-end ownership. Résumé / portfolio dossier.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#18181b" />
+    <title>{title}</title>
+  </head>
+  <body class="resume">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* ---- strip homepage chrome; flat dark ground for print ---- */
+  body.resume {
+    --overlay-image: none; /* kill the fixed topo.svg overlay */
+    background-image: none; /* kill the ambient indigo/violet glow */
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+  body.resume::before {
+    display: none; /* belt-and-suspenders: no topographic texture in print */
+  }
+
+  /* ---- keep the dark ground through print economization ---- */
+  :root,
+  html,
+  body.resume {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---- the dark sheet must fill every printed page ---- */
+  html,
+  body.resume {
+    background: var(--color-paper);
+  }
+
+  /* ---- page geometry: CSS owns size + margins (preferCSSPageSize) ---- */
+  @page {
+    size: Letter;
+    margin: 0; /* full-bleed dark ground; inner padding handles safe insets */
+  }
+
+  /* ---- pagination control ---- */
+  .resume-section,
+  .resume-entry,
+  .resume-card {
+    break-inside: avoid;
+  }
+  .resume-page-break {
+    break-before: page;
+  }
+  /* never strand a heading at the bottom of a page */
+  h1,
+  h2,
+  h3,
+  .resume-section-title {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* on-screen the page is dark too (so /resume looks right in a browser) */
+  @media screen {
+    body.resume {
+      background: var(--color-paper);
+    }
+  }
+</style>

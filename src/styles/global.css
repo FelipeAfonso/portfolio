@@ -42,6 +42,17 @@
   --color-pondera-ink: #1a1714;
   --color-pondera-navy: #1e3a52;
   --color-pondera-gold: #b8860b;
+  /* Niterra flagship — teal accent on the dark ground */
+  --color-ni-teal: #2dd4bf;
+  --color-ni-panel: #15201d;
+  --color-ni-frame: #244742;
+  /* Niterra flagship — hybrid dark→light world */
+  --color-ni-deep: #08120f; /* deep teal-black masthead bg */
+  --color-ni-paper: #eef4f3; /* cool near-white gallery bg */
+  --color-ni-ink: #0f1f1c; /* body text on light (AAA) */
+  --color-ni-ink-muted: #4a5d59; /* muted text on light (AA) */
+  --color-ni-line: #cfe0dc; /* subtle border on light */
+  --color-ni-teal-deep: #0c726a; /* teal labels on light (AA ≥4.5:1) */
 
   --ease-press: cubic-bezier(0.2, 0.7, 0.2, 1);
 }

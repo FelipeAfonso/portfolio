@@ -45,21 +45,37 @@ import niterraLogo from "../../content/images/venturelabngk_logo.jpg";
 
 // Niterra Ventures — demo app screens (clean-slate instance, fictional data)
 import niDash from "../../content/images/niterra/niterra-dashboard.png";
+import niCompanies from "../../content/images/niterra/niterra-companies.png";
 import niCompany from "../../content/images/niterra/niterra-company.png";
 import niValuation from "../../content/images/niterra/niterra-valuation.png";
+import niCaptable from "../../content/images/niterra/niterra-captable.png";
 import niFunnel from "../../content/images/niterra/niterra-funnel.png";
 import niExpend from "../../content/images/niterra/niterra-expenditures.png";
 import niAccuracy from "../../content/images/niterra/niterra-accuracy.png";
+import niPresentation from "../../content/images/niterra/niterra-presentation.png";
+import niReports from "../../content/images/niterra/niterra-reports.png";
 
-const niterraMap = [
-  "Affinity CRM",
-  "     │",
-  "     ▼",
-  "[ automation layer ]",
-  "     │",
-  "     ▼",
-  "internal portal ──┬──▶ Portfolio Management",
-  "                  └──▶ Expense / Contract",
+const niStats = [
+  {
+    big: "120h → 1 day",
+    label: "Quarterly portfolio deck",
+    note: "Took the senior principal ~120 hrs by hand each quarter. The tool exports it in seconds; he finishes it by hand in about a day.",
+  },
+  {
+    big: "40+ users",
+    label: "Across the firm",
+    note: "The investment team's daily system of record — 10+ of them in it 2+ hrs a day.",
+  },
+  {
+    big: "8 → 1",
+    label: "One source of truth",
+    note: "Eight sprawling Excel sheets — some enormous — consolidated into one platform.",
+  },
+  {
+    big: "~1 hr / co / qtr",
+    label: "Saved on report intake",
+    note: "Quarterly company reports map straight in from Excel — no re-keying, every quarter, every company.",
+  },
 ];
 
 const homeOptionsMap = [
@@ -130,29 +146,358 @@ const homeOptionsMap = [
           I'm comfortable across the stack and across languages, so I can usually
           reach for the tool a problem wants rather than the one I happen to know.
           I lean on AI as a multiplier on delivery speed — it's a big part of why
-          the two products below, each with auth, billing, real-time, AI
-          extraction, and its own marketing site, shipped from one pair of hands.
+          the work below — a complete internal platform for a venture firm, plus
+          two commercial products of my own — each shipped from one pair of hands.
           I've also led a small team, so I'm comfortable coordinating when a
           problem is bigger than one person.
         </p>
       </div>
     </section>
 
-    <!-- ============ 03 · TIER 1 CONTRAST PAIR ============ -->
+    <!-- ============ 03 · NITERRA — FLAGSHIP ============ -->
     <section
       data-folio="03"
-      data-title="Proof — Two Products, One Builder"
+      data-title="Flagship — Niterra Ventures"
+      class="relative mt-[var(--space-section)]"
+    >
+      <!-- mobile-only transition: site paper → masthead deep -->
+      <div
+        aria-hidden="true"
+        class="h-[7vh] lg:hidden"
+        style="background-image: linear-gradient(to bottom, var(--color-paper), var(--color-ni-deep));"
+      >
+      </div>
+
+      <!-- ===== BAND 1 · dark masthead ===== -->
+      <div
+        class="relative overflow-hidden bg-ni-deep pt-14 pb-28 lg:pt-20 lg:pb-40"
+      >
+        <!-- contained teal glow (clipped by overflow-hidden — can't bleed into §02) -->
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-x-0 top-0 z-0 h-[60vh]"
+          style="background: radial-gradient(48% 50% at 50% 0%, color-mix(in oklch, var(--color-ni-teal) 18%, transparent), transparent 70%);"
+        >
+        </div>
+        <!-- faint secondary glow, lower-right -->
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -bottom-[10vh] right-0 z-0 h-[40vh] w-[55vw]"
+          style="background: radial-gradient(50% 50% at 80% 60%, color-mix(in oklch, var(--color-ni-teal) 9%, transparent), transparent 72%);"
+        >
+        </div>
+
+        <div class="wrap relative z-10">
+          <header id="niterra">
+            <div class="grid grid-cols-12 items-baseline gap-x-4">
+              <div
+                class="kicker reveal col-span-12 text-ni-teal lg:col-span-1"
+                aria-hidden="true"
+              >
+                03
+              </div>
+              <div class="col-span-12 lg:col-span-11">
+                <div class="reveal flex items-center gap-3">
+                  <Image
+                    src={niterraLogo}
+                    alt=""
+                    width={36}
+                    height={36}
+                    class="rounded-[3px] border border-ni-teal/25"
+                  />
+                  <p class="kicker text-ni-teal">
+                    Flagship · Internal platform, shipped solo
+                  </p>
+                </div>
+                <h2
+                  class="t-headline reveal reveal-1 mt-4 text-[clamp(2rem,3.5vw+1rem,4.25rem)] text-ni-paper"
+                >
+                  Niterra Ventures
+                </h2>
+                <p
+                  class="t-emph reveal reveal-1 col-measure mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug text-ni-paper"
+                >
+                  The investment team ran the fund on a CRM and eight
+                  spreadsheets. I replaced them with one internal platform — and
+                  it became how the team works.
+                </p>
+              </div>
+            </div>
+          </header>
+
+          <div class="mt-8 grid gap-x-12 gap-y-6 lg:grid-cols-12">
+            <p
+              class="reveal text-[1.0625rem] leading-relaxed text-ni-paper/85 lg:col-span-7"
+            >
+              Built for the venture arm of Niterra Group, it's the system of
+              record for the whole investment lifecycle: portfolio companies and
+              their quarterly financials, editable cap tables, scenario-based
+              exit models, a deal funnel, expense & contract tracking,
+              board-deck generation, and P&amp;L / balance-sheet reporting — fed
+              by live integrations and mapped Excel imports.
+            </p>
+            <p
+              class="reveal reveal-1 font-mono text-[0.8rem] leading-relaxed text-ni-paper/55 lg:col-span-5"
+            >
+              <span class="text-ni-teal">stack</span> · SvelteKit · Svelte 5 ·
+              Bun · TypeScript · Tailwind 4 · shadcn-svelte · Drizzle / Turso ·
+              Zod · Lucia auth · LayerChart · TipTap · pdfkit · deployed on
+              Vercel<br /><br />
+              <span class="text-ni-teal">integrates</span> · Affinity CRM ·
+              PitchBook · Webflow
+            </p>
+          </div>
+
+          <!-- impact bar: what it changed -->
+          <div class="mt-12 lg:mt-16">
+            <p class="kicker reveal text-ni-teal">What it changed</p>
+            <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {
+                niStats.map((s) => (
+                  <div
+                    class="reveal rounded-[3px] border border-ni-teal/15 bg-white/[0.03] p-5"
+                    style="box-shadow: var(--shadow-paper);"
+                  >
+                    <p class="t-display text-[clamp(1.6rem,1.4vw+1rem,2.1rem)] leading-none text-ni-teal">
+                      {s.big}
+                    </p>
+                    <p class="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-ni-paper">
+                      {s.label}
+                    </p>
+                    <p class="mt-2 text-[0.9rem] leading-relaxed text-ni-paper/65">
+                      {s.note}
+                    </p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BAND 2 · light product gallery ===== -->
+      <div class="relative bg-ni-paper pb-[var(--space-section)] text-ni-ink">
+        <div class="wrap">
+          <!-- hero pedestal — straddles the dark→light seam -->
+          <div class="relative z-20 -mt-24 lg:-mt-32">
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute -inset-x-6 -top-10 -bottom-10 z-0"
+              style="background: radial-gradient(60% 55% at 50% 35%, color-mix(in oklch, var(--color-ni-teal) 22%, transparent), transparent 70%); filter: blur(8px);"
+            >
+            </div>
+            <div class="relative z-10">
+              <Plate
+                src={niDash}
+                tone="niterra"
+                eager
+                alt="Niterra Ventures portfolio dashboard — invested capital, exit-value range and average TVPI above a quarterly revenue trend, recent movers and a projected exit timeline"
+                sizes="(min-width:1024px) 80vw, 92vw"
+                widths={[768, 1280, 1920, 2560]}
+                caption="Portfolio dashboard — invested capital, exit-value range and TVPI up top; a quarterly revenue trend, recent movers and a projected exit timeline below."
+              />
+            </div>
+          </div>
+
+          <!-- featured showpiece: exit modeling -->
+          <div class="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-12 lg:items-center">
+            <div class="lg:col-span-8">
+              <Plate
+                src={niValuation}
+                tone="niterra"
+                alt="Niterra exit-valuation model showing enterprise value and MOIC across low, mid and high scenarios beside a performance-ratio panel"
+                sizes="(min-width:1024px) 64vw, 92vw"
+                widths={[768, 1280, 1920, 2560]}
+                caption="Exit modeling — enterprise value and MOIC across low / mid / high scenarios, with a live performance-ratio panel."
+              />
+            </div>
+            <div class="lg:col-span-4">
+              <p class="kicker reveal text-ni-teal-deep">
+                Exit modeling · the showpiece
+              </p>
+              <p
+                class="reveal reveal-1 mt-3 text-[1.0625rem] leading-relaxed text-ni-ink"
+              >
+                A live scenario model from entry to exit, with the waterfall and
+                comps a real diligence deck would carry.
+              </p>
+              <blockquote
+                class="reveal reveal-2 mt-6 flex gap-3 border-l-2 border-ni-teal-deep pl-4"
+              >
+                <DeliveredToken tone="teal" class="mt-1" />
+                <p class="t-emph text-[1.2rem] leading-snug text-ni-ink">
+                  The analytical heart of the platform — the scenario math a
+                  diligence team builds by hand, made live and reusable across
+                  the whole portfolio.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- supporting modules -->
+          <div class="mt-16 space-y-14 lg:mt-24">
+            <div>
+              <p class="kicker reveal text-ni-teal-deep">
+                Portfolio &amp; companies
+              </p>
+              <p
+                class="reveal reveal-1 col-measure mt-3 text-[0.95rem] leading-relaxed text-ni-ink-muted"
+              >
+                Every holding, its rounds and ownership, and per-company
+                financials tracked against plan.
+              </p>
+              <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                <Plate
+                  src={niCompanies}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra companies list — every portfolio company with its rounds, investment stages, carry value and ownership"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Companies — every holding with its rounds, carry value, ownership and major rights."
+                />
+                <Plate
+                  src={niCompany}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra per-company financial detail with revenue and net-income charts versus plan and liquidity ratios"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Per-company detail — revenue, net income and cash generation vs plan, with quarter-over-quarter growth, runway and per-metric variance."
+                />
+              </div>
+            </div>
+
+            <div>
+              <p class="kicker reveal text-ni-teal-deep">
+                Cap tables &amp; deal flow
+              </p>
+              <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                <Plate
+                  src={niCaptable}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra editable cap table — rounds, per-investor ownership and fully-diluted shares auto-computed from investments"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Editable cap table — rounds, per-investor ownership and fully-diluted shares, auto-computed from the underlying investments."
+                />
+                <Plate
+                  src={niFunnel}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra deal funnel tracking conversion across the investment pipeline stages"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Deal funnel — conversion from intake to investment across the pipeline, with drop and long-term-follow lanes."
+                />
+              </div>
+            </div>
+
+            <div>
+              <p class="kicker reveal text-ni-teal-deep">
+                Spend &amp; forecasting
+              </p>
+              <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                <Plate
+                  src={niExpend}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra expenditure dashboard with spend versus budget broken down by domain"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Expenditure tracking — spend vs budget by domain, with a paid / forecasted split."
+                />
+                <Plate
+                  src={niAccuracy}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra forecast-accuracy report comparing forecasted and actual spend per engagement"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Forecast accuracy — forecasted vs actual spend per engagement, scored by variance."
+                />
+              </div>
+            </div>
+
+            <div>
+              <p class="kicker reveal text-ni-teal-deep">
+                Board decks &amp; reporting
+              </p>
+              <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                <Plate
+                  src={niPresentation}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra presentation builder showing investment composition, a frozen portfolio snapshot and per-company sections, exported to PowerPoint"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Presentation builder — composition, frozen snapshots and per-company sections, exported to PPTX. The portfolio deck, in seconds."
+                />
+                <Plate
+                  src={niReports}
+                  tone="niterra"
+                  chrome
+                  alt="Niterra financial reports — a profit-and-loss table across quarters with balance-sheet, cash-flow and KPI tabs"
+                  sizes="(min-width:1024px) 39vw, 92vw"
+                  widths={[480, 768, 1080, 1280]}
+                  caption="Financial reports — P&L, balance sheet, cash-flow and KPI tabs, per company."
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- footer: attribution + demo disclaimer -->
+          <div
+            class="reveal mt-16 flex flex-col gap-4 border-t border-ni-line pt-6 sm:flex-row sm:items-center sm:justify-between lg:mt-24"
+          >
+            <div class="flex items-center gap-3">
+              <Image
+                src={niterraLogo}
+                alt="Venture Lab, Niterra Group"
+                width={40}
+                height={40}
+                class="rounded-[3px] border border-ni-line"
+              />
+              <span class="font-mono text-[0.75rem] text-ni-ink"
+                >Venture Lab · Niterra Group</span
+              >
+            </div>
+            <p
+              class="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-ni-ink-muted"
+            >
+              Screens from a public demo seeded with fictional data — no real
+              portfolio data shown.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile-only transition: gallery paper → site paper -->
+      <div
+        aria-hidden="true"
+        class="h-[7vh] lg:hidden"
+        style="background-image: linear-gradient(to bottom, var(--color-ni-paper), var(--color-paper));"
+      >
+      </div>
+    </section>
+
+    <!-- ============ 04 · TWO PRODUCTS, ONE BUILDER ============ -->
+    <section
+      data-folio="04"
+      data-title="Two Commercial Products"
       class="mt-[var(--space-section)]"
     >
       <SectionHeader
-        folio="03"
-        kicker="Tier One / Two Products, One Builder"
+        folio="04"
+        kicker="Shipped Solo / Two Commercial Products"
         id="proof"
       />
+      <h2 class="visually-hidden">Two commercial products, shipped solo</h2>
 
       <div class="mt-10 lg:mt-14">
         <div class="grid lg:grid-cols-2">
-          <!-- 03A writequit (dark) -->
+          <!-- 04A writequit (dark) -->
           <div class="relative bg-wq-ground text-wq-text">
             <div
               class="h-[8vh] lg:hidden"
@@ -171,7 +516,7 @@ const homeOptionsMap = [
               </div>
 
               <p class="kicker reveal mt-6 text-wq-lime">
-                Tier One / Developer Tool, Shipped Solo
+                Shipped Solo / Developer Tool
               </p>
               <h3
                 class="t-headline reveal reveal-1 mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)] text-wq-text"
@@ -225,7 +570,6 @@ const homeOptionsMap = [
                   alt="writequit task board: markdown tasks, a running timer, and status filters in one terminal-style view"
                   tone="dark"
                   chrome
-                  eager
                   sizes="(min-width:1024px) 42vw, 92vw"
                   caption="The board freelancers live in: markdown tasks, running timer, status filters. “manage work, not a workspace.”"
                 />
@@ -305,12 +649,12 @@ const homeOptionsMap = [
             </div>
           </div>
 
-          <!-- 03B pondera (light) -->
+          <!-- 04B pondera (light) -->
           <div
             class="bg-pondera-paper px-[var(--gutter)] py-12 lg:border-l lg:border-pondera-navy/15 lg:py-16"
           >
             <p class="kicker reveal text-pondera-navy">
-              Tier One / Consumer Product, Shipped Solo
+              Shipped Solo / Consumer Product
             </p>
             <h3
               class="t-headline reveal reveal-1 mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)] text-pondera-ink"
@@ -446,130 +790,6 @@ const homeOptionsMap = [
       </div>
     </section>
 
-    <!-- ============ 04 · NITERRA / VENTURE LAB ============ -->
-    <section
-      data-folio="04"
-      data-title="Venture Lab — Niterra"
-      class="mt-[var(--space-section)]"
-    >
-      <SectionHeader
-        folio="04"
-        kicker="Tier Two / Internal Product, Shipped Solo"
-        title="Venture Lab — Niterra Group"
-        id="niterra"
-      />
-      <div class="wrap mt-8 grid gap-10 lg:grid-cols-12 lg:gap-12">
-        <div class="space-y-6 lg:col-span-7">
-          <p
-            class="reveal max-w-[54ch] text-[1.0625rem] leading-relaxed text-ink"
-          >
-            A growing venture team ran on a CRM that couldn't carry portfolio
-            reporting, expenses, or contracts. I built a custom automation layer
-            on Affinity CRM, then scaled it into a full internal portal serving
-            multiple business functions — a Portfolio Management module
-            (automated quarterly report ingestion, real-time dashboards, custom
-            reporting) and an Expense & Contract Management solution.
-          </p>
-          <ArchitectureCallout
-            label="System map"
-            lines={niterraMap}
-            srText="Affinity CRM feeds an automation layer, which feeds an internal portal containing a Portfolio Management module and an Expense and Contract Management module."
-          />
-        </div>
-
-        <div class="space-y-6 lg:col-span-5">
-          <blockquote class="reveal flex gap-3 border-l-2 border-accent pl-4">
-            <DeliveredToken class="mt-1" />
-            <p class="t-emph text-[1.4rem] leading-snug text-ink">
-              “One internal portal carried reporting, expenses, and contracts
-              across multiple business functions — an automation layer built on
-              Affinity CRM.”
-            </p>
-          </blockquote>
-          <p class="reveal font-mono text-[0.82rem] leading-relaxed text-ink">
-            Replaced manual quarterly report handling with automated ingestion
-            and live dashboards.<br /><span class="text-ink-muted"
-              >[Felipe: add metric — hours saved per reporting cycle / #
-              portfolio companies tracked]</span
-            >
-          </p>
-          <div class="reveal flex items-center gap-3 pt-2">
-            <Image
-              src={niterraLogo}
-              alt="Venture Lab, Niterra Group"
-              width={48}
-              height={48}
-              class="rounded-[3px] border border-rule"
-            />
-            <span class="font-mono text-[0.75rem] text-ink"
-              >Venture Lab · Niterra Group</span
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- 04 · showcase: 6 demo screens (clean-slate instance, fictional data) -->
-      <div class="wrap mt-12 lg:mt-16">
-        <Plate
-          src={niDash}
-          alt="Niterra Ventures portfolio dashboard — total invested, estimated exit value and average TVPI above a quarterly revenue trend and a recent-movers list"
-          sizes="(min-width:1024px) 78vw, 92vw"
-          widths={[768, 1280, 1920]}
-          caption="Portfolio dashboard — total invested, estimated exit value and TVPI up top; a quarterly revenue trend, recent movers and a projected exit timeline below."
-        />
-
-        <p class="kicker reveal mt-12 text-accent">Portfolio Management</p>
-        <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <Plate
-            src={niCompany}
-            chrome
-            alt="Niterra per-company financial detail with revenue and net-income charts versus plan"
-            sizes="(min-width:1024px) 26vw, (min-width:640px) 46vw, 92vw"
-            caption="Per-company financials — revenue and net income vs plan, liquidity ratios, quarter and YTD variance."
-          />
-          <Plate
-            src={niValuation}
-            chrome
-            alt="Niterra exit-valuation model showing enterprise value and MOIC across low, mid and high scenarios"
-            sizes="(min-width:1024px) 26vw, (min-width:640px) 46vw, 92vw"
-            caption="Exit modeling — enterprise value and MOIC across low / mid / high scenarios, with a liquidation-preference waterfall and comps."
-          />
-          <Plate
-            src={niFunnel}
-            chrome
-            alt="Niterra deal funnel tracking conversion across the investment pipeline stages"
-            sizes="(min-width:1024px) 26vw, (min-width:640px) 46vw, 92vw"
-            caption="Deal funnel — conversion from intake to investment across the pipeline, with drop and long-term-follow lanes."
-          />
-        </div>
-
-        <p class="kicker reveal mt-12 text-accent">Expense &amp; Contract</p>
-        <div class="mt-5 grid gap-5 sm:grid-cols-2">
-          <Plate
-            src={niExpend}
-            chrome
-            alt="Niterra expenditure tracking dashboard with spend versus budget broken down by domain"
-            sizes="(min-width:1024px) 39vw, 92vw"
-            caption="Expenditure tracking — spend vs budget by domain, paid / forecasted split, multi-currency totals."
-          />
-          <Plate
-            src={niAccuracy}
-            chrome
-            alt="Niterra forecast-accuracy report comparing forecasted and actual spend per engagement"
-            sizes="(min-width:1024px) 39vw, 92vw"
-            caption="Forecast accuracy — forecasted vs actual spend per engagement, scored by variance."
-          />
-        </div>
-
-        <p
-          class="reveal mt-8 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-ink-muted"
-        >
-          Screens from a public demo seeded with fictional data — no real
-          portfolio data shown.
-        </p>
-      </div>
-    </section>
-
     <!-- ============ 05 · FLORA / SANTOS LAB ============ -->
     <section
       data-folio="05"
@@ -578,7 +798,7 @@ const homeOptionsMap = [
     >
       <SectionHeader
         folio="05"
-        kicker="Tier Two / Precision-Ag Platform · Web + Mobile"
+        kicker="Selected Work / Precision-Ag Platform · Web + Mobile"
         title="Flora — Santos Lab"
         id="flora"
       />
@@ -652,7 +872,7 @@ const homeOptionsMap = [
     >
       <SectionHeader
         folio="06"
-        kicker="Tier Two / Systems Behind the Screens"
+        kicker="Selected Work / Systems Behind the Screens"
         title="The systems users never see"
         id="systems"
       />
