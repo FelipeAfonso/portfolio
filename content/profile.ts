@@ -8,17 +8,11 @@ export type Contact = {
   display: string;
 };
 
-export type Metric = {
-  big: string;
-  label: string;
-  note: string;
-};
-
 export const profile = {
   name: "Felipe Afonso",
   title: "Software Engineer · Full-Stack · End-to-End Ownership",
   tagline: "A product team of one",
-  location: "United States · Remote",
+  location: "Brazil · Remote",
   site: "felipeafonso.com",
 
   // Hero positioning paragraph (index.astro §01/§02).
@@ -55,28 +49,4 @@ export const profile = {
     "Former Tech Lead of 5",
     "Solo delivery, end-to-end",
   ],
-
-  // Flagship impact metrics — the Niterra "What it changed" cards (index.astro niStats).
-  flagshipMetrics: [
-    {
-      big: "120h → 1 day",
-      label: "Quarterly portfolio deck",
-      note: "A ~120-hour manual deck now exports in seconds and is finished by hand in about a day.",
-    },
-    {
-      big: "40+ users",
-      label: "Across the firm",
-      note: "The investment team's daily system of record — 10+ of them in it 2+ hrs a day.",
-    },
-    {
-      big: "8 → 1",
-      label: "One source of truth",
-      note: "Eight sprawling Excel sheets consolidated into a single platform.",
-    },
-    {
-      big: "~1 hr / co / qtr",
-      label: "Saved on report intake",
-      note: "Quarterly company reports map straight in from Excel — no re-keying.",
-    },
-  ] satisfies Metric[],
 } as const;
