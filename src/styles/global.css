@@ -27,6 +27,7 @@
   --color-ink-muted: #a1a1aa;
   --color-accent: #818cf8;
   --color-accent-2: #a855f7;
+  --color-accent-bright: #a5b4fc; /* brighter indigo for section eyebrows (≈9:1 on paper) */
   --color-rule: oklch(1 0 0 / 0.1);
 
   --font-display: "Josefin Sans Variable", system-ui, sans-serif;
@@ -166,6 +167,36 @@ body::before {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   line-height: 1.4;
+}
+
+/* ---- unified section eyebrow (number + kicker on one baseline) ---- */
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.section-eyebrow .num {
+  font-weight: 600;
+}
+/* dimmed em-dash separator after the number (echoes the "F—" mark) */
+.section-eyebrow .num::after {
+  content: "\00a0—\00a0";
+  font-weight: 400;
+  opacity: 0.5;
+}
+/* short accent tick leading the number; inherits the eyebrow color */
+.section-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 0.1875rem; /* 3px */
+  height: 0.85em;
+  margin-right: 0.6em;
+  border-radius: 1px;
+  background: currentColor;
+  vertical-align: -0.04em;
 }
 
 /* ---- editorial CTA links (animated accent underline) ---- */

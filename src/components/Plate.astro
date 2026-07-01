@@ -8,6 +8,7 @@ interface Props {
   caption?: string;
   chrome?: boolean;
   url?: string;
+  href?: string;
   eager?: boolean;
   tone?: "light" | "dark" | "niterra";
   sizes?: string;
@@ -22,6 +23,7 @@ const {
   caption,
   chrome = false,
   url,
+  href,
   eager = false,
   tone = "light",
   sizes = "(min-width: 1024px) 42vw, 92vw",
@@ -40,6 +42,8 @@ const frame = isDark
 const capColor =
   captionClass ??
   (isDark ? "text-wq-lime" : isNiterra ? "text-ni-ink-muted" : "text-ink");
+const dotColor = isNiterra ? "bg-ni-teal-deep/40" : "bg-rule";
+const urlColor = isNiterra ? "text-ni-ink-muted" : "text-ink";
 const hasCaption = Boolean(caption) || Astro.slots.has("caption");
 ---
 
@@ -53,28 +57,26 @@ const hasCaption = Boolean(caption) || Astro.slots.has("caption");
         <div
           class={`flex items-center gap-2 border-b px-3 py-2 ${isDark ? "border-wq-frame" : isNiterra ? "border-ni-line" : "border-rule"}`}
         >
-          {isDark ? (
-            <span class="font-mono text-xs font-medium text-wq-lime">:wq</span>
-          ) : (
-            <span class="flex gap-1.5" aria-hidden="true">
-              <span
-                class={`h-2.5 w-2.5 rounded-full ${isNiterra ? "bg-ni-teal-deep/40" : "bg-rule"}`}
-              />
-              <span
-                class={`h-2.5 w-2.5 rounded-full ${isNiterra ? "bg-ni-teal-deep/40" : "bg-rule"}`}
-              />
-              <span
-                class={`h-2.5 w-2.5 rounded-full ${isNiterra ? "bg-ni-teal-deep/40" : "bg-rule"}`}
-              />
-            </span>
-          )}
-          {url && (
-            <span
-              class={`truncate font-mono text-[0.7rem] ${isNiterra ? "text-ni-ink-muted" : "text-ink"}`}
-            >
-              {url}
-            </span>
-          )}
+          <span class="flex gap-1.5" aria-hidden="true">
+            <span class={`h-2.5 w-2.5 rounded-full ${dotColor}`} />
+            <span class={`h-2.5 w-2.5 rounded-full ${dotColor}`} />
+            <span class={`h-2.5 w-2.5 rounded-full ${dotColor}`} />
+          </span>
+          {url &&
+            (href ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`truncate font-mono text-[0.7rem] underline-offset-2 hover:underline ${urlColor}`}
+              >
+                {url}
+              </a>
+            ) : (
+              <span class={`truncate font-mono text-[0.7rem] ${urlColor}`}>
+                {url}
+              </span>
+            ))}
         </div>
       )
     }

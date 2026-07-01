@@ -8,27 +8,22 @@ interface Props {
 }
 
 const { folio, kicker, title, id, tone = "ink" } = Astro.props;
-const accent = tone === "paper" ? "text-wq-lime" : "text-accent";
+const accent = tone === "paper" ? "text-wq-lime" : "text-accent-bright";
 const text = tone === "paper" ? "text-paper" : "text-ink";
 ---
 
 <header id={id} class="wrap">
-  <div class="grid grid-cols-12 items-baseline gap-x-4">
-    <div class={`kicker reveal col-span-12 lg:col-span-1 ${accent}`} aria-hidden="true">
-      {folio}
-    </div>
-    <div class="col-span-12 lg:col-span-11">
-      <p class={`kicker reveal ${accent}`}>{kicker}</p>
-      {
-        title && (
-          <h2
-            class={`t-headline reveal reveal-1 mt-3 text-[clamp(2rem,3.5vw+1rem,4rem)] ${text}`}
-          >
-            {title}
-          </h2>
-        )
-      }
-      <slot />
-    </div>
-  </div>
+  <p class={`section-eyebrow reveal ${accent}`}>
+    <span class="num" aria-hidden="true">{folio}</span>{kicker}
+  </p>
+  {
+    title && (
+      <h2
+        class={`t-headline reveal reveal-1 mt-3 text-[clamp(2rem,3.5vw+1rem,4rem)] ${text}`}
+      >
+        {title}
+      </h2>
+    )
+  }
+  <slot />
 </header>

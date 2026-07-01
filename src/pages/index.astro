@@ -77,13 +77,6 @@ const niStats = [
     note: "Quarterly company reports map straight in from Excel — no re-keying, every quarter, every company.",
   },
 ];
-
-const homeOptionsMap = [
-  "SvelteKit CRM  ◀──▶  Twilio call center",
-  "      │",
-  "      ├──▶  AI-assisted call-handoff",
-  "      └──▶  Go / HTMX compliance & debt-settlement",
-];
 ---
 
 <Layout title="Felipe Afonso — A product team of one">
@@ -97,11 +90,9 @@ const homeOptionsMap = [
       class="wrap flex min-h-[82svh] flex-col justify-center pb-[var(--space-section)]"
       style="padding-top: calc(var(--running-head-h) + 5vh);"
     >
-      <p class="kicker reveal text-accent">
-        <span aria-hidden="true">01</span>
-        <span class="ml-4 sm:ml-6">
-          Software Engineer · Full-Stack · End-to-End Ownership
-        </span>
+      <p class="section-eyebrow reveal text-accent-bright">
+        <span class="num" aria-hidden="true">01</span>Software Engineer ·
+        Full-Stack · End-to-End Ownership
       </p>
       <h1
         class="t-display reveal reveal-1 text-ink mt-6 max-w-[16ch] text-[clamp(2.75rem,6vw+1rem,6.5rem)]"
@@ -165,7 +156,7 @@ const homeOptionsMap = [
         >
           <!-- ===== BAND 1 · dark masthead ===== -->
           <div
-            class="bg-ni-deep relative overflow-hidden pt-14 pb-28 lg:pt-20 lg:pb-40"
+            class="bg-ni-deep relative overflow-hidden pt-14 pb-16 lg:pt-20 lg:pb-24"
           >
             <!-- contained teal glow (clipped by overflow-hidden — can't bleed into §02) -->
             <div
@@ -184,40 +175,22 @@ const homeOptionsMap = [
 
             <div class="relative z-10 px-[var(--gutter)]">
               <header id="niterra">
-                <div class="grid grid-cols-12 items-baseline gap-x-4">
-                  <div
-                    class="kicker reveal text-ni-teal col-span-12 lg:col-span-1"
-                    aria-hidden="true"
-                  >
-                    03
-                  </div>
-                  <div class="col-span-12 lg:col-span-11">
-                    <div class="reveal flex items-center gap-3">
-                      <Image
-                        src={niterraLogo}
-                        alt=""
-                        width={36}
-                        height={36}
-                        class="border-ni-teal/25 rounded-[3px] border"
-                      />
-                      <p class="kicker text-ni-teal">
-                        Flagship · Internal platform, shipped solo
-                      </p>
-                    </div>
-                    <h2
-                      class="t-headline reveal reveal-1 text-ni-paper mt-4 text-[clamp(2rem,3.5vw+1rem,4.25rem)]"
-                    >
-                      Niterra Ventures
-                    </h2>
-                    <p
-                      class="t-emph reveal reveal-1 col-measure text-ni-paper mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug"
-                    >
-                      The investment team's work lived across a CRM and a stack
-                      of spreadsheets. I built one internal platform to bring it
-                      together — and it became how the team works.
-                    </p>
-                  </div>
-                </div>
+                <p class="section-eyebrow reveal text-ni-teal">
+                  <span class="num" aria-hidden="true">03</span>Flagship ·
+                  Internal platform, shipped solo
+                </p>
+                <h2
+                  class="t-headline reveal reveal-1 text-ni-paper mt-3 text-[clamp(2rem,3.5vw+1rem,4.25rem)]"
+                >
+                  Niterra Ventures
+                </h2>
+                <p
+                  class="t-emph reveal reveal-1 col-measure text-ni-paper mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug"
+                >
+                  The investment team's work lived across a CRM and a stack of
+                  spreadsheets. I built one internal platform to bring it
+                  together — and it became how the team works.
+                </p>
               </header>
 
               <div class="mt-8 grid gap-x-12 gap-y-6 lg:grid-cols-12">
@@ -272,7 +245,7 @@ const homeOptionsMap = [
 
           <!-- ===== BAND 2 · light product gallery ===== -->
           <div
-            class="bg-ni-paper text-ni-ink relative pt-16 pb-[var(--space-section)] lg:pt-24"
+            class="bg-ni-paper text-ni-ink relative pt-12 pb-[var(--space-section)] lg:pt-16"
           >
             <div class="px-[var(--gutter)]">
               <!-- light-band intro: orients the reader into the product gallery -->
@@ -516,19 +489,7 @@ const homeOptionsMap = [
                 class="bg-wq-ground text-wq-text lg:border-wq-frame relative lg:border-r"
               >
                 <div class="px-[var(--gutter)] py-12 lg:py-16">
-                  <div
-                    class="border-wq-frame text-wq-lime flex items-center gap-2 border-b pb-3 font-mono text-xs"
-                  >
-                    <span>:wq</span>
-                    <span class="text-wq-text/40">— writequit.dev</span>
-                    <span
-                      class="wq-cursor bg-wq-lime ml-auto inline-block h-3.5 w-2"
-                      aria-hidden="true"
-                    >
-                    </span>
-                  </div>
-
-                  <p class="kicker reveal text-wq-lime mt-6">
+                  <p class="kicker reveal text-wq-lime">
                     Shipped Solo / Developer Tool
                   </p>
                   <h3
@@ -583,6 +544,8 @@ const homeOptionsMap = [
                       alt="writequit task board: markdown tasks, a running timer, and status filters in one terminal-style view"
                       tone="dark"
                       chrome
+                      url="writequit.dev"
+                      href="https://writequit.dev"
                       sizes="(min-width:1024px) 42vw, 92vw"
                       caption="The board freelancers live in: markdown tasks, running timer, status filters. “manage work, not a workspace.”"
                     />
@@ -592,6 +555,8 @@ const homeOptionsMap = [
                         alt="writequit time-tracking sessions with a live running timer"
                         tone="dark"
                         chrome
+                        url="writequit.dev"
+                        href="https://writequit.dev"
                         caption="Time tracking with live running timers — part of the same tool, not a second app. “tasks. time. invoices.”"
                       />
                       <Plate
@@ -599,6 +564,8 @@ const homeOptionsMap = [
                         alt="writequit invoices generated as PDFs"
                         tone="dark"
                         chrome
+                        url="writequit.dev"
+                        href="https://writequit.dev"
                         caption="jsPDF invoice generation — billing built into the same tool, not bolted on."
                       />
                     </div>
@@ -607,6 +574,8 @@ const homeOptionsMap = [
                       alt="writequit shared client board management with a share URL, password, and a live chat panel"
                       tone="dark"
                       chrome
+                      url="writequit.dev"
+                      href="https://writequit.dev"
                       caption="Password-protected client boards with live chat (Convex) — permissioned sharing, real-time."
                     />
                     <Plate
@@ -614,6 +583,8 @@ const homeOptionsMap = [
                       alt="the public client view of a writequit shared board, unlocked, with live chat"
                       tone="dark"
                       chrome
+                      url="writequit.dev"
+                      href="https://writequit.dev"
                       class="sm:max-w-[82%]"
                       caption="What the client sees: a password-unlocked board with live chat — the sharing surface, from the other side."
                     />
@@ -645,8 +616,8 @@ const homeOptionsMap = [
                       <span
                         class="text-wq-text/55 mt-2 block font-mono text-[0.75rem] not-italic"
                       >
-                        [Felipe: add metric — e.g., paying customers /
-                        time-to-first-invoice]
+                        The tool I run my own client work through — how clients
+                        receive invoices and watch progress.
                       </span>
                     </p>
                   </blockquote>
@@ -709,6 +680,7 @@ const homeOptionsMap = [
                         alt="pondera property detail: AI-extracted price, area and neighborhood with a pros, cons and watch-outs card"
                         chrome
                         url="pondera.casa"
+                        href="https://pondera.casa"
                         class="mt-3"
                         captionClass="text-pondera-ink"
                         caption="Paste a link; AI extracts price, area, photos and a pros / cons / watch-outs card. No data entry."
@@ -731,6 +703,7 @@ const homeOptionsMap = [
                         alt="pondera gallery with per-property ratings, favorites and portfolio stats"
                         chrome
                         url="pondera.casa"
+                        href="https://pondera.casa"
                         class="mt-3"
                         captionClass="text-pondera-ink"
                         caption="Score each property on a checklist; portfolio stats update as you go."
@@ -755,6 +728,7 @@ const homeOptionsMap = [
                         alt="pondera side-by-side comparison table with the best value per criterion highlighted in gold"
                         chrome
                         url="pondera.casa"
+                        href="https://pondera.casa"
                         class="mt-3"
                         captionClass="text-pondera-ink"
                       >
@@ -786,6 +760,7 @@ const homeOptionsMap = [
                         alt="pondera AI recommendation ranking that explains each position in plain language"
                         chrome
                         url="pondera.casa"
+                        href="https://pondera.casa"
                         class="mt-3"
                         captionClass="text-pondera-ink"
                         caption="AI ranks the options and explains each position in plain language. You decide."
@@ -805,8 +780,8 @@ const homeOptionsMap = [
                     <span
                       class="text-pondera-ink mt-2 block font-mono text-[0.75rem] not-italic"
                     >
-                      [Felipe: add metric — e.g., listings processed / decisions
-                      made]
+                      Live and public at pondera.casa — real scraping and LLM
+                      extraction, not a demo.
                     </span>
                   </p>
                 </blockquote>
@@ -876,7 +851,7 @@ const homeOptionsMap = [
             chrome
             url="app.flora"
             widths={[480, 768, 1080, 1440]}
-            caption="Filtered map + analysis layers — [Felipe: add scale metric, e.g. farms/hectares monitored]."
+            caption="Filtered map + analysis layers — 100+ farms and thousands of hectares, used by ~20 agronomists."
           />
         </div>
 
@@ -916,11 +891,6 @@ const homeOptionsMap = [
             debt-settlement platform — the systems that don't screenshot well
             but run the business.
           </p>
-          <ArchitectureCallout
-            label="HomeOptions internal"
-            lines={homeOptionsMap}
-            srText="A custom SvelteKit CRM integrates with the Twilio call center, an AI-assisted call-handoff tool, and a Go and HTMX compliance and debt-settlement platform."
-          />
         </div>
         <div class="lg:col-span-5">
           <blockquote class="reveal border-accent flex gap-3 border-l-2 pl-4">
@@ -935,8 +905,8 @@ const homeOptionsMap = [
             class="reveal text-ink mt-4 font-mono text-[0.82rem] leading-relaxed"
           >
             <span class="text-ink-muted">
-              [Felipe: add metric — calls handled / agent handoff time /
-              compliance cases processed]
+              ~15 agents lived in it 6+ hours a day, every day the call center
+              ran.
             </span>
           </p>
         </div>
@@ -951,7 +921,7 @@ const homeOptionsMap = [
             chrome
             url="homeoptions.com"
             sizes="(min-width:1024px) 30vw, 92vw"
-            caption="HomeOptions portal: rebuilt React SPA → Next.js SSR for performance and SEO. [Felipe: add load-time before/after or SEO lift]"
+            caption="HomeOptions portal: rebuilt React SPA → Next.js SSR for performance and SEO — funnels that processed 50k+ leads."
           />
           <Plate
             src={hoBlog}
@@ -967,7 +937,7 @@ const homeOptionsMap = [
             chrome
             url="liftup"
             sizes="(min-width:1024px) 30vw, 92vw"
-            caption="Liftup portals & ad-campaign landing pages — fast, conversion-focused entry points. [Felipe: add conversion metric]"
+            caption="Liftup portals & ad-campaign landing pages — an MVP built to pitch for seed funding."
           />
         </div>
       </div>
