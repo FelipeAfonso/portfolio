@@ -15,6 +15,10 @@ interface Props {
   widths?: number[];
   class?: string;
   captionClass?: string;
+  /** entrance variant consumed by motion.ts ("left" | "right" | "scale") */
+  reveal?: "left" | "right" | "scale";
+  /** scrubbed yPercent shear, desktop only (motion.ts) */
+  parallax?: number;
 }
 
 const {
@@ -30,6 +34,8 @@ const {
   widths = [480, 768, 1080],
   class: cls = "",
   captionClass,
+  reveal,
+  parallax,
 } = Astro.props;
 
 const isDark = tone === "dark";
@@ -45,12 +51,21 @@ const capColor =
 const dotColor = isNiterra ? "bg-ni-teal-deep/40" : "bg-rule";
 const urlColor = isNiterra ? "text-ni-ink-muted" : "text-ink";
 const hasCaption = Boolean(caption) || Astro.slots.has("caption");
+const halo = isDark
+  ? "--color-wq-lime"
+  : isNiterra
+    ? "--color-ni-teal"
+    : "--color-accent";
 ---
 
-<figure class={`group reveal ${cls}`}>
+<figure
+  class={`group reveal ${cls}`}
+  data-reveal={reveal}
+  data-parallax={parallax}
+>
   <div
-    class={`overflow-hidden rounded-[3px] border ${frame}`}
-    style="box-shadow: var(--shadow-paper);"
+    class={`plate-frame overflow-hidden rounded-[3px] border ${frame}`}
+    style={`--plate-halo: var(${halo});`}
   >
     {
       chrome && (
@@ -92,7 +107,9 @@ const hasCaption = Boolean(caption) || Astro.slots.has("caption");
   </div>
   {
     hasCaption && (
-      <figcaption class={`mt-2.5 font-mono text-[0.8125rem] leading-relaxed ${capColor}`}>
+      <figcaption
+        class={`mt-2.5 font-mono text-[0.8125rem] leading-relaxed ${capColor}`}
+      >
         <slot name="caption">{caption}</slot>
       </figcaption>
     )

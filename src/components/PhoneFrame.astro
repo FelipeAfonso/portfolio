@@ -7,19 +7,25 @@ interface Props {
   alt: string;
   caption?: string;
   class?: string;
+  /** entrance variant consumed by motion.ts ("left" | "right" | "scale") */
+  reveal?: "left" | "right" | "scale";
+  /** scrubbed yPercent shear, desktop only (motion.ts) */
+  parallax?: number;
 }
 
-const { src, alt, caption, class: cls = "" } = Astro.props;
+const { src, alt, caption, class: cls = "", reveal, parallax } = Astro.props;
 ---
 
-<figure class={`reveal ${cls}`}>
+<figure class={`reveal ${cls}`} data-reveal={reveal} data-parallax={parallax}>
   <div
-    class="relative mx-auto w-full max-w-[14rem] rounded-[2rem] border-[6px] border-ink bg-ink p-1"
+    class="border-ink bg-ink relative mx-auto w-full max-w-[14rem] rounded-[2rem] border-[6px] p-1"
     style="box-shadow: var(--shadow-paper);"
   >
     <span
-      class="absolute left-1/2 top-2 z-10 h-1.5 w-14 -translate-x-1/2 rounded-full bg-paper/25"
-      aria-hidden="true"></span>
+      class="bg-paper/25 absolute top-2 left-1/2 z-10 h-1.5 w-14 -translate-x-1/2 rounded-full"
+      aria-hidden="true"
+    >
+    </span>
     <Image
       src={src}
       alt={alt}
@@ -32,7 +38,7 @@ const { src, alt, caption, class: cls = "" } = Astro.props;
   </div>
   {
     caption && (
-      <figcaption class="mx-auto mt-3 max-w-[18rem] text-center font-mono text-[0.8125rem] leading-relaxed text-ink">
+      <figcaption class="text-ink mx-auto mt-3 max-w-[18rem] text-center font-mono text-[0.8125rem] leading-relaxed">
         {caption}
       </figcaption>
     )

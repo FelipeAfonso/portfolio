@@ -94,21 +94,21 @@ const niStats = [
         Full-Stack · End-to-End Ownership
       </p>
       <h1
-        class="t-display reveal reveal-1 text-ink mt-6 max-w-[16ch] text-[clamp(2.75rem,6vw+1rem,6.5rem)]"
+        class="t-display reveal text-ink mt-6 max-w-[16ch] text-[clamp(2.75rem,6vw+1rem,6.5rem)]"
       >
         Hand me a problem. I'll hand back a <span class="draw-underline">
           working product
         </span><span class="text-accent">.</span>
       </h1>
       <p
-        class="reveal reveal-2 col-measure text-ink mt-8 text-[clamp(1.0625rem,0.5vw+1rem,1.25rem)] leading-relaxed"
+        class="reveal col-measure text-ink mt-8 text-[clamp(1.0625rem,0.5vw+1rem,1.25rem)] leading-relaxed"
       >
         I work like an embedded product team of one: I take a problem from rough
         idea to a running product — design, build, deploy — with minimal
         hand-offs in between.
       </p>
       <div
-        class="reveal reveal-3 mt-10 flex flex-col gap-3 text-sm sm:flex-row sm:gap-10"
+        class="reveal mt-10 flex flex-col gap-3 text-sm sm:flex-row sm:gap-10"
       >
         <a class="ed-link" href="mailto:fmunhozafonso@gmail.com">
           Start a conversation → fmunhozafonso@gmail.com
@@ -122,7 +122,7 @@ const niStats = [
     <!-- ============ 02 · HOW I WORK ============ -->
     <section data-folio="02" data-title="Operating Model">
       <SectionHeader folio="02" kicker="Operating Model" id="how" />
-      <div class="wrap mt-6">
+      <div class="wrap mt-6" data-reveal-group>
         <p
           class="reveal text-ink max-w-[64ch] text-[clamp(1.25rem,1vw+1rem,1.6rem)] leading-snug"
         >
@@ -130,7 +130,7 @@ const niStats = [
           parts no one volunteers for: auth, billing, the deploy pipeline — so
           it lands as one decision instead of a chain of hand-offs.
         </p>
-        <p class="reveal reveal-1 col-measure text-ink mt-5 leading-relaxed">
+        <p class="reveal col-measure text-ink mt-5 leading-relaxed">
           I'm comfortable across the stack and across languages, so I can
           usually reach for the tool a problem wants rather than the one I
           happen to know. I lean on AI as a multiplier on delivery speed — it's
@@ -150,7 +150,7 @@ const niStats = [
     >
       <div class="mx-auto w-full max-w-[var(--content-max)] px-[var(--gutter)]">
         <div
-          class="border-rule relative overflow-hidden rounded-[var(--panel-radius)] border"
+          class="border-rule panel-lit relative overflow-hidden rounded-[var(--panel-radius)] border"
           style="box-shadow: var(--shadow-paper);"
         >
           <!-- ===== BAND 1 · dark masthead ===== -->
@@ -160,6 +160,7 @@ const niStats = [
             <!-- contained teal glow (clipped by overflow-hidden — can't bleed into §02) -->
             <div
               aria-hidden="true"
+              data-drift
               class="pointer-events-none absolute inset-x-0 top-0 z-0 h-[60vh]"
               style="background: radial-gradient(48% 50% at 50% 0%, color-mix(in oklch, var(--color-ni-teal) 18%, transparent), transparent 70%);"
             >
@@ -167,6 +168,7 @@ const niStats = [
             <!-- faint secondary glow, lower-right -->
             <div
               aria-hidden="true"
+              data-drift
               class="pointer-events-none absolute right-0 -bottom-[10vh] z-0 h-[40vh] w-[55vw]"
               style="background: radial-gradient(50% 50% at 80% 60%, color-mix(in oklch, var(--color-ni-teal) 9%, transparent), transparent 72%);"
             >
@@ -179,12 +181,12 @@ const niStats = [
                   Internal platform, shipped solo
                 </p>
                 <h2
-                  class="t-headline reveal reveal-1 text-ni-paper mt-3 text-[clamp(2rem,3.5vw+1rem,4.25rem)]"
+                  class="t-headline reveal text-ni-paper mt-3 text-[clamp(2rem,3.5vw+1rem,4.25rem)]"
                 >
                   Niterra Ventures
                 </h2>
                 <p
-                  class="t-emph reveal reveal-1 col-measure text-ni-paper mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug"
+                  class="t-emph reveal col-measure text-ni-paper mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug"
                 >
                   The investment team's work lived across a CRM and a stack of
                   spreadsheets. I built one internal platform to bring it
@@ -204,7 +206,7 @@ const niStats = [
                   reporting — fed by live integrations and mapped Excel imports.
                 </p>
                 <p
-                  class="reveal reveal-1 text-ni-paper/55 font-mono text-[0.8rem] leading-relaxed lg:col-span-5"
+                  class="reveal text-ni-paper/55 font-mono text-[0.8rem] leading-relaxed lg:col-span-5"
                 >
                   <span class="text-ni-teal">stack</span> · SvelteKit · Svelte 5 ·
                   Bun · TypeScript · Tailwind 4 · shadcn-svelte · Drizzle / Turso
@@ -218,11 +220,14 @@ const niStats = [
               <!-- impact bar: what it changed -->
               <div class="mt-12 lg:mt-16">
                 <p class="kicker reveal text-ni-teal">What it changed</p>
-                <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div
+                  class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+                  data-reveal-group
+                >
                   {
                     niStats.map((s) => (
                       <div
-                        class="reveal border-ni-teal/15 rounded-[3px] border bg-white/[0.03] p-5"
+                        class="reveal stat-tick border-ni-teal/15 rounded-[3px] border bg-white/[0.03] p-5"
                         style="box-shadow: var(--shadow-paper);"
                       >
                         <p class="t-display text-ni-teal text-[clamp(1.6rem,1.4vw+1rem,2.1rem)] leading-none">
@@ -253,7 +258,7 @@ const niStats = [
                   Inside the platform
                 </p>
                 <p
-                  class="reveal reveal-1 text-ni-ink mt-3 text-[1.0625rem] leading-relaxed"
+                  class="reveal text-ni-ink mt-3 text-[1.0625rem] leading-relaxed"
                 >
                   The screens the investment team lives in — portfolio, exit
                   models, cap tables, spend and board decks — that replaced the
@@ -262,9 +267,10 @@ const niStats = [
               </div>
 
               <!-- hero pedestal — now opens below the intro, with real top margin -->
-              <div class="relative z-20 mt-8 lg:mt-12">
+              <div class="relative z-20 mt-8 lg:mt-12" data-pedestal>
                 <div
                   aria-hidden="true"
+                  data-pedestal-glow
                   class="pointer-events-none absolute -inset-x-6 -top-10 -bottom-10 z-0"
                   style="background: radial-gradient(60% 55% at 50% 35%, color-mix(in oklch, var(--color-ni-teal) 22%, transparent), transparent 70%); filter: blur(8px);"
                 >
@@ -290,6 +296,7 @@ const niStats = [
                   <Plate
                     src={niValuation}
                     tone="niterra"
+                    parallax={-4}
                     alt="Niterra exit-valuation model showing enterprise value and MOIC across low, mid and high scenarios beside a performance-ratio panel"
                     sizes="(min-width:1024px) 64vw, 92vw"
                     widths={[768, 1280, 1920, 2560]}
@@ -301,13 +308,13 @@ const niStats = [
                     Exit modeling · the showpiece
                   </p>
                   <p
-                    class="reveal reveal-1 text-ni-ink mt-3 text-[1.0625rem] leading-relaxed"
+                    class="reveal text-ni-ink mt-3 text-[1.0625rem] leading-relaxed"
                   >
                     A live scenario model from entry to exit, with the waterfall
                     and comps a real diligence deck would carry.
                   </p>
                   <blockquote
-                    class="reveal reveal-2 border-ni-teal-deep mt-6 flex gap-3 border-l-2 pl-4"
+                    class="reveal border-ni-teal-deep mt-6 flex gap-3 border-l-2 pl-4"
                   >
                     <DeliveredToken tone="teal" class="mt-1" />
                     <p class="t-emph text-ni-ink text-[1.2rem] leading-snug">
@@ -326,15 +333,19 @@ const niStats = [
                     Portfolio &amp; companies
                   </p>
                   <p
-                    class="reveal reveal-1 col-measure text-ni-ink-muted mt-3 text-[0.95rem] leading-relaxed"
+                    class="reveal col-measure text-ni-ink-muted mt-3 text-[0.95rem] leading-relaxed"
                   >
                     Every holding, its rounds and ownership, and per-company
                     financials tracked against plan.
                   </p>
-                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                  <div
+                    class="mt-5 grid gap-5 sm:grid-cols-2"
+                    data-reveal-group="scale"
+                  >
                     <Plate
                       src={niCompanies}
                       tone="niterra"
+                      parallax={-6}
                       chrome
                       alt="Niterra companies list — every portfolio company with its rounds, investment stages, carry value and ownership"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -344,6 +355,7 @@ const niStats = [
                     <Plate
                       src={niCompany}
                       tone="niterra"
+                      parallax={6}
                       chrome
                       alt="Niterra per-company financial detail with revenue and net-income charts versus plan and liquidity ratios"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -357,10 +369,14 @@ const niStats = [
                   <p class="kicker reveal text-ni-teal-deep">
                     Cap tables &amp; deal flow
                   </p>
-                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                  <div
+                    class="mt-5 grid gap-5 sm:grid-cols-2"
+                    data-reveal-group="scale"
+                  >
                     <Plate
                       src={niCaptable}
                       tone="niterra"
+                      parallax={-6}
                       chrome
                       alt="Niterra editable cap table — rounds, per-investor ownership and fully-diluted shares auto-computed from investments"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -370,6 +386,7 @@ const niStats = [
                     <Plate
                       src={niFunnel}
                       tone="niterra"
+                      parallax={6}
                       chrome
                       alt="Niterra deal funnel tracking conversion across the investment pipeline stages"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -383,10 +400,14 @@ const niStats = [
                   <p class="kicker reveal text-ni-teal-deep">
                     Spend &amp; forecasting
                   </p>
-                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                  <div
+                    class="mt-5 grid gap-5 sm:grid-cols-2"
+                    data-reveal-group="scale"
+                  >
                     <Plate
                       src={niExpend}
                       tone="niterra"
+                      parallax={-6}
                       chrome
                       alt="Niterra expenditure dashboard with spend versus budget broken down by domain"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -396,6 +417,7 @@ const niStats = [
                     <Plate
                       src={niAccuracy}
                       tone="niterra"
+                      parallax={6}
                       chrome
                       alt="Niterra forecast-accuracy report comparing forecasted and actual spend per engagement"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -409,10 +431,14 @@ const niStats = [
                   <p class="kicker reveal text-ni-teal-deep">
                     Board decks &amp; reporting
                   </p>
-                  <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                  <div
+                    class="mt-5 grid gap-5 sm:grid-cols-2"
+                    data-reveal-group="scale"
+                  >
                     <Plate
                       src={niPresentation}
                       tone="niterra"
+                      parallax={-6}
                       chrome
                       alt="Niterra presentation builder showing investment composition, a frozen portfolio snapshot and per-company sections, exported to PowerPoint"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -422,6 +448,7 @@ const niStats = [
                     <Plate
                       src={niReports}
                       tone="niterra"
+                      parallax={6}
                       chrome
                       alt="Niterra financial reports — a profit-and-loss table across quarters with balance-sheet, cash-flow and KPI tabs"
                       sizes="(min-width:1024px) 39vw, 92vw"
@@ -479,32 +506,33 @@ const niStats = [
           class="mx-auto w-full max-w-[var(--content-max)] px-[var(--gutter)]"
         >
           <div
-            class="border-rule relative overflow-hidden rounded-[var(--panel-radius)] border"
+            class="border-rule panel-lit relative overflow-hidden rounded-[var(--panel-radius)] border"
             style="box-shadow: var(--shadow-paper);"
           >
             <div class="grid lg:grid-cols-2 lg:items-stretch">
               <!-- 04A writequit (dark) -->
               <div
                 class="bg-wq-ground text-wq-text lg:border-wq-frame relative lg:border-r"
+                data-reveal-group="left"
               >
                 <div class="px-[var(--gutter)] py-12 lg:py-16">
                   <p class="kicker reveal text-wq-lime">
                     Shipped Solo / Developer Tool
                   </p>
                   <h3
-                    class="t-headline reveal reveal-1 text-wq-text mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)]"
+                    class="t-headline reveal text-wq-text mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)]"
                   >
                     writequit.dev
                   </h3>
                   <p
-                    class="reveal reveal-1 text-wq-text/85 mt-4 max-w-[48ch] text-[1.0625rem] leading-relaxed"
+                    class="reveal text-wq-text/85 mt-4 max-w-[48ch] text-[1.0625rem] leading-relaxed"
                   >
                     Freelance developers juggle tasks, time, and invoices across
                     three disconnected tools — and lose the thread.
                   </p>
 
                   <ul
-                    class="reveal reveal-2 text-wq-text/90 mt-6 space-y-3 font-mono text-[0.85rem] leading-relaxed"
+                    class="reveal text-wq-text/90 mt-6 space-y-3 font-mono text-[0.85rem] leading-relaxed"
                   >
                     <li class="flex gap-3">
                       <span class="text-wq-lime" aria-hidden="true">[*]</span>
@@ -539,6 +567,7 @@ const niStats = [
 
                   <div class="mt-9 space-y-5">
                     <Plate
+                      parallax={-3}
                       src={wqBoard}
                       alt="writequit task board: markdown tasks, a running timer, and status filters in one terminal-style view"
                       tone="dark"
@@ -569,6 +598,7 @@ const niStats = [
                       />
                     </div>
                     <Plate
+                      parallax={-3}
                       src={wqBoardAdmin}
                       alt="writequit shared client board management with a share URL, password, and a live chat panel"
                       tone="dark"
@@ -633,23 +663,24 @@ const niStats = [
               <!-- 04B pondera (light) -->
               <div
                 class="bg-pondera-paper border-pondera-navy/15 lg:border-pondera-navy/35 border-t px-[var(--gutter)] py-12 lg:border-t-0 lg:border-l-2 lg:py-16"
+                data-reveal-group="right"
               >
                 <p class="kicker reveal text-pondera-navy">
                   Shipped Solo / Consumer Product
                 </p>
                 <h3
-                  class="t-headline reveal reveal-1 text-pondera-ink mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)]"
+                  class="t-headline reveal text-pondera-ink mt-3 text-[clamp(1.9rem,2.6vw+1rem,3rem)]"
                 >
                   pondera.casa
                 </h3>
                 <p
-                  class="t-emph reveal reveal-1 text-pondera-navy mt-4 text-[clamp(1.4rem,1.4vw+1rem,1.9rem)] leading-snug"
+                  class="t-emph reveal text-pondera-navy mt-4 text-[clamp(1.4rem,1.4vw+1rem,1.9rem)] leading-snug"
                 >
                   Choose the right house — without getting lost along the way.
                 </p>
 
                 <p
-                  class="reveal reveal-2 text-pondera-ink mt-6 max-w-[50ch] text-[1.0625rem] leading-relaxed"
+                  class="reveal text-pondera-ink mt-6 max-w-[50ch] text-[1.0625rem] leading-relaxed"
                 >
                   Choosing a property means drowning in tabs and gut feeling.
                   pondera turns a pasted listing URL into a structured decision
@@ -657,7 +688,7 @@ const niStats = [
                   curates, compares, and ranks.
                 </p>
                 <p
-                  class="reveal reveal-2 text-pondera-ink mt-3 font-mono text-[0.75rem] tracking-[0.04em]"
+                  class="reveal text-pondera-ink mt-3 font-mono text-[0.75rem] tracking-[0.04em]"
                 >
                   Next.js 16 · React 19 · Convex · OpenRouter (gpt-4o-mini)
                 </p>
@@ -675,6 +706,7 @@ const niStats = [
                         <span class="text-pondera-navy font-medium">Paste</span>
                       </p>
                       <Plate
+                        parallax={3}
                         src={poCole}
                         alt="pondera property detail: AI-extracted price, area and neighborhood with a pros, cons and watch-outs card"
                         chrome
@@ -723,6 +755,7 @@ const niStats = [
                         </span>
                       </p>
                       <Plate
+                        parallax={3}
                         src={poCompare}
                         alt="pondera side-by-side comparison table with the best value per criterion highlighted in gold"
                         chrome
@@ -817,6 +850,7 @@ const niStats = [
         <div class="mt-8 grid gap-6 lg:grid-cols-12 lg:items-start">
           <div class="lg:col-span-8">
             <Plate
+              parallax={-5}
               src={flMapa}
               alt="Flora interactive map fusing drone, satellite and field data with geospatial analysis"
               chrome
@@ -828,6 +862,8 @@ const niStats = [
           </div>
           <div class="lg:col-span-4 lg:pt-10">
             <PhoneFrame
+              parallax={7}
+              reveal="scale"
               src={flApp}
               alt="Flora offline-first React Native field-collection app showing a selected farm"
               caption="Offline-first React Native field app — the same platform, collected where there's no signal."
@@ -835,7 +871,7 @@ const niStats = [
           </div>
         </div>
 
-        <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <div class="mt-6 grid gap-6 sm:grid-cols-2" data-reveal-group="scale">
           <Plate
             src={flDash}
             alt="Flora analytics dashboard with custom charts turning geospatial data into decisions"
@@ -879,7 +915,10 @@ const niStats = [
         title="The systems users never see"
         id="systems"
       />
-      <div class="wrap mt-8 grid gap-10 lg:grid-cols-12 lg:gap-12">
+      <div
+        class="wrap mt-8 grid gap-10 lg:grid-cols-12 lg:gap-12"
+        data-reveal-group
+      >
         <div class="space-y-6 lg:col-span-7">
           <p
             class="reveal text-ink max-w-[56ch] text-[1.0625rem] leading-relaxed"
@@ -892,7 +931,7 @@ const niStats = [
           </p>
         </div>
         <div class="lg:col-span-5">
-          <blockquote class="reveal border-accent flex gap-3 border-l-2 pl-4">
+          <blockquote class="reveal rule-draw-v flex gap-3 pl-4">
             <DeliveredToken class="mt-1" />
             <p class="t-emph text-ink text-[1.4rem] leading-snug">
               “Three internal systems for a call-center operation — CRM, AI
@@ -913,7 +952,10 @@ const niStats = [
 
       <div class="wrap mt-14">
         <p class="kicker reveal text-accent">Public-facing work</p>
-        <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          data-reveal-group="scale"
+        >
           <Plate
             src={hoPortal}
             alt="HomeOptions public user portal rebuilt on Next.js server-side rendering"
@@ -959,7 +1001,11 @@ const niStats = [
           love of it — small games, starter templates, sprites and code, all
           mine.
         </p>
-        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          data-reveal-group="scale"
+          data-reveal-duration="0.55"
+        >
           <Plate
             src={gameTitle}
             alt="Stupid Spider game title screen, built in Rust with the Bevy engine"
@@ -1026,6 +1072,7 @@ const niStats = [
         <div class="rule-draw bg-rule h-px w-full"></div>
         <div
           class="reveal text-ink mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.72rem] tracking-[0.1em] uppercase"
+          data-ticker
         >
           <span>~9 yrs shipping software</span>
           <span class="text-rule" aria-hidden="true">·</span>
@@ -1045,14 +1092,12 @@ const niStats = [
             >
               Have a problem that needs an owner, not a committee?
             </p>
-            <p
-              class="reveal reveal-1 text-ink mt-4 max-w-[46ch] leading-relaxed"
-            >
+            <p class="reveal text-ink mt-4 max-w-[46ch] leading-relaxed">
               Send me the messy version — I'll come back with where I'd start.
             </p>
           </div>
           <div
-            class="reveal reveal-1 flex flex-col gap-3 font-mono text-sm lg:items-end lg:text-right"
+            class="reveal flex flex-col gap-3 font-mono text-sm lg:items-end lg:text-right"
           >
             <a class="ed-link" href="mailto:fmunhozafonso@gmail.com">
               fmunhozafonso@gmail.com
@@ -1101,45 +1146,7 @@ const niStats = [
   </script>
 
   <script>
-    // Scroll reveals + running-head section indicator
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-revealed");
-            io.unobserve(e.target);
-          }
-        }
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
-    );
-
-    document
-      .querySelectorAll(".reveal, .rule-draw, .draw-underline")
-      .forEach((el) => {
-        if (reduce) el.classList.add("is-revealed");
-        else io.observe(el);
-      });
-
-    const rh = document.getElementById("rh-section");
-    if (rh) {
-      const so = new IntersectionObserver(
-        (entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) {
-              const f = e.target.getAttribute("data-folio") ?? "";
-              const t = e.target.getAttribute("data-title") ?? "";
-              rh.textContent = `§${f} · ${t}`;
-            }
-          }
-        },
-        { rootMargin: "-45% 0px -50% 0px" },
-      );
-      document.querySelectorAll("[data-folio]").forEach((s) => so.observe(s));
-    }
+    // GSAP scroll choreography + running-head section indicator
+    import "../scripts/motion";
   </script>
 </Layout>
