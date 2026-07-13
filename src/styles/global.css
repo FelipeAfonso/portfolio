@@ -54,6 +54,28 @@
   --color-ni-ink-muted: #4a5d59; /* muted text on light (AA) */
   --color-ni-line: #cfe0dc; /* subtle border on light */
   --color-ni-teal-deep: #0c726a; /* teal labels on light (AA ≥4.5:1) */
+  /* Crisálida — the product's "Sereno: Sálvia & Barro" tokens, carried onto the mat */
+  --color-cs-paper: oklch(0.978 0.008 95); /* oat-paper band bg */
+  --color-cs-card: oklch(0.995 0.005 95); /* plate frames, stat cards */
+  --color-cs-ink: oklch(0.245 0.016 150); /* body text on oat (AAA) */
+  --color-cs-ink-muted: oklch(0.455 0.018 145); /* muted text on oat (AA) */
+  --color-cs-line: oklch(0.885 0.012 100); /* subtle border on oat */
+  --color-cs-sage: oklch(
+    0.47 0.075 162
+  ); /* deep clinical sage — labels on oat (AA) */
+  --color-cs-sage-bright: oklch(
+    0.74 0.1 160
+  ); /* lightened sage — glow mixes only */
+  --color-cs-clay: oklch(
+    0.585 0.123 53
+  ); /* terracotta — non-text marks (≥3:1) */
+  --color-cs-clay-deep: oklch(
+    0.49 0.112 53
+  ); /* clay for small text on oat (AA) */
+  --color-cs-loam: oklch(
+    0.215 0.012 150
+  ); /* warm-loam charcoal (dark-theme ground) */
+  --color-cs-loam-line: oklch(0.32 0.014 150); /* border on loam */
 
   --ease-press: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -307,7 +329,7 @@ body::before {
   left: 1.25rem;
   width: 2.5rem;
   height: 2px;
-  background: var(--color-ni-teal);
+  background: var(--tick, var(--color-ni-teal));
   transform-origin: left;
   transition: transform 0.5s var(--ease-press) 0.2s;
 }

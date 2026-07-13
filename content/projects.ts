@@ -82,7 +82,14 @@ export const projects: Record<string, Project> = {
       "A full commercial SaaS for freelance developers — task manager, time tracker, and invoice generator in one terminal-native tool with vim keybindings and markdown tasks. It bundles auth (WorkOS), PDF invoice generation (jsPDF), real-time chat and shared client boards (Convex), and password-gated permissioned sharing. I shipped it end-to-end: the product design, the opinionated UX, and the marketing voice — not just the code.",
     link: "https://writequit.dev",
     images: [wqBoard, wqTime, wqInvoice, wqBoardAdmin, wqClient],
-    workedWith: ["SvelteKit 5", "Convex", "Tailwind 4", "WorkOS", "jsPDF", "Vercel"],
+    workedWith: [
+      "SvelteKit 5",
+      "Convex",
+      "Tailwind 4",
+      "WorkOS",
+      "jsPDF",
+      "Vercel",
+    ],
   },
   pondera: {
     title: "pondera.casa",

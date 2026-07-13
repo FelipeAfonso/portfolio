@@ -54,6 +54,16 @@ import niAccuracy from "../../content/images/niterra/niterra-accuracy.png";
 import niPresentation from "../../content/images/niterra/niterra-presentation.png";
 import niReports from "../../content/images/niterra/niterra-reports.png";
 
+// Crisálida — marketing screenshots (demo workspace, fictional patients)
+import csWorkbench from "../../content/images/crisalida/crisalida-workbench.png";
+import csDraftDark from "../../content/images/crisalida/crisalida-draft-dark.png";
+import csAssistant from "../../content/images/crisalida/crisalida-assistant.png";
+import csSigned from "../../content/images/crisalida/crisalida-signed.png";
+import csAgenda from "../../content/images/crisalida/crisalida-agenda.png";
+import csPatient from "../../content/images/crisalida/crisalida-patient.png";
+import csToday from "../../content/images/crisalida/crisalida-today.png";
+import csTemplates from "../../content/images/crisalida/crisalida-templates.png";
+
 const niStats = [
   {
     big: "120h → 1 day",
@@ -74,6 +84,24 @@ const niStats = [
     big: "~1 hr / co / qtr",
     label: "Saved on report intake",
     note: "Quarterly company reports map straight in from Excel — no re-keying, every quarter, every company.",
+  },
+];
+
+const csStats = [
+  {
+    big: "12 tools",
+    label: "An assistant with hands",
+    note: "The agent searches patients, reads the record, drafts documents and books appointments — every mutation becomes an in-chat card the professional confirms before it runs.",
+  },
+  {
+    big: "Ask · Review · Sign",
+    label: "The trust loop",
+    note: "The AI drafts from the patient record and cites which sessions it drew from; nothing is official until signed, and signed documents never change.",
+  },
+  {
+    big: "56 e2e tests",
+    label: "Solo, but disciplined",
+    note: "15 Playwright suites, a unit-coverage ratchet, ADRs and PR-based reviews — six months and 130 commits of building like a team.",
   },
 ];
 ---
@@ -134,10 +162,11 @@ const niStats = [
           I'm comfortable across the stack and across languages, so I can
           usually reach for the tool a problem wants rather than the one I
           happen to know. I lean on AI as a multiplier on delivery speed — it's
-          a big part of why the work below — a complete internal platform for a
-          venture firm, plus two commercial products of my own — each shipped
-          from one pair of hands. I've also led a small team, so I'm comfortable
-          coordinating when a problem is bigger than one person.
+          a big part of why the work below — a venture firm's internal platform,
+          two commercial products of my own, and the AI-first product I'm
+          building now — each shipped from one pair of hands. I've also led a
+          small team, so I'm comfortable coordinating when a problem is bigger
+          than one person.
         </p>
       </div>
     </section>
@@ -488,14 +517,378 @@ const niStats = [
       </div>
     </section>
 
-    <!-- ============ 04 · TWO PRODUCTS, ONE BUILDER ============ -->
+    <!-- ============ 04 · CRISÁLIDA — IN PROGRESS ============ -->
     <section
       data-folio="04"
+      data-title="In Progress — Crisálida"
+      class="relative mt-[var(--space-section)]"
+    >
+      <div class="mx-auto w-full max-w-[var(--content-max)] px-[var(--gutter)]">
+        <div
+          class="border-rule panel-lit relative overflow-hidden rounded-[var(--panel-radius)] border"
+          style="box-shadow: var(--shadow-paper);"
+        >
+          <!-- ===== BAND 1 · warm-light masthead ===== -->
+          <div
+            class="bg-cs-paper text-cs-ink relative overflow-hidden pt-14 pb-16 lg:pt-20 lg:pb-24"
+          >
+            <!-- contained sage glow (clipped by overflow-hidden) -->
+            <div
+              aria-hidden="true"
+              data-drift
+              class="pointer-events-none absolute inset-x-0 top-0 z-0 h-[55vh]"
+              style="background: radial-gradient(48% 50% at 50% 0%, color-mix(in oklch, var(--color-cs-sage-bright) 16%, transparent), transparent 70%);"
+            >
+            </div>
+            <!-- faint clay glow, lower-right -->
+            <div
+              aria-hidden="true"
+              data-drift
+              class="pointer-events-none absolute right-0 -bottom-[10vh] z-0 h-[38vh] w-[50vw]"
+              style="background: radial-gradient(50% 50% at 80% 60%, color-mix(in oklch, var(--color-cs-clay) 8%, transparent), transparent 72%);"
+            >
+            </div>
+
+            <div class="relative z-10 px-[var(--gutter)]">
+              <header id="crisalida">
+                <p class="section-eyebrow reveal text-cs-sage">
+                  <span class="num" aria-hidden="true">04</span>What I'm
+                  building now · AI-first product, solo
+                </p>
+                <h2
+                  class="t-headline reveal text-cs-ink mt-3 text-[clamp(2rem,3.5vw+1rem,4.25rem)]"
+                >
+                  Crisálida
+                </h2>
+                <p
+                  class="t-emph reveal col-measure text-cs-ink mt-5 text-[clamp(1.4rem,1.4vw+1rem,2rem)] leading-snug"
+                >
+                  Brazil's independent healthcare professionals end their day
+                  with the notes still unwritten. I'm building the workspace
+                  where the AI writes the draft — and nothing is official until
+                  they sign.
+                </p>
+              </header>
+
+              <div class="mt-8 grid gap-x-12 gap-y-6 lg:grid-cols-12">
+                <p
+                  class="reveal text-cs-ink text-[1.0625rem] leading-relaxed lg:col-span-7"
+                >
+                  Crisálida puts a solo practice in one place — agenda, patients
+                  and clinical documents — with an assistant that actually works
+                  the workspace: it searches the record, drafts session notes
+                  and reports citing their sources, books appointments, and asks
+                  before it changes anything. Drafts open in an editor the
+                  professional owns; a signature makes a document official and
+                  locks it for good. Built in Portuguese for psychologists,
+                  speech therapists, physiotherapists and nutritionists.
+                </p>
+                <p
+                  class="reveal text-cs-ink-muted font-mono text-[0.8rem] leading-relaxed lg:col-span-5"
+                >
+                  <span class="text-cs-sage">stack</span> · SvelteKit · Svelte 5 ·
+                  TypeScript · Bun · Tailwind 4 · shadcn-svelte · Drizzle / Turso
+                  · TipTap 3 · jsPDF · custom auth (Argon2) · OpenTelemetry · deployed
+                  on Vercel<br /><br />
+                  <span class="text-cs-sage">ai</span> · Vercel AI SDK · OpenRouter
+                  (model-agnostic) · 12 tools · streaming · human-in-the-loop action
+                  cards · source citations
+                </p>
+              </div>
+
+              <!-- build bar: how it's built -->
+              <div class="mt-12 lg:mt-16">
+                <p class="kicker reveal text-cs-clay-deep">How it's built</p>
+                <div class="mt-5 grid gap-4 md:grid-cols-3" data-reveal-group>
+                  {
+                    csStats.map((s) => (
+                      <div
+                        class="reveal stat-tick border-cs-sage/20 bg-cs-card rounded-[3px] border p-5"
+                        style="--tick: var(--color-cs-clay); box-shadow: var(--shadow-paper);"
+                      >
+                        <p class="t-display text-cs-sage text-[clamp(1.5rem,1.2vw+1rem,1.9rem)] leading-[1.05]">
+                          {s.big}
+                        </p>
+                        <p class="text-cs-ink mt-3 font-mono text-[0.7rem] tracking-[0.12em] uppercase">
+                          {s.label}
+                        </p>
+                        <p class="text-cs-ink-muted mt-2 text-[0.9rem] leading-relaxed">
+                          {s.note}
+                        </p>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== BAND 2 · product gallery (same oat paper, hairline break) ===== -->
+          <div
+            class="bg-cs-paper text-cs-ink border-cs-line relative border-t pt-12 pb-[var(--space-section)] lg:pt-16"
+          >
+            <div class="px-[var(--gutter)]">
+              <div class="max-w-[60ch]">
+                <p class="kicker reveal text-cs-sage">Inside the workbench</p>
+                <p
+                  class="reveal text-cs-ink mt-3 text-[1.0625rem] leading-relaxed"
+                >
+                  One surface: the patient's record on the left, the document in
+                  the middle, the assistant docked on the right. The screens
+                  below are a demo workspace — the product itself speaks
+                  Portuguese.
+                </p>
+              </div>
+
+              <!-- hero pedestal -->
+              <div class="relative z-20 mt-8 lg:mt-12" data-pedestal>
+                <div
+                  aria-hidden="true"
+                  data-pedestal-glow
+                  class="pointer-events-none absolute -inset-x-6 -top-10 -bottom-10 z-0"
+                  style="background: radial-gradient(60% 55% at 50% 35%, color-mix(in oklch, var(--color-cs-sage-bright) 26%, transparent), transparent 70%); filter: blur(8px);"
+                >
+                </div>
+                <div class="relative z-10">
+                  <Plate
+                    src={csWorkbench}
+                    tone="crisalida"
+                    eager
+                    alt="Crisálida workbench — the patient context rail on the left, a signed insurance report in the document editor, and the AI assistant docked on the right"
+                    sizes="(min-width:1024px) 80vw, 92vw"
+                    widths={[768, 1280, 1920, 2560]}
+                    caption="The workbench — a signed insurance report beside the assistant that drafted it, with its sources cited from the record."
+                  />
+                </div>
+              </div>
+
+              <!-- featured: the signature moment (the one dark beat) -->
+              <div
+                class="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-12 lg:items-center"
+              >
+                <div class="lg:col-span-8">
+                  <Plate
+                    src={csDraftDark}
+                    tone="crisalida"
+                    parallax={-4}
+                    alt="Crisálida draft view in the dark warm-loam theme — an AI-drafted school report open in the editor, awaiting the terracotta sign action"
+                    sizes="(min-width:1024px) 64vw, 92vw"
+                    widths={[768, 1280, 1920, 2560]}
+                    caption="The draft view in the dark “warm loam” theme — the one dark moment in a product designed to feel like a calm consulting room."
+                  />
+                </div>
+                <div class="lg:col-span-4">
+                  <p class="kicker reveal text-cs-clay-deep">
+                    The signature moment · draft → signed
+                  </p>
+                  <p
+                    class="reveal text-cs-ink mt-3 text-[1.0625rem] leading-relaxed"
+                  >
+                    A drafted school report waiting on the product's one
+                    irreversible action. Sign is the only loud button in the
+                    interface — everything else stays consulting-room calm.
+                  </p>
+                  <blockquote
+                    class="reveal border-cs-sage mt-6 flex gap-3 border-l-2 pl-4"
+                  >
+                    <DeliveredToken tone="sage" class="mt-1" />
+                    <p class="t-emph text-cs-ink text-[1.2rem] leading-snug">
+                      Live at crisalida.app — real auth, real agenda, a real AI
+                      loop with confirmations. Pre-launch, moving weekly.
+                      <span
+                        class="text-cs-ink-muted mt-2 block font-mono text-[0.75rem] not-italic"
+                      >
+                        The whole product — brand, UX, agent design, telemetry —
+                        from one pair of hands.
+                      </span>
+                    </p>
+                  </blockquote>
+                </div>
+              </div>
+
+              <!-- supporting modules -->
+              <div class="mt-16 space-y-14 lg:mt-24">
+                <div>
+                  <p class="kicker reveal text-cs-sage">
+                    The assistant, working the day
+                  </p>
+                  <p
+                    class="reveal col-measure text-cs-ink-muted mt-3 text-[0.95rem] leading-relaxed"
+                  >
+                    Not a chat bolted on — the same agent plans the day, flags
+                    pending notes, and drafts against the record.
+                  </p>
+                  <div
+                    class="mt-5 grid gap-5 sm:grid-cols-2"
+                    data-reveal-group="scale"
+                  >
+                    <Plate
+                      src={csAssistant}
+                      tone="crisalida"
+                      parallax={-6}
+                      chrome
+                      url="crisalida.app"
+                      href="https://crisalida.app"
+                      alt="Crisálida assistant chat planning the morning — reading the agenda and offering to prepare the day's documents"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Morning planning — the assistant reads the agenda, surfaces a session missing its note, and offers to prepare documents before the day starts."
+                    />
+                    <Plate
+                      src={csSigned}
+                      tone="crisalida"
+                      parallax={6}
+                      chrome
+                      url="crisalida.app"
+                      href="https://crisalida.app"
+                      alt="A signed report in Crisálida — sealed as immutable, with the sessions the AI drew from cited in the footer"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="A signed report — immutable, with its sources pinned to the footer: which sessions the AI drew from, on the record."
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <p class="kicker reveal text-cs-sage">
+                    Agenda &amp; patient records
+                  </p>
+                  <p
+                    class="reveal col-measure text-cs-ink-muted mt-3 text-[0.95rem] leading-relaxed"
+                  >
+                    The unglamorous foundation — scheduling and patient records
+                    — built first, so the AI has something true to draw from.
+                  </p>
+                  <div
+                    class="mt-5 grid gap-5 sm:grid-cols-2"
+                    data-reveal-group="scale"
+                  >
+                    <Plate
+                      src={csAgenda}
+                      tone="crisalida"
+                      parallax={-6}
+                      chrome
+                      url="crisalida.app"
+                      href="https://crisalida.app"
+                      alt="Crisálida weekly agenda with individual, couples and telemedicine sessions across the week"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="The weekly agenda — individual, couples and telemedicine sessions. The assistant can book into it; you confirm before it does."
+                    />
+                    <Plate
+                      src={csPatient}
+                      tone="crisalida"
+                      parallax={6}
+                      chrome
+                      url="crisalida.app"
+                      href="https://crisalida.app"
+                      alt="Crisálida patient record — clinical picture, health-plan details and the patient's documents in one view"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="The patient record — clinical picture, health-plan details and every artifact, one click from the workbench."
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <p class="kicker reveal text-cs-sage">Calm by design</p>
+                  <p
+                    class="reveal col-measure text-cs-ink-muted mt-3 text-[0.95rem] leading-relaxed"
+                  >
+                    Templates set the structure the AI writes into, and the day
+                    opens on what's unfinished — not on a dashboard.
+                  </p>
+                  <div
+                    class="mt-5 grid gap-5 sm:grid-cols-2"
+                    data-reveal-group="scale"
+                  >
+                    <Plate
+                      src={csToday}
+                      tone="crisalida"
+                      parallax={-6}
+                      chrome
+                      url="crisalida.app"
+                      href="https://crisalida.app"
+                      alt="Crisálida today view — the day's sessions with the notes still pending, ready to be drafted"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Today — the day's sessions and the notes still unwritten. The workbench opens on what needs a signature, not on vanity metrics."
+                    />
+                    <Plate
+                      src={csTemplates}
+                      tone="crisalida"
+                      parallax={6}
+                      chrome
+                      url="crisalida.app"
+                      href="https://crisalida.app"
+                      alt="Crisálida templates — reusable document templates with ordered sections and style guidance"
+                      sizes="(min-width:1024px) 39vw, 92vw"
+                      widths={[480, 768, 1080, 1280]}
+                      caption="Templates — reusable document recipes with ordered sections. Import an old report and the AI turns it into a template."
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- footer: attribution + status disclaimer -->
+              <div
+                class="reveal border-cs-line mt-16 flex flex-col gap-4 border-t pt-6 sm:flex-row sm:items-center sm:justify-between lg:mt-24"
+              >
+                <div class="flex items-center gap-3">
+                  <!-- Crisálida mark: two petals closing into a cocoon, clay tip emerging -->
+                  <svg
+                    viewBox="15 1 34 54"
+                    width="18"
+                    height="28"
+                    aria-hidden="true"
+                    class="shrink-0"
+                  >
+                    <path
+                      d="M32 54 C 20 46, 16 32, 22 16 C 32 24, 36 40, 32 54 Z"
+                      fill="var(--color-cs-sage)"
+                    >
+                    </path>
+                    <path
+                      d="M32 54 C 44 46, 48 32, 42 16 C 32 24, 28 40, 32 54 Z"
+                      fill="color-mix(in oklab, var(--color-cs-sage) 62%, var(--color-cs-paper))"
+                    >
+                    </path>
+                    <path
+                      d="M32 22 C 29 15, 30 9, 34 3 C 37 9, 36 16, 32 22 Z"
+                      fill="var(--color-cs-clay)"
+                    >
+                    </path>
+                  </svg>
+                  <a
+                    href="https://crisalida.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-cs-ink font-mono text-[0.75rem] underline-offset-2 hover:underline"
+                  >
+                    Crisálida · crisalida.app
+                  </a>
+                </div>
+                <p
+                  class="text-cs-ink-muted font-mono text-[0.72rem] tracking-[0.12em] uppercase"
+                >
+                  Demo workspace with fictional patients — no real clinical data
+                  shown · pre-launch, in active development.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 · TWO PRODUCTS, ONE BUILDER ============ -->
+    <section
+      data-folio="05"
       data-title="Two Commercial Products"
       class="mt-[var(--space-section)]"
     >
       <SectionHeader
-        folio="04"
+        folio="05"
         kicker="Shipped Solo / Two Commercial Products"
         id="proof"
       />
@@ -824,14 +1217,14 @@ const niStats = [
       </div>
     </section>
 
-    <!-- ============ 05 · FLORA / SANTOS LAB ============ -->
+    <!-- ============ 06 · FLORA / SANTOS LAB ============ -->
     <section
-      data-folio="05"
+      data-folio="06"
       data-title="Flora — Santos Lab"
       class="mt-[var(--space-section)]"
     >
       <SectionHeader
-        folio="05"
+        folio="06"
         kicker="Selected Work / Precision-Ag Platform · Web + Mobile"
         title="Flora — Santos Lab"
         id="flora"
@@ -903,14 +1296,14 @@ const niStats = [
       </div>
     </section>
 
-    <!-- ============ 06 · PUBLIC-FACING WORK ============ -->
+    <!-- ============ 07 · PUBLIC-FACING WORK ============ -->
     <section
-      data-folio="06"
+      data-folio="07"
       data-title="Systems Behind the Screens"
       class="mt-[var(--space-section)]"
     >
       <SectionHeader
-        folio="06"
+        folio="07"
         kicker="Selected Work / Systems Behind the Screens"
         title="The systems users never see"
         id="systems"
@@ -984,14 +1377,14 @@ const niStats = [
       </div>
     </section>
 
-    <!-- ============ 07 · RANGE / BUILD FOR FUN ============ -->
+    <!-- ============ 08 · RANGE / BUILD FOR FUN ============ -->
     <section
-      data-folio="07"
+      data-folio="08"
       data-title="Built for the Love of It"
       class="mt-[var(--space-section)]"
     >
       <SectionHeader
-        folio="07"
+        folio="08"
         kicker="Back Matter / Built for the Love of It"
         id="range"
       />
@@ -1062,9 +1455,9 @@ const niStats = [
       </div>
     </section>
 
-    <!-- ============ 08 · COLOPHON / CONTACT ============ -->
+    <!-- ============ 09 · COLOPHON / CONTACT ============ -->
     <section
-      data-folio="08"
+      data-folio="09"
       data-title="Colophon"
       class="mt-[var(--space-section)] pb-16"
     >

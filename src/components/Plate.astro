@@ -10,7 +10,7 @@ interface Props {
   url?: string;
   href?: string;
   eager?: boolean;
-  tone?: "light" | "dark" | "niterra";
+  tone?: "light" | "dark" | "niterra" | "crisalida";
   sizes?: string;
   widths?: number[];
   class?: string;
@@ -38,24 +38,46 @@ const {
   parallax,
 } = Astro.props;
 
-const isDark = tone === "dark";
-const isNiterra = tone === "niterra";
-const frame = isDark
-  ? "border-wq-frame bg-wq-ground"
-  : isNiterra
-    ? "border-ni-line bg-white"
-    : "border-rule bg-paper-raised";
-const capColor =
-  captionClass ??
-  (isDark ? "text-wq-lime" : isNiterra ? "text-ni-ink-muted" : "text-ink");
-const dotColor = isNiterra ? "bg-ni-teal-deep/40" : "bg-rule";
-const urlColor = isNiterra ? "text-ni-ink-muted" : "text-ink";
+const tones = {
+  light: {
+    frame: "border-rule bg-paper-raised",
+    cap: "text-ink",
+    dot: "bg-rule",
+    url: "text-ink",
+    chromeRule: "border-rule",
+    halo: "--color-accent",
+  },
+  dark: {
+    frame: "border-wq-frame bg-wq-ground",
+    cap: "text-wq-lime",
+    dot: "bg-rule",
+    url: "text-ink",
+    chromeRule: "border-wq-frame",
+    halo: "--color-wq-lime",
+  },
+  niterra: {
+    frame: "border-ni-line bg-white",
+    cap: "text-ni-ink-muted",
+    dot: "bg-ni-teal-deep/40",
+    url: "text-ni-ink-muted",
+    chromeRule: "border-ni-line",
+    halo: "--color-ni-teal",
+  },
+  crisalida: {
+    frame: "border-cs-line bg-cs-card",
+    cap: "text-cs-ink-muted",
+    dot: "bg-cs-sage/40",
+    url: "text-cs-ink-muted",
+    chromeRule: "border-cs-line",
+    halo: "--color-cs-sage",
+  },
+}[tone];
+const frame = tones.frame;
+const capColor = captionClass ?? tones.cap;
+const dotColor = tones.dot;
+const urlColor = tones.url;
 const hasCaption = Boolean(caption) || Astro.slots.has("caption");
-const halo = isDark
-  ? "--color-wq-lime"
-  : isNiterra
-    ? "--color-ni-teal"
-    : "--color-accent";
+const halo = tones.halo;
 ---
 
 <figure
@@ -70,7 +92,7 @@ const halo = isDark
     {
       chrome && (
         <div
-          class={`flex items-center gap-2 border-b px-3 py-2 ${isDark ? "border-wq-frame" : isNiterra ? "border-ni-line" : "border-rule"}`}
+          class={`flex items-center gap-2 border-b px-3 py-2 ${tones.chromeRule}`}
         >
           <span class="flex gap-1.5" aria-hidden="true">
             <span class={`h-2.5 w-2.5 rounded-full ${dotColor}`} />

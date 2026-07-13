@@ -49,7 +49,7 @@ const { frontmatter } = Astro.props;
       <article class="prose prose-stone mx-auto max-w-[68ch] py-10">
         <img src={frontmatter.image} alt={frontmatter.title} />
         <h1 class="t-headline !mb-2">{frontmatter.title}</h1>
-        <p class="!my-0 font-mono text-sm text-ink-muted">
+        <p class="text-ink-muted !my-0 font-mono text-sm">
           Felipe Afonso — {frontmatter.date}
         </p>
         <slot />

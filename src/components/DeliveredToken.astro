@@ -1,6 +1,6 @@
 ---
 interface Props {
-  tone?: "accent" | "lime" | "teal";
+  tone?: "accent" | "lime" | "teal" | "sage";
   class?: string;
 }
 
@@ -10,7 +10,9 @@ const color =
     ? "var(--color-wq-lime)"
     : tone === "teal"
       ? "var(--color-ni-teal)"
-      : "var(--color-accent)";
+      : tone === "sage"
+        ? "var(--color-cs-sage)"
+        : "var(--color-accent)";
 ---
 
 <svg
@@ -26,11 +28,15 @@ const color =
   <path
     d="M12 2.6l2.55 5.3 5.85.78-4.3 4.04 1.08 5.78L12 16.7 6.82 18.5l1.08-5.78-4.3-4.04 5.85-.78L12 2.6z"
     fill="currentColor"
-    opacity="0.16"></path>
+    opacity="0.16"
+  >
+  </path>
   <path
     d="M7.2 12.4l3.1 3.1 6.5-7"
     stroke="currentColor"
     stroke-width="2.2"
     stroke-linecap="round"
-    stroke-linejoin="round"></path>
+    stroke-linejoin="round"
+  >
+  </path>
 </svg>

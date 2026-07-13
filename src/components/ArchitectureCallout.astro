@@ -13,9 +13,9 @@ const { label, lines, srText, class: cls = "" } = Astro.props;
   class={`reveal rounded-[3px] border border-rule bg-paper-raised p-5 sm:p-6 ${cls}`}
   style="box-shadow: var(--shadow-paper);"
 >
-  {label && <p class="kicker mb-4 text-accent">{label}</p>}
+  {label && <p class="kicker text-accent mb-4">{label}</p>}
   <pre
     aria-hidden="true"
-    class="overflow-x-auto font-mono text-[0.78rem] leading-relaxed text-ink"><code>{lines.join("\n")}</code></pre>
+    class="text-ink overflow-x-auto font-mono text-[0.78rem] leading-relaxed"><code>{lines.join("\n")}</code></pre>
   <span class="visually-hidden">{srText}</span>
 </div>

@@ -48,13 +48,15 @@ mm.add(
     if (!motion) return;
 
     const hero = document.querySelector<HTMLElement>('[data-folio="01"]');
-    const pedestal = document.querySelector<HTMLElement>("[data-pedestal]");
+    const pedestals = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-pedestal]"),
+    );
 
     const handled = new Set<Element>();
     const skip = (el: Element) =>
       handled.has(el) ||
       (hero?.contains(el) ?? false) ||
-      (desktop && (pedestal?.contains(el) ?? false)) ||
+      (desktop && pedestals.some((p) => p.contains(el))) ||
       el.closest("[data-ticker]") !== null;
 
     const fromVars = (el: HTMLElement, fallback?: string) => {
@@ -125,46 +127,49 @@ mm.add(
         });
     }
 
-    /* ---- §03 pedestal rise: the flagship dashboard is placed as you scroll ---- */
-    if (desktop && pedestal) {
-      const plate = pedestal.querySelector<HTMLElement>("figure.reveal");
-      const glow = pedestal.querySelector<HTMLElement>("[data-pedestal-glow]");
-      if (plate) {
-        done(plate);
-        handled.add(plate);
-        gsap.fromTo(
-          plate,
-          { y: 56, scale: 0.94, opacity: 0 },
-          {
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: pedestal,
-              start: "top 95%",
-              end: "top 45%",
-              scrub: 0.7,
-            },
-          },
+    /* ---- pedestal rise: a flagship hero plate is placed as you scroll ---- */
+    if (desktop)
+      pedestals.forEach((pedestal) => {
+        const plate = pedestal.querySelector<HTMLElement>("figure.reveal");
+        const glow = pedestal.querySelector<HTMLElement>(
+          "[data-pedestal-glow]",
         );
-      }
-      if (glow)
-        gsap.fromTo(
-          glow,
-          { opacity: 0.35 },
-          {
-            opacity: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: pedestal,
-              start: "top 95%",
-              end: "top 40%",
-              scrub: 0.7,
+        if (plate) {
+          done(plate);
+          handled.add(plate);
+          gsap.fromTo(
+            plate,
+            { y: 56, scale: 0.94, opacity: 0 },
+            {
+              y: 0,
+              scale: 1,
+              opacity: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: pedestal,
+                start: "top 95%",
+                end: "top 45%",
+                scrub: 0.7,
+              },
             },
-          },
-        );
-    }
+          );
+        }
+        if (glow)
+          gsap.fromTo(
+            glow,
+            { opacity: 0.35 },
+            {
+              opacity: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: pedestal,
+                start: "top 95%",
+                end: "top 40%",
+                scrub: 0.7,
+              },
+            },
+          );
+      });
 
     /* ---- grouped reveals: proximity-based stagger via ScrollTrigger.batch ----
        data-reveal-group[="left"|"right"|"scale"] sets the default variant for
